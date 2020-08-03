@@ -58,4 +58,20 @@
   
 }
 
+<<<<<<< HEAD
+=======
+.btn {
+  background-color: rgb(101,144,222);
+}
+
+@media screen and (max-width:900px) {
+  .column {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    background-color:rgb(208,208,208); 
+  
+  }
+}
+>>>>>>> 45ab4e4474005fcd8de2bd6e5649bb2abe047aff
 

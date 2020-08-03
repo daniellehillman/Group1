@@ -35,18 +35,59 @@
         </div>
       </nav>
     </div>
+<!-- 
+    <div class="switch">
+      <label>
+        Dont allow
+        <input type="checkbox">
+        <span class="lever"></span>
+        Allow Location
+      </label>
+    </div> -->
 
-    <div class="row" id="row2Margin">
-      <div class="row" id="row1">
-        <div class="col s12 m12" id="mainBox">
-          <div class="card-panel teal cardSize">
-            <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively. I am similar to what is called a panel
-              in
-              other frameworks.
-            </span>
-          </div>
-        </div>
+    <div class="container-fliud padding">
+    <div class="row">
+      <div class=" column col-md-6" id="weather">
+        <h2>Current Weather</h2>
+
+        <p></p>
+      </div>
+
+
+      <div id="playlist" class=" column col-md-6">
+        <!-- <h2>Column 2</h2>  -->
+
+        <a id ="find-me" class="button btn-large">Find my location</a>
+         
+          <br/>
+      
+              <p id = "status"></p>
+              <a id = "map-link" target="_blank"></a>
+        <form class="padding">
+          <!-- <a class="waves-effect waves-light btn-large">Button</a> -->
+          <h3>Get a Playlist</h3>
+          <p>
+        
+            <label for="city">Please enter your first name: </label>
+            <input type="text" name="name" id="name">
+            <label for="city">Please enter your city: </label>
+            <input type="text" name="city" id="city">
+            <label for="city">Please enter your mood: </label>
+            <br>
+
+            <input type="checkbox" id="happy" name="happy" value="1">
+            <label for="happy">Happy</label><br>
+            <input type="checkbox" id="stressed" name="stressed" value="2">
+            <label for="stressed">Stressed</label><br>
+            <input type="checkbox" id="chill" name="chill" value="3">
+            <label for="chill">Chill</label><br>
+            <input type="checkbox" id="depressed" name="depressed" value="4">
+            <label for="depressed"> Depressed</label><br>
+            <input type="checkbox" id="hyped" name="hyped" value="5">
+            <label for="hyped">Hyped</label><br><br>
+            <button id="submit">Sumbit</button>
+            <a id="submit" class="btn btn-large">Submit</a>
+        </form>
       </div>
     </div>
   
