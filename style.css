@@ -55,3 +55,17 @@
   font-family: 'Ubuntu', sans-serif;
 }
 
+.btn {
+  background-color: rgb(101,144,222);
+}
+
+@media screen and (max-width:900px) {
+  .column {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    background-color:rgb(208,208,208); 
+  
+  }
+}
+

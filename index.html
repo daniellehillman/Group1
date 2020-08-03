@@ -57,28 +57,30 @@
 
     <div class="container-fliud padding">
     <div class="row">
-      <div class=" column col-md-6 left" id="weather">
+      <div class=" column col-md-6" id="weather">
         <h2>Current Weather</h2>
 
         <p></p>
       </div>
 
 
-      <div id="playlist" class=" column col-md-6 right">
+      <div id="playlist" class=" column col-md-6">
         <!-- <h2>Column 2</h2>  -->
-        <button id ="find-me" class="button">Find my location</button><br/>
+
+        <a id ="find-me" class="button btn-large">Find my location</a>
+         
+          <br/>
+      
               <p id = "status"></p>
               <a id = "map-link" target="_blank"></a>
         <form class="padding">
+          <!-- <a class="waves-effect waves-light btn-large">Button</a> -->
           <h3>Get a Playlist</h3>
           <p>
         
             <label for="city">Please enter your first name: </label>
             <input type="text" name="name" id="name">
             <label for="city">Please enter your city: </label>
-            <!-- <button id ="find-me" class="button">Find my location</button><br/>
-              <p id = "status"></p>
-              <a id = "map-link" target="_blank"></a> -->
             <input type="text" name="city" id="city">
             <label for="city">Please enter your mood: </label>
             <br>
@@ -94,6 +96,7 @@
             <input type="checkbox" id="hyped" name="hyped" value="5">
             <label for="hyped">Hyped</label><br><br>
             <button id="submit">Sumbit</button>
+            <a id="submit" class="btn btn-large">Submit</a>
         </form>
       </div>
     </div>
