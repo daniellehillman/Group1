@@ -7,14 +7,20 @@
   <title>Document</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="./style.css">
-
+  <link rel = "stylesheet"
+  href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+<script type = "text/javascript"
+  src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
 
-  <div class="col mainHeight">
 
+  <div class="col mainHeight">
     <div class="row">
       <nav>
         <div class="nav-wrapper">
@@ -36,6 +42,15 @@
       </nav>
     </div>
 
+    <div class="switch">
+      <label>
+        Dont allow
+        <input type="checkbox">
+        <span class="lever"></span>
+        Allow Location
+      </label>
+    </div>
+
     <div class="row" id="row2Margin">
       <div class="row" id="row1">
         <div class="col s12 m12" id="mainBox">
@@ -44,11 +59,37 @@
               I am convenient because I require little markup to use effectively. I am similar to what is called a panel
               in
               other frameworks.
+
+
+              <form>
+                <h3>Get a Playlist</h3>
+                <p>
+                  <h3></h3>
+                  <label for="city">Please enter your first name: </label>
+                  <input type="text" name="name" id="name">
+                  <label for="city">Please enter your city: </label>
+                  <input type="text" name="city" id="city">
+                  <label for="city">Please enter your mood: </label>
+                  <br>
+
+                  <input type="checkbox" id="happy" name="happy" value="1">
+                  <label for="happy">Happy</label><br>
+                  <input type="checkbox" id="stressed" name="stressed" value="2">
+                  <label for="stressed">Stressed</label><br>
+                  <input type="checkbox" id="chill" name="chill" value="3">
+                  <label for="chill">Chill</label><br>
+                  <input type="checkbox" id="depressed" name="depressed" value="4">
+                  <label for="depressed"> Depressed</label><br>
+                  <input type="checkbox" id="hyped" name="hyped" value="5">
+                  <label for="hyped">Hyped</label><br><br>
+                  <button id="submit">Sumbit</button>
+              </form>
             </span>
           </div>
         </div>
       </div>
     </div>
+
   
 
     <div class="row">
@@ -59,8 +100,8 @@
         Fugiat consequuntur voluptatibus maxime nostrum, magni harum hic voluptatum, deserunt sit quaerat, iste ad molestias pariatur aliquam. Animi id et quasi recusandae, hic, ut nihil culpa quaerat minus sunt a!
         Quo praesentium enim repellat laboriosam. Nobis eum magni, provident hic laboriosam optio! Ipsa sint eaque laboriosam beatae quae aperiam animi nemo aliquam nesciunt distinctio omnis amet, veniam ipsam commodi placeat.</p>
       </div>
-      <div class="col s5 m5 test">
-          <div class="carousel carousel-slider center">
+      <div class="col s5 m5" id="test">
+          <div class="carousel carousel-slider center" id="weather">
             <div class="carousel-fixed-item center">
               <a class="btn waves-effect white grey-text darken-text-2">button</a>
             </div>

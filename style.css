@@ -1,9 +1,11 @@
 * {
   font-family: 'Ubuntu', sans-serif;
+  /* background-color: gray;  */
 }
 
  #mainBox {
-  height: 500px;
+  height: 600px;
+  /* background-color: ;  */
 }
 
 .cardSize{
@@ -13,6 +15,13 @@
 .test {
   border: 2px solid black;
 }
+
+.form {
+  color: white;
+}
+
+
+
 /* 
 #row1{
   height: 40%;
@@ -24,4 +33,4 @@
 
 .mainHeight{
   height
-} */ */
+} */
