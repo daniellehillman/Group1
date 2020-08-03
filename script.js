@@ -5,6 +5,8 @@ var instance = M.Carousel.init({
 
 
 
+
+
 // let moodString = ''
 // let cityString = ''
 // let finalString = ''
