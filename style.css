@@ -3,6 +3,7 @@
   font-family: 'Quicksand', sans-serif; 
   background-color:rgb(208,208,208); 
   color: rgb(101,144,222)
+  
 }
 
  #mainBox {
@@ -18,8 +19,6 @@
 .test {
   border: 2px solid black;
 }
-<<<<<<< HEAD
-=======
 
 .form {
   background-color: rgb(101,144,222);
@@ -55,6 +54,8 @@
 
 .brand-logo {
   font-family: 'Ubuntu', sans-serif;
+  
+  
 }
 
->>>>>>> 2743021306c987b39f079693b616732a8e2240bf
+
