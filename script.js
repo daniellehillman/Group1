@@ -90,10 +90,9 @@ let token = ''
 function geoFindMe () {
 
   const status = document.querySelector('#status')
-  const mapLink = document.querySelector('#map-link')
-  
+  const mapLink = document.querySelector('#map-link')  
   mapLink.href = ''
-  mapLink.textContent = ''
+  mapLink.textContent = '' 
   
   function success(position) {
     const latitude  = position.coords.latitude
@@ -138,8 +137,8 @@ function moodSelected () {
       count++
     }
   })
-
   return count >= 1
+
 }
 
 function getWeatherData (username, usercity, usermood) {
@@ -168,6 +167,8 @@ function getWeatherData (username, usercity, usermood) {
       genre = 'jazz'
     break
   }
+
+
 
   // call to OpenWeatherAPI using city
   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${usercity}&units=imperial&appid=b46e0399b18e0132c4c34e7071caa187`)
@@ -211,30 +212,37 @@ function getWeatherData (username, usercity, usermood) {
           }
 
           let playlist = document.getElementById('playlist')
+          
+          let allImages = []
+          for (i= 0; i < tracks.length; i++) {
+            image = tracks[i].album.images[0].url || "https://player.tritondigital.com/tpl/default/html5/img/player/default_cover_art.jpg"
+            allImages.push(image)
+            console.log(allImages)
+            allImages.append
+          }
+
           playlist.innerHTML = ''
 
           playlist.innerHTML = `
-            <button>View Playlist</button>
+            <div class="carousel">
+              <a class="carousel-item" href="#two!"><img src="${allImages[0]}"></a>
+              <a class="carousel-item" href="#three!"><img src="${allImages[1]}"></a>
+              <a class="carousel-item" href="#four!"><img src="${allImages[2]}"></a>
+              <a class="carousel-item" href="#five!"><img src="${allImages[3]}"></a>
+              <a class="carousel-item" href="#six!"><img src="${allImages[4]}"></a>
+              <a class="carousel-item" href="#seven!"><img src="${allImages[5]}"></a>
+              <a class="carousel-item" href="#eight!"><img src="${allImages[6]}"></a>
+              <a class="carousel-item" href="#nine!"><img src="${allImages[7]}"></a>
+              <a class="carousel-item" href="#ten!"><img src="${allImages[8]}"></a>
+              <a class="carousel-item" href="#ten!"><img src="${allImages[9]}"></a>
+            </div>
+            ${allImages}
           `
+          $('.carousel').carousel();
+      
         })
         .catch(err => {
           console.error(err)
-          // axios.post({
-          //   url: 'https://accounts.spotify.com/api/token',
-          //   form: {
-          //     grant_type: 'refresh_token',
-          //     refresh_token: 'AQAftF4aMobHTr8Hzmap5Hbb2cGA8OFcGJAa0U6MTG_IxggQsNQ6KGrAL919X3fxNbBpTTh5KCFUEy6MVM0Oo1MlQJr9y2aLHssvAioycRIZldC_QxNP5-YmCukc6Or-_lI'
-          //   },
-          //   headers: {
-          //     'Authorization': 'Basic NWIxNWE5YTMyOGRmNGE4ZDk4MDkxNmE0M2RmOWRhYzg6OTc5MWJlOTgzODJmNDhhOGIwZDI5Njg0ZGJiODVkZTI='
-          //   }
-          // })
-          //   .then(res => {
-          //     console.log(rs.data)
-          //   })
-          //   .catch(err => {
-          //     console.log(err)
-          //   })
         })
     })
     .catch(err => {
@@ -264,7 +272,10 @@ document.getElementById('submitBtn').addEventListener('click', function () {
 
   if (name.value === '' ||
       city.value === '' ||
-      !moodSelected()) {
+      !moodSelected()) 
+      {
+        console.log(name.value)
+        console.log(city.value)
     let required = document.getElementById('requireAll')
     required.innerHTML = `Please fill in all inputs.`
   } else {
