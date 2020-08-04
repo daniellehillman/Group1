@@ -104,7 +104,17 @@ function geoFindMe () {
     status.textContent = ''
     mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
     // mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
-    console.log(`Latitude: ${latitude} °, Longitude: ${longitude} °`)
+    // console.log(`Latitude: ${latitude} °, Longitude: ${longitude} °`)
+    axios.get('http://ipinfo.io')
+      .then(res => {
+        // console.log(res.data.city)
+        document.getElementById('city').value = res.data.city
+        document.getElementById('city').textContent = res.data.city
+        M.updateTextFields()
+      })
+      .catch(err => {
+        console.log(err)
+      })
 
   }
   
@@ -189,9 +199,10 @@ function getWeatherData (username, usercity, usermood) {
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-          'Authorization': `Bearer BQA-jGMpaZwpD7pniYr6Rg1awp-e1NaLYS4QxM_P0ZQUFOy8-tAb9Fa3hvF6P3ib5djD0j5-Y9tsboE3YRNK5EFoIh15vV4wtHXoKqSLJnq5dw6golFhRVe77dgdezbYXY57PfHoEM4KzHl8ayn13P7v`
+          'Authorization': `Bearer BQB-TydJPzu1RZywD_dGuLkRIFxgszSyEYh2hxuyyA3_Wxko3gJirXqFgh80LC4mMWlxnES7yICyLyOUxror8yYNyBbyOhWYCUWXPUBDucicY5KR8dlItfiMCY5qW2ZG6CMiQ8coppvrN7fZ8wYMUMic`
         }})
         .then(res => {
+          console.log(res)
           let tracks = res.data.tracks
 
           // display all tracks with artists, album names, and song titles
@@ -232,7 +243,10 @@ function getWeatherData (username, usercity, usermood) {
 
 }
   
-document.querySelector('#find-me').addEventListener('click', geoFindMe);
+document.querySelector('#find-me').addEventListener('click', function () {
+  event.preventDefault()
+  geoFindMe()
+})
 
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('mood')) {
