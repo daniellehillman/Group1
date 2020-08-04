@@ -24,29 +24,20 @@
     <div class="row">
       <nav>
         <div class="nav-wrapper">
-
-          <a href="#!" class="brand-logo center">Sensify</a>
-          <img src="./images/logo.png" class="img-fluid size">
-
+          <a class="brand-logo center">Sensify</a>
+          <img href="./index.html" src="./images/logo.png" class="img-fluid size left">
           <ul class="left hide-on-med-and-down"> 
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">Javascript</a></li>
-            <li><a href="mobile.html">Mobile</a></li>
-          </ul>
+            <li><a href="#">Playlist History</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
         
-  
-            <div class="logo-image">
+          </ul>
             </div>
            </a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    
-          
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> 
         </div>
       </nav>
     </div>
-<!-- 
-    <div class="switch">
+<!--  <div class="switch">
       <label>
         Dont allow
         <input type="checkbox">
@@ -54,28 +45,46 @@
         Allow Location
       </label>
     </div> -->
+   
 
-    <div class="container-fliud padding">
-    <div class="row">
-      <div class=" column col-md-6" id="weather">
-        <h2>Current Weather</h2>
+    <div class="container-fliud padding" id="main">
+      <h2 class="heading center">Current Weather</h2>
+  
+      <div class="row">
 
-        <p></p>
+        <div class="col s4 center">
+          <p>Current Temp:
+          </p>
+          <!-- Promo Content 1 goes here -->
+        </div>
+        <div class="col s4 center">
+          <p>Logo: </p>
+          <!-- Promo Content 2 goes here -->
+        </div>
+        <div class="col s4 center">
+          <p>Wind Sleep: </p>
+          <!-- Promo Content 3 goes here -->
+        </div>
       </div>
-
-
-      <div id="playlist" class=" column col-md-6">
-        <!-- <h2>Column 2</h2>  -->
-
-        <a id ="find-me" class="button btn-large">Find my location</a>
-         
-          <br/>
+            
+      <!-- <div class=" column col-md-6 left" id="weather"> -->
+        <div id="weather">
+        <p>
       
+        </p>
+      </div>
+      <!-- <div id="playlist" class="right column col-md-6">  -->
+        <div id="playlist" class="center playlist">
+        <!-- <h2>Column 2</h2>  -->
+        
+          <br/>
+          <hr>
+  
               <p id = "status"></p>
               <a id = "map-link" target="_blank"></a>
         <form class="padding">
           <!-- <a class="waves-effect waves-light btn-large">Button</a> -->
-          <h3>Get a Playlist</h3>
+          <h3 class="heading"> Get a Playlist <a id ="find-me" class="btn-large findbtn">Find my location</a></h3>
           <p>
         
             <label for="city">Please enter your first name: </label>
@@ -95,8 +104,7 @@
             <label for="depressed"> Depressed</label><br>
             <input type="checkbox" id="hyped" name="hyped" value="5">
             <label for="hyped">Hyped</label><br><br>
-            <button id="submit">Sumbit</button>
-            <a id="submit" class="btn btn-large">Submit</a>
+            <a id="submit" class="btn btn-large findbtn">Submit</a>
         </form>
       </div>
     </div>

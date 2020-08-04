@@ -2,13 +2,32 @@
   /* font-family: 'Ubuntu', sans-serif; */
   font-family: 'Quicksand', sans-serif; 
   background-color:rgb(208,208,208); 
-  color: rgb(101,144,222)
+  color: rgb(101,144,222);
+
 }
 
  #mainBox {
   height: 600px;
   background-color: rgb(101,144,222); 
+ 
 }
+
+.heading{
+  font-size: xx-large;
+}
+
+#main {
+  padding: 40px;
+
+}
+/* .cards-container {
+  column-break-inside: avoid;
+} */
+
+.card {
+    display: inline-block;
+    overflow: visible;
+  }
 
 .cardSize{
   height: 100%;
@@ -21,7 +40,11 @@
 
 .form {
   background-color: rgb(101,144,222);
+ 
+}
 
+.playlist {
+  padding: 50px;
 }
 
 .column {
@@ -40,23 +63,28 @@
 }
 
 .left {
-  width: 40%;
+  width: 30%;
 }
 
 .right {
-  width: 60%;
+  width: 70%;
 }
 .size {
   width: 60px;
   height: 60px;
+  
 }
 
 .brand-logo {
   font-family: 'Ubuntu', sans-serif;
 }
 
-.btn {
-  background-color: rgb(101,144,222);
+/* .a[classname='findbtn']{
+  background-color: rgb(101,144,222)
+} */
+
+.findbtn {
+ background-color: rgb(101,144,222) !important;
 }
 
 @media screen and (max-width:900px) {
@@ -68,4 +96,5 @@
   
   }
 }
+
 
