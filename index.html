@@ -4,88 +4,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
+  <title>Sensify</title>
 
+  <!-- reset css -->
+  <link rel="stylesheet" href="./assets/reset.css">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+  <!-- Materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Material icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/weather-icons.min.css">
+
+  <!-- styling -->
+  <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
+  <header id="header" class="row">
+    <nav>
+      <div id="navBar" class="nav-wrapper">
+        <img id="logo" src="./images/logo.png" alt="logo" class="responsive-img">
+        <a href="#!" id="brand" class="brand-logo center">Sensify</a>
+      </div>
+    </nav>
+  </header>
 
-  <div class="col mainHeight">
+  <main class="row">
+    <section id="playlist" class="col s12 m8 l8">
+      <h3>Get a Playlist</h3>
+      <form id="form">
 
-    <div class="row">
-      <nav>
-        <div class="nav-wrapper">
-          <a href="#!" class="brand-logo">Logo</a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">Javascript</a></li>
-            <li><a href="mobile.html">Mobile</a></li>
-          </ul>
-          <ul class="side-nav" id="mobile-demo">
-            <li><a href="sass.html">Quiz</a></li>
-            <li><a href="badges.html">About Us</a></li>
-            <li><a href="collapsible.html">Sign Up</a></li>
-            <li><a href="mobile.html">Mobile</a></li>
-          </ul>
+        <!-- input name -->
+        <div class="input-field">
+          <input type="text" name="name" id="name" class="validate">
+          <label for="name" id="nameLabel">Name</label>
         </div>
-      </nav>
-    </div>
 
-    <div class="row" id="row2Margin">
-      <div class="row" id="row1">
-        <div class="col s12 m12" id="mainBox">
-          <div class="card-panel teal cardSize">
-            <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively. I am similar to what is called a panel
-              in
-              other frameworks.
-            </span>
-          </div>
+        <!-- find location or manually input city -->
+        <div class="input-field">
+          <input type="text" name="city" id="city" class="validate">
+          <label for="city" id="cityLabel">City</label>
         </div>
-      </div>
-    </div>
-  
+        <button id="find-me" class="btn-large waves-effect allBtns">Find My Location</button>
+        <p id="status"></p>
+        <a id="map-link" target="_blank"></a>
 
-    <div class="row">
-      <div class="col s7 m7 test">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus reprehenderit id, similique eum ipsam fugiat dicta enim sed tempore blanditiis modi soluta quam nam veritatis, facilis cupiditate, animi veniam quidem.
-        Explicabo qui id tempore, non corporis illum iure, tenetur eum quibusdam dolore eaque consequatur maiores eveniet veritatis dicta minima tempora sequi dignissimos corrupti repellat nobis aperiam voluptatibus. Officia, sunt in!
-        Vitae officia vero deleniti nesciunt esse dolores consequatur, itaque quos id velit quas assumenda quae, beatae quis repellendus at fuga dicta. Animi ipsum aliquid aperiam qui voluptatum doloremque similique optio?
-        Fugiat consequuntur voluptatibus maxime nostrum, magni harum hic voluptatum, deserunt sit quaerat, iste ad molestias pariatur aliquam. Animi id et quasi recusandae, hic, ut nihil culpa quaerat minus sunt a!
-        Quo praesentium enim repellat laboriosam. Nobis eum magni, provident hic laboriosam optio! Ipsa sint eaque laboriosam beatae quae aperiam animi nemo aliquam nesciunt distinctio omnis amet, veniam ipsam commodi placeat.</p>
-      </div>
-      <div class="col s5 m5 test">
-          <div class="carousel carousel-slider center">
-            <div class="carousel-fixed-item center">
-              <a class="btn waves-effect white grey-text darken-text-2">button</a>
-            </div>
-            <div class="carousel-item red white-text" href="#one!">
-              <h2>First Panel</h2>
-              <p class="white-text">This is your first panel</p>
-            </div>
-            <div class="carousel-item amber white-text" href="#two!">
-              <h2>Second Panel</h2>
-              <p class="white-text">This is your second panel</p>
-            </div>
-            <div class="carousel-item green white-text" href="#three!">
-              <h2>Third Panel</h2>
-              <p class="white-text">This is your third panel</p>
-            </div>
-            <div class="carousel-item blue white-text" href="#four!">
-              <h2>Fourth Panel</h2>
-              <p class="white-text">This is your fourth panel</p>
-            </div>
-          </div>
-      </div>
-    </div>
-  </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./script.js"></script>
+        <!-- select a choice for mood -->
+        <label for="city" id="moodLabel">Please enter your mood: </label>
+        <div id="radioWrapper">
+          <p>
+            <label for="happy">
+              <input class="mood" type="radio" name="moodChoice" value="0" id="happy">
+              <span>Happy</span>
+            </label>
+          </p>
+          <p>
+            <label for="stressed">
+              <input class="mood" type="radio" name="moodChoice" value="1" id="stressed">
+              <span>Stressed</span>
+            </label>
+          </p>
+          <p>
+            <label for="chill">
+              <input class="mood" type="radio" name="moodChoice" value="2" id="chill">
+              <span>Chill</span>
+            </label>
+          </p>
+          <p>
+            <label for="depressed">
+              <input class="mood" type="radio" name="moodChoice" value="3" id="depressed">
+              <span>Depressed</span>
+            </label>
+          </p>
+          <p>
+            <label for="hyped">
+              <input class="mood" type="radio" name="moodChoice" value="4" id="hyped">
+              <span>Hyped</span>
+            </label>
+          </p>
+        </div>
+        <button id="submitBtn" class="btn-large waves-effect allBtns">Sumbit</button>
+      </form>
+      <div id="requireAll"></div>
+    </section>
+
+    <!-- Show weather data for the city/current location -->
+    <sectin id="weather" class="col s12 m4 l4">
+      <h2>Current Weather: <span id="currentCity"></span></h2>
+      </section>
+  </main>
+
+  <!-- jQuery if needed -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  <!-- axios cdn-->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <!-- Materialize cdn -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script src="./script.js"></script>
 </body>
 
 </html>
