@@ -1,3 +1,33 @@
+
+var instance = M.Carousel.init({
+  fullWidth: true,
+  indicators: true
+})
+
+
+
+ 
+    // document.getElementById('submit').addEventListener('click', event => {
+    //   event.preventDefault()
+
+    //   let city = document.getElementById('city').value
+
+    //   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=1dd25ac798a84daed3b612ef4b3c9a3e`)
+    //     .then(res => {
+    //       console.log(res.data)
+    //       document.getElementById('test').innerHTML = `
+    //       <h1>${res.data.name}</h1>
+    //       <h2>Weather: ${res.data.weather[0].description}</h2>
+    //       <h3>Temperature: ${res.data.main.temp}</h3>
+        
+    //     `
+    //     })
+
+    //     .catch(err => { console.log(err) })
+
+    // })
+
+
 // conditions array of objects
 // each object has a weather condition, a danceability number, and energy number
 let conditions = [
@@ -90,10 +120,9 @@ let token = ''
 function geoFindMe () {
 
   const status = document.querySelector('#status')
-  const mapLink = document.querySelector('#map-link')
-  
+  const mapLink = document.querySelector('#map-link')  
   mapLink.href = ''
-  mapLink.textContent = ''
+  mapLink.textContent = '' 
   
   function success(position) {
     const latitude  = position.coords.latitude
@@ -128,8 +157,8 @@ function moodSelected () {
       count++
     }
   })
-
   return count >= 1
+
 }
 
 function getWeatherData (username, usercity, usermood) {
@@ -158,6 +187,8 @@ function getWeatherData (username, usercity, usermood) {
       genre = 'jazz'
     break
   }
+
+
 
   // call to OpenWeatherAPI using city
   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${usercity}&units=imperial&appid=b46e0399b18e0132c4c34e7071caa187`)
@@ -193,8 +224,8 @@ function getWeatherData (username, usercity, usermood) {
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-          'Authorization': `Bearer BQA9Exia83RoYInnO26V402iwVG6lU8pvYBZ8F5Ac9LEhKMtSYlCwiiGuPv5vgthvoa4LNwYIjWvfbbZuIKfOaJbCtwTD1Gv-LWLfuJqMFRr4qmzGN2NfQCNHklYSiDwto5TNyKYE82huRdU09O1uk0P`
-        }})
+          'Authorization': `Bearer BQCtJyJzkX5hGkQToDqpmh1lc0BH6vjfc8MVcsgB4lcyZlXaqxrRPAzdQwHOzZdgciOb5989-3DKeaKGePFFgWL8gQr1dkDHMMXkz3pb0lfN4dBL0drTLnfEzhCErwH3OCR9POA6ne7V08IWGowQ27va`
+        }}) 
         .then(res => {
           let tracks = res.data.tracks
 
@@ -204,11 +235,41 @@ function getWeatherData (username, usercity, usermood) {
           }
 
           let playlist = document.getElementById('playlist')
+          
+        
+        
+            
+      
+
+          let allImages = []
+          for (i= 0; i < tracks.length; i++) {
+            image = tracks[i].album.images[0].url || "https://player.tritondigital.com/tpl/default/html5/img/player/default_cover_art.jpg"
+            allImages.push(image)
+            console.log(allImages)
+          }
+
           playlist.innerHTML = ''
 
           playlist.innerHTML = `
-            <button>View Playlist</button>
+
+            <div class="carousel">
+          
+           <a class="carousel-item" href="#two!"><img src="${allImages[0]}"> <div id="0">0</div></a>
+           <a class="carousel-item" href="#three!"><img src="${allImages[1]}"><div id="1">1</div></a>
+           <a class="carousel-item" href="#four!"><img src="${allImages[2]}"><div id="2">2</div></a>
+            <a class="carousel-item" href="#five!"><img src="${allImages[3]}"><div id="3">3</div></a>
+            <a class="carousel-item" href="#six!"><img src="${allImages[4]}"><div id="4">4</div></a>
+            <a class="carousel-item" href="#seven!"><img src="${allImages[5]}"><div id="5">5</div></a>
+            <a class="carousel-item" href="#eight!"><img src="${allImages[6]}"><div id="6">6</div></a>
+            <a class="carousel-item" href="#nine!"><img src="${allImages[7]}"><div id="7">7</div></a>
+            <a class="carousel-item" href="#ten!"><img src="${allImages[8]}"><div id="8">8</div></a>
+            <a class="carousel-item" href="#ten!"><img src="${allImages[9]}"><div id="9">9</div></a>
+  
+          
+          </div>
           `
+          $('.carousel').carousel();
+      
         })
         .catch(err => {
           console.error(err)
@@ -236,7 +297,11 @@ function getWeatherData (username, usercity, usermood) {
 
 }
   
-document.querySelector('#find-me').addEventListener('click', geoFindMe);
+document.querySelector('#find-me').addEventListener('click', function() {
+  event.preventDefault()
+  geoFindMe()
+
+})
 
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('mood')) {
@@ -254,7 +319,10 @@ document.getElementById('submitBtn').addEventListener('click', function () {
 
   if (name.value === '' ||
       city.value === '' ||
-      !moodSelected()) {
+      !moodSelected()) 
+      {
+        console.log(name.value)
+        console.log(city.value)
     let required = document.getElementById('requireAll')
     required.innerHTML = `Please fill in all inputs.`
   } else {
