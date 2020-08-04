@@ -6,6 +6,14 @@
 
 }
 
+nav {
+  height: 60px;
+}
+
+#navBar {
+  background-color:rgb(208,208,208); 
+}
+
  #mainBox {
   height: 600px;
   background-color: rgb(101,144,222); 
@@ -34,32 +42,32 @@
   background-color: rgb(101,144,222);
 }
 
-.test {
-  border: 2px solid black;
+#logo {
+  height: 60px;
 }
 
-.form {
-  background-color: rgb(101,144,222);
- 
+#brand {
+  font-family: 'Quicksand', sans-serif;
+  font-style: italic;
+  text-shadow: 2px 2px  rgb(101,144,222);
+}
+.card-content{
+  font-weight: bold;
+  font-style: italic;
+}
+#Lyrics {
+  font-size: large;
+  color:teal;
+  
+
 }
 
-.playlist {
-  padding: 50px;
-}
-
-.column {
-  float: left;
-  width: 50%;
+#status {
   padding: 10px;
-  background-color:rgb(208,208,208); 
-
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.allBtns {
+ background-color: rgb(101,144,222);
 }
 
 .left {
@@ -74,17 +82,34 @@
   height: 60px;
   
 }
-
-.brand-logo {
-  font-family: 'Ubuntu', sans-serif;
+.card {
+  border: 1px solid teal;
+  box-shadow:1px 1px;
 }
 
+#nameLabel, #cityLabel, #moodLabel {
+  font-size: 20px;
+}
+
+#radioWrapper {
+  padding: 5px 0 5px 0;
+}
+
+#submitBtn {
+  margin: 10px 0 10px 0;
+}
+
+<<<<<<< HEAD:style.css
 /* .a[classname='findbtn']{
   background-color: rgb(101,144,222)
 } */
 
 .findbtn {
  background-color: rgb(101,144,222) !important;
+=======
+#weather {
+  
+>>>>>>> 09d30050a4432aa852336751a58765aeac5d1280:assets/style.css
 }
 
 @media screen and (max-width:900px) {
@@ -93,6 +118,5 @@
     width: 100%;
     padding: 10px;
     background-color:rgb(208,208,208); 
-  
   }
 }
