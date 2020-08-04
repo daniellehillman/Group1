@@ -220,8 +220,8 @@ function getWeatherData (username, usercity, usermood) {
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-          'Authorization': `Bearer BQA9Exia83RoYInnO26V402iwVG6lU8pvYBZ8F5Ac9LEhKMtSYlCwiiGuPv5vgthvoa4LNwYIjWvfbbZuIKfOaJbCtwTD1Gv-LWLfuJqMFRr4qmzGN2NfQCNHklYSiDwto5TNyKYE82huRdU09O1uk0P`
-        }})
+          'Authorization': `Bearer BQCtJyJzkX5hGkQToDqpmh1lc0BH6vjfc8MVcsgB4lcyZlXaqxrRPAzdQwHOzZdgciOb5989-3DKeaKGePFFgWL8gQr1dkDHMMXkz3pb0lfN4dBL0drTLnfEzhCErwH3OCR9POA6ne7V08IWGowQ27va`
+        }}) 
         .then(res => {
           let tracks = res.data.tracks
 
@@ -242,6 +242,7 @@ function getWeatherData (username, usercity, usermood) {
             image = tracks[i].album.images[0].url || "https://player.tritondigital.com/tpl/default/html5/img/player/default_cover_art.jpg"
             allImages.push(image)
             console.log(allImages)
+            allImages.append
           }
 
           playlist.innerHTML = ''
@@ -260,8 +261,10 @@ function getWeatherData (username, usercity, usermood) {
             <a class="carousel-item" href="#nine!"><img src="${allImages[7]}"></a>
             <a class="carousel-item" href="#ten!"><img src="${allImages[8]}"></a>
             <a class="carousel-item" href="#ten!"><img src="${allImages[9]}"></a>
+  
           
           </div>
+          ${allImages}
           `
           $('.carousel').carousel();
       
