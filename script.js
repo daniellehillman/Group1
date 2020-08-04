@@ -233,13 +233,13 @@ function getWeatherData (username, usercity, usermood) {
           let playlist = document.getElementById('playlist')
           
         
-          $(document).ready(function(){
-            $('.carousel').carousel();
-          });
+        
+            
+      
 
           let allImages = []
-          for (i= 0; i>= playlist.length; i++) {
-            image = tracks[i].album.images[i].url
+          for (i= 0; i < tracks.length; i++) {
+            image = tracks[i].album.images[0].url || "https://player.tritondigital.com/tpl/default/html5/img/player/default_cover_art.jpg"
             allImages.push(image)
             console.log(allImages)
           }
@@ -247,21 +247,24 @@ function getWeatherData (username, usercity, usermood) {
           playlist.innerHTML = ''
 
           playlist.innerHTML = `
-            <button>View Playlist</button>
-            <br>
+
             <div class="carousel">
-           <a class="carousel-item" href="#one!"><img src="${allImages[0]}"></a> 
-           <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
-           <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
-            <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
-            <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
-            <a class="carousel-item" href="#six!"><img src="https://lorempixel.com/250/250/nature/5"></a>
-            <a class="carousel-item" href="#seven!"><img src="https://lorempixel.com/250/250/nature/5"></a>
-            <a class="carousel-item" href="#eight!"><img src="https://lorempixel.com/250/250/nature/5"></a>
-            <a class="carousel-item" href="#nine!"><img src="https://lorempixel.com/250/250/nature/5"></a>
-            <a class="carousel-item" href="#ten!"><img src="https://lorempixel.com/250/250/nature/5"></a>
+          
+           <a class="carousel-item" href="#two!"><img src="${allImages[0]}"></a>
+           <a class="carousel-item" href="#three!"><img src="${allImages[1]}"></a>
+           <a class="carousel-item" href="#four!"><img src="${allImages[2]}"></a>
+            <a class="carousel-item" href="#five!"><img src="${allImages[3]}"></a>
+            <a class="carousel-item" href="#six!"><img src="${allImages[4]}"></a>
+            <a class="carousel-item" href="#seven!"><img src="${allImages[5]}"></a>
+            <a class="carousel-item" href="#eight!"><img src="${allImages[6]}"></a>
+            <a class="carousel-item" href="#nine!"><img src="${allImages[7]}"></a>
+            <a class="carousel-item" href="#ten!"><img src="${allImages[8]}"></a>
+            <a class="carousel-item" href="#ten!"><img src="${allImages[9]}"></a>
+          
           </div>
           `
+          $('.carousel').carousel();
+      
         })
         .catch(err => {
           console.error(err)
