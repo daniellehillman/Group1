@@ -271,14 +271,16 @@ function getWeatherData(username, usercity, usermood) {
           for (let i = 0; i < tracks.length; i++) {
             console.log(`Artist: ${tracks[i].artists[0].name}, Album: ${tracks[i].album.name}, Song Title: ${tracks[i].name}`)
 
-          let playlist = document.getElementById('playlist')
-          
+            let playlist = document.getElementById('playlist')
+          }
+            
           let allImages = []
-          for (i= 0; i < tracks.length; i++) {
+          for (let i= 0; i < tracks.length; i++) {
             image = tracks[i].album.images[0].url || "https://player.tritondigital.com/tpl/default/html5/img/player/default_cover_art.jpg"
             allImages.push(image)
-            console.log(allImages)
+          }
 
+          for (let i = 0; i < tracks.length; i++) {
             axios.get(`https://api.lyrics.ovh/v1/${tracks[i].artists[0].name}/${tracks[i].name}`)
               .then(res => {
                 console.log(res.data.lyrics)
