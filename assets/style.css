@@ -1,0 +1,71 @@
+* {
+  /* font-family: 'Ubuntu', sans-serif; */
+  font-family: 'Quicksand', sans-serif; 
+  background-color:rgb(208,208,208); 
+  color: rgb(101,144,222)
+}
+
+nav {
+  height: 60px;
+}
+
+#navBar {
+  background-color:rgb(208,208,208); 
+}
+
+ #mainBox {
+  height: 600px;
+  background-color: rgb(101,144,222); 
+}
+
+.cardSize{
+  height: 100%;
+  background-color: rgb(101,144,222);
+}
+
+#logo {
+  height: 60px;
+}
+
+#brand {
+  font-family: 'Quicksand', sans-serif;
+  font-style: italic;
+}
+
+#status {
+  padding: 10px;
+}
+
+.allBtns {
+ background-color: rgb(101,144,222);
+}
+
+#city, #name {
+  width: 75%;
+}
+
+#nameLabel, #cityLabel, #moodLabel {
+  font-size: 20px;
+}
+
+#radioWrapper {
+  padding: 5px 0 5px 0;
+}
+
+#submitBtn {
+  margin: 10px 0 10px 0;
+}
+
+#weather {
+  
+}
+
+@media screen and (max-width:900px) {
+  .column {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    background-color:rgb(208,208,208); 
+  }
+}
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
+    <title>Sensify</title>
+
+    <!-- reset css -->
+    <link rel="stylesheet" href="./assets/reset.css">
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+    <!-- styling -->
+    <link rel="stylesheet" href="./assets/style.css">
+  </head>
+  <body>
+    <header id="header" class="row">
+      <nav>
+        <div id="navBar" class="nav-wrapper">
+          <img id="logo" src="./images/logo.png" alt="logo" class="responsive-img">
+          <a href="#!" id="brand" class="brand-logo center">Sensify</a>
+        </div>
+      </nav>
+    </header>
+    
+    <main class="row">
+      <section id="playlist" class="col s12 m8 l8">
+        <h3>Get a Playlist</h3>
+        <form id="form">
+
+          <!-- input name -->
+          <div class="input-field">
+            <input type="text" name="name" id="name" class="validate">
+            <label for="name" id="nameLabel">Name</label>
+          </div>
+
+          <!-- find location or manually input city -->
+          <div class="input-field">
+            <input type="text" name="city" id="city" class="validate">
+            <label for="city" id="cityLabel">City</label>
+          </div>
+          <button id ="find-me" class="btn-large waves-effect allBtns">Enable Location</button>
+          <p id ="status"></p>
+          <a id ="map-link" target="_blank"></a>
+
+          <!-- select a choice for mood -->
+          <label for="city" id="moodLabel">Please enter your mood: </label>
+          <div id="radioWrapper">
+            <p>
+              <label for="happy">
+                <input class="mood" type="radio" name="moodChoice" value="0" id="happy">
+                <span>Happy</span>
+              </label>
+            </p>
+            <p>
+              <label for="stressed">
+                <input class="mood" type="radio" name="moodChoice" value="1" id="stressed">
+                <span>Stressed</span>
+              </label>
+            </p>
+            <p>
+              <label for="chill">
+                <input class="mood" type="radio" name="moodChoice" value="2" id="chill">
+                <span>Chill</span>
+              </label>
+            </p>
+            <p>
+              <label for="depressed">
+                <input class="mood" type="radio" name="moodChoice" value="3" id="depressed">
+                <span>Depressed</span>
+              </label>
+            </p>
+            <p>
+              <label for="hyped">
+                <input class="mood" type="radio" name="moodChoice" value="4" id="hyped">
+                <span>Hyped</span>
+              </label>
+            </p>
+          </div>
+          <button id="submitBtn" class="btn-large waves-effect allBtns">Sumbit</button>
+        </form>
+        <div id="requireAll"></div>
+      </section>
+
+      <!-- Show weather data for the city/current location -->
+      <sectin id="weather" class="col s12 m4 l4">
+        <h2>Current Weather: <span id="currentCity"></span></h2>
+      </section>
+    </main>
+    
+    <!-- jQuery if needed -->
+    <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    
+    <!-- axios cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Materialize cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <script src="./script.js"></script>
+  </body>
+</html>
