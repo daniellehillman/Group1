@@ -5,7 +5,7 @@ let conditions = [
     cond: 'Thunderstorm',
     danceability: 0.0,
     energy: 0.8
-  }, 
+  },
   {
     cond: 'Drizzle',
     danceability: 0.1,
@@ -15,37 +15,37 @@ let conditions = [
     cond: 'Rain',
     danceability: 0.1,
     energy: 0.5
-  }, 
+  },
   {
     cond: 'Snow',
     danceability: 0.2,
     energy: 0.2
-  }, 
+  },
   {
     cond: 'Clear',
     danceability: 1.0,
     energy: 1.0
-  }, 
+  },
   {
     cond: 'Clouds',
     danceability: 0.4,
     energy: 0.3
-  }, 
-  { 
+  },
+  {
     cond: 'Mist',
     danceability: 0.3,
     energy: 0.2
-  }, 
-  { 
+  },
+  {
     cond: 'Smoke',
     danceability: 0.0,
     energy: 0.6
-  }, 
+  },
   {
     cond: 'Haze',
     danceability: 0.4,
     energy: 0.3
-  }, 
+  },
   {
     cond: 'Dust',
     danceability: 0.4,
@@ -55,22 +55,22 @@ let conditions = [
     cond: 'Fog',
     danceability: 0.3,
     energy: 0.3
-  }, 
+  },
   {
     cond: 'Sand',
     danceability: 0.8,
     energy: 0.6
-  }, 
+  },
   {
     cond: 'Ash',
     danceability: 0.1,
     energy: 0.2
-  }, 
+  },
   {
     cond: 'Squall',
     danceability: 0.0,
     energy: 0.8
-  }, 
+  },
   {
     cond: 'Tornado',
     danceability: 0.0,
@@ -87,41 +87,41 @@ let userLat
 let userLon
 let token = ''
 
-function geoFindMe () {
+function geoFindMe() {
 
   const status = document.querySelector('#status')
   const mapLink = document.querySelector('#map-link')
-  
+
   mapLink.href = ''
   mapLink.textContent = ''
-  
+
   function success(position) {
-    const latitude  = position.coords.latitude
+    const latitude = position.coords.latitude
     const longitude = position.coords.longitude
     userLat = latitude
     userLon = longitude
-  
+
     status.textContent = ''
     mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
     // mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
     console.log(`Latitude: ${latitude} °, Longitude: ${longitude} °`)
 
   }
-  
+
   function error() {
     status.textContent = 'Unable to retrieve your location. Please enter a city instead.'
   }
-  
+
   if (!navigator.geolocation) {
     status.textContent = 'Geolocation is not supported by your browser'
   } else {
     status.textContent = 'Locating…'
     navigator.geolocation.getCurrentPosition(success, error)
   }
-  
+
 }
 
-function moodSelected () {
+function moodSelected() {
   let count = 0
   $('.mood').each(function () {
     if ($(this).hasClass('active')) {
@@ -132,7 +132,7 @@ function moodSelected () {
   return count >= 1
 }
 
-function getWeatherData (username, usercity, usermood) {
+function getWeatherData(username, usercity, usermood) {
 
   let weather = document.getElementById('weather')
   let currentCity = document.getElementById('currentCity')
@@ -144,24 +144,25 @@ function getWeatherData (username, usercity, usermood) {
   switch (moods[usermood]) {
     case 'happy':
       genre = 'pop'
-    break
+      break
     case 'chill':
       genre = 'chill'
-    break
+      break
     case 'depressed':
       genre = 'r-n-b'
-    break
+      break
     case 'hyped':
       genre = 'edm'
-    break
+      break
     case 'stressed':
       genre = 'jazz'
-    break
+      break
   }
 
   // call to OpenWeatherAPI using city
   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${usercity}&units=imperial&appid=b46e0399b18e0132c4c34e7071caa187`)
     .then(res => {
+      console.log(res.data)
       // check the weather condition from the result
       let cond = res.data.weather[0].main
 
@@ -173,7 +174,7 @@ function getWeatherData (username, usercity, usermood) {
 
       // new variables
       let danceability
-      let energy 
+      let energy
 
       // loop through conditions array 
       for (let i = 0; i < conditions.length; i++) {
@@ -189,49 +190,65 @@ function getWeatherData (username, usercity, usermood) {
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-          'Authorization': `Bearer BQA-jGMpaZwpD7pniYr6Rg1awp-e1NaLYS4QxM_P0ZQUFOy8-tAb9Fa3hvF6P3ib5djD0j5-Y9tsboE3YRNK5EFoIh15vV4wtHXoKqSLJnq5dw6golFhRVe77dgdezbYXY57PfHoEM4KzHl8ayn13P7v`
-        }})
+          'Authorization': `Bearer BQA9Exia83RoYInnO26V402iwVG6lU8pvYBZ8F5Ac9LEhKMtSYlCwiiGuPv5vgthvoa4LNwYIjWvfbbZuIKfOaJbCtwTD1Gv-LWLfuJqMFRr4qmzGN2NfQCNHklYSiDwto5TNyKYE82huRdU09O1uk0P`
+        }
+      })
         .then(res => {
+          console.log(res.data)
           let tracks = res.data.tracks
 
           // display all tracks with artists, album names, and song titles
           for (let i = 0; i < tracks.length; i++) {
             console.log(`Artist: ${tracks[i].artists[0].name}, Album: ${tracks[i].album.name}, Song Title: ${tracks[i].name}`)
+            // call to lyrics.ovhAPI to retrieve the lyrics
+            axios.get(`https://api.lyrics.ovh/v1/${tracks[i].artists[0].name}/${tracks[i].name}`)
+              .then(
+                res => {
+                  console.log(res.data.lyrics)
+                })
+              .catch(err => {
+                console.error(err)
+              })
           }
-
-          let playlist = document.getElementById('playlist')
-          playlist.innerHTML = ''
-
-          playlist.innerHTML = `
-            <button>View Playlist</button>
-          `
         })
+
+
         .catch(err => {
           console.error(err)
-          // axios.post({
-          //   url: 'https://accounts.spotify.com/api/token',
-          //   form: {
-          //     grant_type: 'refresh_token',
-          //     refresh_token: 'AQAftF4aMobHTr8Hzmap5Hbb2cGA8OFcGJAa0U6MTG_IxggQsNQ6KGrAL919X3fxNbBpTTh5KCFUEy6MVM0Oo1MlQJr9y2aLHssvAioycRIZldC_QxNP5-YmCukc6Or-_lI'
-          //   },
-          //   headers: {
-          //     'Authorization': 'Basic NWIxNWE5YTMyOGRmNGE4ZDk4MDkxNmE0M2RmOWRhYzg6OTc5MWJlOTgzODJmNDhhOGIwZDI5Njg0ZGJiODVkZTI='
-          //   }
-          // })
-          //   .then(res => {
-          //     console.log(rs.data)
-          //   })
-          //   .catch(err => {
-          //     console.log(err)
-          //   })
         })
     })
+
     .catch(err => {
       console.log(err)
     })
-
 }
-  
+
+// playlist.innerHTML = `
+//   <button>View Playlist</button>
+// `
+
+
+// axios.post({
+//   url: 'https://accounts.spotify.com/api/token',
+//   form: {
+//     grant_type: 'refresh_token',
+//     refresh_token: 'AQAftF4aMobHTr8Hzmap5Hbb2cGA8OFcGJAa0U6MTG_IxggQsNQ6KGrAL919X3fxNbBpTTh5KCFUEy6MVM0Oo1MlQJr9y2aLHssvAioycRIZldC_QxNP5-YmCukc6Or-_lI'
+//   },
+//   headers: {
+//     'Authorization': 'Basic NWIxNWE5YTMyOGRmNGE4ZDk4MDkxNmE0M2RmOWRhYzg6OTc5MWJlOTgzODJmNDhhOGIwZDI5Njg0ZGJiODVkZTI='
+//   }
+// })
+//   .then(res => {
+//     console.log(rs.data)
+//   })
+//   .catch(err => {
+//     console.log(err)
+//   })
+
+
+
+
+
 document.querySelector('#find-me').addEventListener('click', geoFindMe);
 
 document.addEventListener('click', function (event) {
@@ -249,8 +266,8 @@ document.getElementById('submitBtn').addEventListener('click', function () {
   let city = document.getElementById('city')
 
   if (name.value === '' ||
-      city.value === '' ||
-      !moodSelected()) {
+    city.value === '' ||
+    !moodSelected()) {
     let required = document.getElementById('requireAll')
     required.innerHTML = `Please fill in all inputs.`
   } else {
