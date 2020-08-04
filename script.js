@@ -189,13 +189,27 @@ function getWeatherData(username, usercity, usermood) {
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-          'Authorization': `Bearer BQA9Exia83RoYInnO26V402iwVG6lU8pvYBZ8F5Ac9LEhKMtSYlCwiiGuPv5vgthvoa4LNwYIjWvfbbZuIKfOaJbCtwTD1Gv-LWLfuJqMFRr4qmzGN2NfQCNHklYSiDwto5TNyKYE82huRdU09O1uk0P`
+          'Authorization': `Bearer BQCtJyJzkX5hGkQToDqpmh1lc0BH6vjfc8MVcsgB4lcyZlXaqxrRPAzdQwHOzZdgciOb5989-3DKeaKGePFFgWL8gQr1dkDHMMXkz3pb0lfN4dBL0drTLnfEzhCErwH3OCR9POA6ne7V08IWGowQ27va`
         }
       })
         .then(res => {
           let tracks = res.data.tracks
 
           // display all tracks with artists, album names, and song titles
+          let playlist = document.getElementById('playlist')
+          playlist.innerHTML = `
+                  <button>View Playlist</button>
+                  <div id="1"></div>
+                  <div id="2"></div>
+                  <div id="3"></div>
+                  <div id="4"></div>
+                  <div id="5"></div>
+                  <div id="6"></div>
+                  <div id="7"></div>
+                  <div id="8"></div>
+                  <div id="9"></div>
+                  <div id="10"></div>
+                `
           for (let i = 0; i < tracks.length; i++) {
             console.log(`Artist: ${tracks[i].artists[0].name}, Album: ${tracks[i].album.name}, Song Title: ${tracks[i].name}`)
 
@@ -203,16 +217,22 @@ function getWeatherData(username, usercity, usermood) {
             axios.get(`https://api.lyrics.ovh/v1/${tracks[i].artists[0].name}/${tracks[i].name}`)
               .then(res => {
                 console.log(res.data.lyrics)
-
+                let lyrics = res.data.lyrics
+                lyrics = lyrics.replace('\n', '<br>')
                 let playlist = document.getElementById('playlist')
-                playlist.innerHTML = ''
+                // playlist.innerHTML = ''
 
-                playlist.innerHTML = `
-                  <button>View Playlist</button>
+                document.getElementById(`${i}`).innerHTML = `
+                  <p>Artist: ${tracks[i].artists[0].name} Song Title: ${tracks[i].name}</p>
+                  <p>${lyrics}</p>
                 `
               })
               .catch(err => {
-                console.error(err)
+                // console.error(err)
+                document.getElementById(`${i}`).innerHTML = `
+                <p>Artist: ${tracks[i].artists[0].name} Song Title: ${tracks[i].name}. 
+                There is no lyrics for the song</p>
+                `
               })
           }
         })
