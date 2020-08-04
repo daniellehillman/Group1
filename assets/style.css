@@ -56,6 +56,17 @@ nav {
 #brand {
   font-family: 'Quicksand', sans-serif;
   font-style: italic;
+  text-shadow: 2px 2px  rgb(101,144,222);
+}
+.card-content{
+  font-weight: bold;
+  font-style: italic;
+}
+#Lyrics {
+  font-size: large;
+  color:teal;
+  
+
 }
 
 #status {
@@ -75,10 +86,19 @@ nav {
 }
 .size {
   width: 60px;
+<<<<<<< HEAD
   height: 60px;}
   
 #city, #name {
   width: 75%;
+=======
+  height: 60px;
+  
+}
+.card {
+  border: 1px solid teal;
+  box-shadow:1px 1px;
+>>>>>>> 28c7dbe9110fbc7d1213c8c5b305f09ed17d7ff8
 }
 
 #nameLabel, #cityLabel, #moodLabel {
@@ -93,12 +113,25 @@ nav {
   margin: 10px 0 10px 0;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:style.css
+>>>>>>> 28c7dbe9110fbc7d1213c8c5b305f09ed17d7ff8
 /* .a[classname='findbtn']{
   background-color: rgb(101,144,222)
 } */
 
 .findbtn {
+<<<<<<< HEAD
  background-color: rgb(101,144,222) !important;}
+=======
+ background-color: rgb(101,144,222) !important;
+=======
+#weather {
+  
+>>>>>>> 09d30050a4432aa852336751a58765aeac5d1280:assets/style.css
+}
+>>>>>>> 28c7dbe9110fbc7d1213c8c5b305f09ed17d7ff8
 
 @media screen and (max-width:900px) {
   .column {
@@ -108,5 +141,8 @@ nav {
     background-color:rgb(208,208,208); 
   }
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 28c7dbe9110fbc7d1213c8c5b305f09ed17d7ff8

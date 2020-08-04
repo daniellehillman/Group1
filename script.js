@@ -176,11 +176,15 @@ function getWeatherData (username, usercity, usermood) {
       // check the weather condition from the result
       let cond = res.data.weather[0].main
 
-      let weatherElem = document.createElement('div')
-      weatherElem.innerHTML = `
-      <p id="weatherDesc">${res.data.weather[0].description}</p>
+      let weatherElem = document.getElementById('Forecast').innerHTML = `
+     
+        
+         <h2> ${res.data.weather[0].description}</h2>
+         <h3>Temperature: ${res.data.main.temp}</h3>
+         
       `
       weather.append(weatherElem)
+      console.log(res.data)
 
       // new variables
       let danceability
@@ -200,7 +204,7 @@ function getWeatherData (username, usercity, usermood) {
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-          'Authorization': `Bearer BQB-TydJPzu1RZywD_dGuLkRIFxgszSyEYh2hxuyyA3_Wxko3gJirXqFgh80LC4mMWlxnES7yICyLyOUxror8yYNyBbyOhWYCUWXPUBDucicY5KR8dlItfiMCY5qW2ZG6CMiQ8coppvrN7fZ8wYMUMic`
+          'Authorization': `Bearer BQA9Exia83RoYInnO26V402iwVG6lU8pvYBZ8F5Ac9LEhKMtSYlCwiiGuPv5vgthvoa4LNwYIjWvfbbZuIKfOaJbCtwTD1Gv-LWLfuJqMFRr4qmzGN2NfQCNHklYSiDwto5TNyKYE82huRdU09O1uk0P`
         }})
         .then(res => {
           console.log(res)
