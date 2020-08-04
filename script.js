@@ -288,7 +288,7 @@ function getWeatherData(username, usercity, usermood) {
                 // playlist.innerHTML = ''
 
                 document.getElementById(`${i}`).innerHTML = `
-                  <a class="carousel-item" href="#two!"><img src="${allImages[0]}"> <div id="0">0</div></a>
+                  <a class="carousel-item" href="#two!"><img src="${tracks[i].album.images[0].url}"> <div id="0">0</div></a>
                   <p>Artist: ${tracks[i].artists[0].name} Song Title: ${tracks[i].name}</p>
                   <p>${lyrics}</p>
                 `
@@ -298,7 +298,7 @@ function getWeatherData(username, usercity, usermood) {
               .catch(err => {
                 // console.error(err)
                 document.getElementById(`${i}`).innerHTML = `
-                <a class="carousel-item" href="#two!"><img src="${allImages[0]}"> <div id="0">0</div></a>
+                <a class="carousel-item" href="#two!"><img src="${tracks[i].album.images[0].url}"> <div id="0">0</div></a>
                 <p>Artist: ${tracks[i].artists[0].name} Song Title: ${tracks[i].name}. 
                 There is no lyrics for the song</p>
                 `
