@@ -218,25 +218,23 @@ function getWeatherData (username, usercity, usermood) {
             image = tracks[i].album.images[0].url || "https://player.tritondigital.com/tpl/default/html5/img/player/default_cover_art.jpg"
             allImages.push(image)
             console.log(allImages)
-            allImages.append
           }
 
           playlist.innerHTML = ''
 
           playlist.innerHTML = `
             <div class="carousel">
-              <a class="carousel-item" href="#two!"><img src="${allImages[0]}"></a>
-              <a class="carousel-item" href="#three!"><img src="${allImages[1]}"></a>
-              <a class="carousel-item" href="#four!"><img src="${allImages[2]}"></a>
-              <a class="carousel-item" href="#five!"><img src="${allImages[3]}"></a>
-              <a class="carousel-item" href="#six!"><img src="${allImages[4]}"></a>
-              <a class="carousel-item" href="#seven!"><img src="${allImages[5]}"></a>
-              <a class="carousel-item" href="#eight!"><img src="${allImages[6]}"></a>
-              <a class="carousel-item" href="#nine!"><img src="${allImages[7]}"></a>
-              <a class="carousel-item" href="#ten!"><img src="${allImages[8]}"></a>
-              <a class="carousel-item" href="#ten!"><img src="${allImages[9]}"></a>
-            </div>
-            ${allImages}
+              <a class="carousel-item" href="#two!"><img src="${allImages[0]}"> <div id="0">0</div></a>
+              <a class="carousel-item" href="#three!"><img src="${allImages[1]}"><div id="1">1</div></a>
+              <a class="carousel-item" href="#four!"><img src="${allImages[2]}"><div id="2">2</div></a>
+              <a class="carousel-item" href="#five!"><img src="${allImages[3]}"><div id="3">3</div></a>
+              <a class="carousel-item" href="#six!"><img src="${allImages[4]}"><div id="4">4</div></a>
+              <a class="carousel-item" href="#seven!"><img src="${allImages[5]}"><div id="5">5</div></a>
+            <a class="carousel-item" href="#eight!"><img src="${allImages[6]}"><div id="6">6</div></a>
+            <a class="carousel-item" href="#nine!"><img src="${allImages[7]}"><div id="7">7</div></a>
+            <a class="carousel-item" href="#ten!"><img src="${allImages[8]}"><div id="8">8</div></a>
+            <a class="carousel-item" href="#ten!"><img src="${allImages[9]}"><div id="9">9</div></a>
+          </div>
           `
           $('.carousel').carousel();
       
