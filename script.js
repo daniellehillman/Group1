@@ -278,7 +278,6 @@ function getWeatherData(username, usercity, usermood) {
             image = tracks[i].album.images[0].url || "https://player.tritondigital.com/tpl/default/html5/img/player/default_cover_art.jpg"
             allImages.push(image)
             console.log(allImages)
-            // <<<<<<< HEAD
 
             axios.get(`https://api.lyrics.ovh/v1/${tracks[i].artists[0].name}/${tracks[i].name}`)
               .then(res => {
