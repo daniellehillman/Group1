@@ -15,7 +15,7 @@ If the code is downloaded, do the following to run Sensify in the browser:
 * Run your redirect URI through a urlencoder, save the encoded uri
 
 * Search the following in your address bar:
-> <https://account.spotify.com/authorize?client_id={your client ID}&scopes={any API scopes desired}&response_type=code&redirect_uri={encoded redirect uri}>
+> https://account.spotify.com/authorize?client_id={your client ID}&scopes={any API scopes desired}&response_type=code&redirect_uri={encoded redirect uri}
 
 * It will then update the address bar, look for an authorization code following the word "code=". That is your authorization code needed to get an access token.
 
