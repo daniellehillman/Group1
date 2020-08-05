@@ -108,10 +108,7 @@ function geoFindMe() {
   mapLink.href = ''
   mapLink.textContent = ''
 
-<<<<<<< HEAD
-=======
   // if position found
->>>>>>> 2b0f40da79ce5695e4994ce29daf8b19c0347b66
   function success(position) {
     const latitude = position.coords.latitude
     const longitude = position.coords.longitude
@@ -316,12 +313,6 @@ document.addEventListener('DOMContentLoaded', function () {
   let elems = document.querySelectorAll('.modal')
   let instances = M.Modal.init(elems)
 })
-
-document.addEventListener('DOMContentLoaded', function () {
-  let elems = document.querySelectorAll('.sidenav')
-  let instances = M.Sidenav.init(elems)
-})
-
 
 document.querySelector('#find-me').addEventListener('click', function () {
   event.preventDefault()
