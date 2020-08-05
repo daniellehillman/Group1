@@ -239,7 +239,7 @@ function getWeatherData(username, usercity, usermood) {
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-          'Authorization': `Bearer BQC3z5dQwdYG_-0CFZiUtRYqSCvsttMvE8napbanWmWufzo8ZcmmSAQpJE66lYId-u2Zzj-vyKZwzG7b8s3xKyjHviWJdaTZ3LMjfehnA6Q5WsfiVTdb4iQUcVI1166fzdx4HHoMjT3bLPdXFOSOc9gl`
+          'Authorization': `Bearer BQB42yGqZB_2uL0p28PraxaNM-wpoiFiIT3_VIub-MKop0pgWxzuUYBBiJ7MUB1z2Il4EvrTuKZXnh8NPmQs4Pg5CTEllqRco2Zxp9trf5y7a0yN4rzdrZHG7IHjAi87gnmVo5MUqbGtG2LJhzaTa2Az`
         }
       })
         .then(res => {
@@ -314,6 +314,12 @@ document.addEventListener('DOMContentLoaded', function () {
   let instances = M.Modal.init(elems)
 })
 
+document.addEventListener('DOMContentLoaded', function () {
+  let elems = document.querySelectorAll('.sidenav')
+  let instances = M.Sidenav.init(elems)
+})
+
+
 document.querySelector('#find-me').addEventListener('click', function () {
   event.preventDefault()
   geoFindMe()
@@ -347,5 +353,5 @@ document.getElementById('submitBtn').addEventListener('click', function () {
         $(this).removeClass("active")
       }
     })
- 
-
+  }
+})
