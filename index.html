@@ -97,7 +97,7 @@
       <section id="lyricsModal1" class="modal">
         <div class="modal-content">
           <h4 id="song1" class="songTitles"></h4>
-          <p id="lyrics1" class="lyrics">hellllllllll</p>
+          <p id="lyrics1" class="lyrics"></p>
         </div>
       </section>
       <section id="lyricsModal2" class="modal">
@@ -166,15 +166,31 @@
                 <img src="./images/Sensify.jpg">
               </div>
               <div class="card-content">
-                <p>Sensify is a mobile web application built for you. Listen to music based on your location. Tell us where you are and we will give you a Spotify playlist to listen to. Get a taste of the songs with lyrics provided and enjoy Sensify, the music app that senses where you are!</p>
+                <p id="aboutSensify">Sensify is a mobile web application built for you. Listen to music based on your location. Tell us where you are and we will give you a Spotify playlist to listen to. Get a taste of the songs with lyrics provided and enjoy Sensify, the music app that senses where you are!</p>
               </div>
             </div>
           </div>
         </div>
       </section>
     </main>
-    <footer id="footer">
-      
+    <footer id="footer" class="page-footer">
+      <div id="footerLinks"class="container">
+        <div class="row">
+          <div class="col s12 center-align footerCol">
+            <span id="codeIcon" class="material-icons">
+              code
+              </span>
+          </div>
+          <div class="col s12 center-align footerCol">
+            <a id="githubLink" href="https://github.com/daniellehillman/Group1/tree/master">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <div id="footerCopyright" class="footer-copyright center-align">
+        <div id="copyright" class="container">
+        © 2020 Sensify
+        </div>
+      </div>
     </footer>
     <!-- jQuery if needed -->
     <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
