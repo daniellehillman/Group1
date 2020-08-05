@@ -231,7 +231,7 @@ function getWeatherData(username, usercity, usermood) {
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-          'Authorization': `Bearer BQCjjJ8Iz8lzPKbIkPNwAJ3LQ3i6M3WH5TOEm0KeWWo9fbKn7IMQmSTn0UsjGWqaDRoPnYTOQfLBiZvg9PHw_W8ps9JzyNMgcNg8FB7nXyl0a_Zirnr-W2uVBQ3nRsz8pxW6rnCtEVfNaNAtZHqw7TXA`
+          'Authorization': `Bearer BQC3z5dQwdYG_-0CFZiUtRYqSCvsttMvE8napbanWmWufzo8ZcmmSAQpJE66lYId-u2Zzj-vyKZwzG7b8s3xKyjHviWJdaTZ3LMjfehnA6Q5WsfiVTdb4iQUcVI1166fzdx4HHoMjT3bLPdXFOSOc9gl`
         }
       })
         .then(res => {
@@ -290,40 +290,7 @@ function getWeatherData(username, usercity, usermood) {
           }
 
           playlist.append(carousel)
-
-
-          // for (let i = 0; i < tracks.length; i++) {
-          //   axios.get(`https://api.lyrics.ovh/v1/${tracks[i].artists[0].name}/${tracks[i].name}`)
-          //     .then(res => {
-          //       console.log(res.data.lyrics)
-          //       let lyrics = res.data.lyrics
-          //       lyrics = lyrics.replace('\n', '<br>')
-          //       let playlist = document.getElementById('playlist')
-          //       // playlist.innerHTML = ''
-
-          //       document.getElementById(`${i}`).innerHTML = `
-          //         <a class="carousel-item" href="#two!"><img src="${tracks[i].album.images[0].url}"> <div id="0">0</div></a>
-          //         <p>Artist: ${tracks[i].artists[0].name} Song Title: ${tracks[i].name}</p>
-          //         <p>${lyrics}</p>
-          //       `
-          //       $('.carousel').carousel();
-          //     })
-
-          //     .catch(err => {
-          //       // console.error(err)
-          //       document.getElementById(`${i}`).innerHTML = `
-          //       <a class="carousel-item" href="#two!"><img src="${tracks[i].album.images[0].url}"> <div id="0">0</div></a>
-          //       <p>Artist: ${tracks[i].artists[0].name} Song Title: ${tracks[i].name}. 
-          //       There is no lyrics for the song</p>
-          //       `
-          //       $('.carousel').carousel();
-          //     })
-          //}
-
           $('.carousel').carousel();
-
-          
-      
         })
         .catch(err => {
           console.error(err)
@@ -332,10 +299,9 @@ function getWeatherData(username, usercity, usermood) {
     .catch(err => {
       console.log(err)
     })
-
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   let elems = document.querySelectorAll('.modal')
   let instances = M.Modal.init(elems)
 })
