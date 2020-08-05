@@ -1,1 +1,1 @@
-# Group1
+# Sensify: The Weather-based Playlist Recommender

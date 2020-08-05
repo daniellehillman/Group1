@@ -50,12 +50,17 @@ nav {
  
 }
 
-.playlist {
-  padding: 50px;}
+#playlist {
+  padding: 30px;
+}
 #brand {
   font-family: 'Quicksand', sans-serif;
   font-style: italic;
   text-shadow: 2px 2px  rgb(101,144,222);
+}
+
+#weather {
+  padding: 30px;
 }
 .card-content{
   font-weight: bold;
@@ -109,6 +114,24 @@ nav {
 
 .findbtn {
   background-color: rgb(101,144,222) !important;
+}
+
+#forecast {
+  background-color: rgb(101,144,222);
+}
+
+#cardElem {
+  background-color: rgb(101,144,222);
+}
+
+#weatherIcons {
+  font-size: 100px;
+  color: rgb(208,208,208);
+  background-color: rgb(101,144,222);
+}
+
+#weatherDesc {
+
 }
 
 @media screen and (max-width:900px) {

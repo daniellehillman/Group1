@@ -152,7 +152,6 @@ function moodSelected() {
 
 function getWeatherData(username, usercity, usermood) {
 
-  let weather = document.getElementById('weather')
   let currentCity = document.getElementById('currentCity')
   currentCity.textContent = usercity
 
@@ -182,35 +181,45 @@ function getWeatherData(username, usercity, usermood) {
     .then(res => {
       // check the weather condition from the result
       let cond = res.data.weather[0].main
+      let weather = document.getElementById('weather')
+      
+      let forecast = document.getElementById('forecast')
+      
+      forecast.innerHTML = ''
 
-      let weatherElem = document.getElementById('Forecast').innerHTML = `
-     
-        
-         <h2> ${res.data.weather[0].description}</h2>
-         <h3>Temperature: ${res.data.main.temp}</h3>
-         
-      `
-      weather.append(weatherElem)
-      console.log(res.data)
+      let cardElem = document.createElement('div')
+      cardElem.className = 'card-image'
+      cardElem.id = 'cardElem'
 
       // new variables
       let danceability
       let energy
 
+      let iconElem = document.createElement('i')
       // loop through conditions array 
       for (let i = 0; i < conditions.length; i++) {
         // check for a condition with a matching description
         if (conditions[i].cond === cond) {
 
-          let iconElem = document.createElement('i')
-          iconElem.className = `${conditions[i].icon}`
-          weather.append(iconElem)
-
+          iconElem.className = `wi ${conditions[i].icon}`
+          iconElem.id = 'weatherIcons'
+          
           // assign danceability and energy
           danceability = conditions[i].danceability
           energy = conditions[i].energy
         }
       }
+      cardElem.append(iconElem)
+      forecast.append(cardElem)
+
+      let weatherElem = document.createElement('div')
+      weatherElem.className = 'card-content'
+      weatherElem.id = 'weatherDesc'
+      weatherElem.innerHTML = `
+        <p>Your current weather forecast: ${res.data.weather[0].main}</p>
+        <p>Your current temperature: ${res.data.main.temp} \xB0F</p> 
+      `
+      forecast.append(weatherElem)
 
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
@@ -237,6 +246,9 @@ function getWeatherData(username, usercity, usermood) {
           carousel.className = 'carousel'
 
           playlist.innerHTML = ''
+          playlist.innerHTML = `
+          <h2 class="center-align">Here's your playlist ${username}</h2>
+          `
 
           for (let i = 0; i < allImages.length; i++) {
             let carouselElem = document.createElement('a')
@@ -249,10 +261,29 @@ function getWeatherData(username, usercity, usermood) {
             let divElem = document.createElement('div')
             divElem.id = `${i}`
 
-            axios.get(`https://api.lyrics.ovh/v1/${tracks[i].artists[0].name}/${tracks[i].name}`)
-              .then(res =>)
+            // axios.get(`https://api.lyrics.ovh/v1/${tracks[i].artists[0].name}/${tracks[i].name}`)
+            //   .then(res =>)
+
+            let sectionElem = document.createElement('section')
+            sectionElem.id = 'lyricsSection'
+            sectionElem.className = 'col s12 m4 l4'
+            sectionElem.innerHTML = `
+            <div class="row">
+              <div class="col s12 m12">
+                <div class="card">
+                  <div class="card-image">
+                    <img src="images/Lyrics.JPG">
+                  </div>
+                  <div class="card-content">
+                    <p id="lyrics">Lyrics</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            `
             carouselElem.append(imgElem)
             carouselElem.append(divElem)
+            carouselElem.append(sectionElem)
             carousel.append(carouselElem)
           }
 
