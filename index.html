@@ -5,200 +5,114 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
     <title>Sensify</title>
 
-    <!-- reset css -->
-    <link rel="stylesheet" href="./assets/reset.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
+  <title>Sensify</title>
 
-    <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <!-- reset css -->
+  <link rel="stylesheet" href="./assets/reset.css">
 
-    <!-- Materialize -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
-    <!-- Material icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
-    <!-- styling -->
-    <link rel="stylesheet" href="./assets/style.css">
-  </head>
-  <body>
-    <header id="header" class="row">
-      <nav>
-        <div id="navBar" class="nav-wrapper">
-          <img id="logo" src="./images/logo.png" alt="logo" class="responsive-img">
-          <a href="#!" id="brand" class="brand-logo center">Sensify</a>
-        </div>
-      </nav>
-    </header>
-    
-    <main class="row">
-      <section id="playlist" class="col s12 m8 l8">
-        <h3>Get a Playlist</h3>
-        <form id="form">
+  <!-- Materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-          <!-- input name -->
-          <div class="input-field">
-            <input type="text" name="name" id="name" class="validate">
-            <label for="name" id="nameLabel">Name</label>
-          </div>
+  <!-- Material icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/weather-icons.min.css">
 
-          <!-- find location or manually input city -->
-          <div class="input-field">
-            <input type="text" name="city" id="city" class="validate">
-            <label for="city" id="cityLabel">City</label>
-          </div>
-    
-        
-          <button id ="find-me" class="btn-large waves-effect allBtns">Find My Location</button>
-          <p id ="status"></p>
-          <a id ="map-link" target="_blank"></a>
+  <!-- styling -->
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
 
-          <!-- select a choice for mood -->
-          <label for="city" id="moodLabel">Please enter your mood: </label>
-          <div id="radioWrapper">
-            <p>
-              <label for="happy">
-                <input class="mood" type="radio" name="moodChoice" value="0" id="happy">
-                <span>Happy</span>
-              </label>
-            </p>
-            <p>
-              <label for="stressed">
-                <input class="mood" type="radio" name="moodChoice" value="1" id="stressed">
-                <span>Stressed</span>
-              </label>
-            </p>
-            <p>
-              <label for="chill">
-                <input class="mood" type="radio" name="moodChoice" value="2" id="chill">
-                <span>Chill</span>
-              </label>
-            </p>
-            <p>
-              <label for="depressed">
-                <input class="mood" type="radio" name="moodChoice" value="3" id="depressed">
-                <span>Depressed</span>
-              </label>
-            </p>
-            <p>
-              <label for="hyped">
-                <input class="mood" type="radio" name="moodChoice" value="4" id="hyped">
-                <span>Hyped</span>
-              </label>
-            </p>
-          </div>
-          <button id="submitBtn" class="btn-large waves-effect allBtns">Sumbit</button>
-        </form>
-        <div id="requireAll"></div>
-      </section>
-
-      <!-- Show weather data for the city/current location -->
-      <sectin id="weather" class="col s12 m4 l4">
-        <h2>Current Weather: <span id="currentCity"></span></h2>
-      </section>
-    </main>
-    
-    <!-- jQuery if needed -->
-    <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    
-    <!-- axios cdn-->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-    <!-- Materialize cdn -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-   
-
-
-<!-- Danielle  -->
-  <!-- <div class="col mainHeight">
-    <div class="row">
-      <nav>
-        <div class="nav-wrapper">
-          <a class="brand-logo center">Sensify</a>
-          <img href="./index.html" src="./images/logo.png" class="img-fluid size left">
-          <ul class="left hide-on-med-and-down"> 
-            <li><a href="#">Playlist History</a></li>
-            <li><a href="aboutus.html">About Us</a></li>
-        
-          </ul>
-            </div>
-           </a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> 
-        </div>
-      </nav>
-    </div> -->
-
-   
-
-    <!-- <div class="container-fliud padding" id="main">
-      <h2 class="heading center">Current Weather</h2>
-  
-      <div class="row">
-
-        <div class="col s4 center">
-          <p>Current Temp:
-          </p>
-          Promo Content 1 goes here -->
-        <!-- </div>
-        <div class="col s4 center"> -->
-          <!-- <p>Logo: </p> -->
-          <!-- Promo Content 2 goes here -->
-        <!-- </div>
-        <div class="col s4 center"> -->
-          <!-- <p>Wind Sleep: </p> -->
-          <!-- Promo Content 3 goes here -->
-        <!-- </div>
+<body>
+  <header id="header" class="row">
+    <nav>
+      <div id="navBar" class="nav-wrapper">
+        <img id="logo" src="./images/logo.png" alt="logo" class="responsive-img">
+        <a href="#!" id="brand" class="brand-logo center">Sensify</a>
       </div>
-             -->
-      <!-- <div class=" column col-md-6 left" id="weather"> -->
-        <!-- <div id="weather">
-        <p> -->
-      
-        <!-- </p>
-      </div> -->
-      <!-- <div id="playlist" class="right column col-md-6">  -->
-        <!-- <div id="playlist" class="center playlist"> -->
-        <!-- <h2>Column 2</h2>  -->
-<!--         
-          <br/>
-          <hr>
-  
-              <p id = "status"></p>
-              <a id = "map-link" target="_blank"></a>
-        <form class="padding">
-          <a class="waves-effect waves-light btn-large">Button</a> -->
-          <!-- <h3 class="heading"> Get a Playlist <a id ="find-me" class="btn-large findbtn">Find my location</a></h3>
+    </nav>
+  </header>
+
+  <main class="row">
+    <section id="playlist" class="col s12 m8 l8">
+      <h3>Get a Playlist</h3>
+      <form id="form">
+
+        <!-- input name -->
+        <div class="input-field">
+          <input type="text" name="name" id="name" class="validate">
+          <label for="name" id="nameLabel">Name</label>
+        </div>
+
+        <!-- find location or manually input city -->
+        <div class="input-field">
+          <input type="text" name="city" id="city" class="validate">
+          <label for="city" id="cityLabel">City</label>
+        </div>
+        <button id="find-me" class="btn-large waves-effect allBtns">Find My Location</button>
+        <p id="status"></p>
+        <a id="map-link" target="_blank"></a>
+
+        <!-- select a choice for mood -->
+        <label for="city" id="moodLabel">Please enter your mood: </label>
+        <div id="radioWrapper">
           <p>
-        
-            <label for="city">Please enter your first name: </label>
-            <input type="text" name="name" id="name">
-            <label for="city">Please enter your city: </label>
-            <input type="text" name="city" id="city">
-            <label for="city">Please enter your mood: </label>
-            <br>
+            <label for="happy">
+              <input class="mood" type="radio" name="moodChoice" value="0" id="happy">
+              <span>Happy</span>
+            </label>
+          </p>
+          <p>
+            <label for="stressed">
+              <input class="mood" type="radio" name="moodChoice" value="1" id="stressed">
+              <span>Stressed</span>
+            </label>
+          </p>
+          <p>
+            <label for="chill">
+              <input class="mood" type="radio" name="moodChoice" value="2" id="chill">
+              <span>Chill</span>
+            </label>
+          </p>
+          <p>
+            <label for="depressed">
+              <input class="mood" type="radio" name="moodChoice" value="3" id="depressed">
+              <span>Depressed</span>
+            </label>
+          </p>
+          <p>
+            <label for="hyped">
+              <input class="mood" type="radio" name="moodChoice" value="4" id="hyped">
+              <span>Hyped</span>
+            </label>
+          </p>
+        </div>
+        <button id="submitBtn" class="btn-large waves-effect allBtns">Sumbit</button>
+      </form>
+      <div id="requireAll"></div>
+    </section>
 
-            <input type="checkbox" id="happy" name="happy" value="1">
-            <label for="happy">Happy</label><br>
-            <input type="checkbox" id="stressed" name="stressed" value="2">
-            <label for="stressed">Stressed</label><br>
-            <input type="checkbox" id="chill" name="chill" value="3">
-            <label for="chill">Chill</label><br>
-            <input type="checkbox" id="depressed" name="depressed" value="4">
-            <label for="depressed"> Depressed</label><br>
-            <input type="checkbox" id="hyped" name="hyped" value="5">
-            <label for="hyped">Hyped</label><br><br>
-            <a id="submit" class="btn btn-large findbtn">Submit</a>
-        </form>
-      </div>
-    </div>
-  </div>  -->
+    <!-- Show weather data for the city/current location -->
+    <sectin id="weather" class="col s12 m4 l4">
+      <h2>Current Weather: <span id="currentCity"></span></h2>
+      </section>
+  </main>
 
+  <!-- jQuery if needed -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
+  <!-- axios cdn-->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <!-- </div>
-  </div> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./script.js"></script>
+  <!-- Materialize cdn -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script src="./script.js"></script>
 </body>
 
 </html>

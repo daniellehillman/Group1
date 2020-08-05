@@ -2,8 +2,12 @@
   /* font-family: 'Ubuntu', sans-serif; */
   font-family: 'Quicksand', sans-serif; 
   background-color:rgb(208,208,208); 
+<<<<<<< HEAD
   color: rgb(101,144,222);
 
+=======
+  color: rgb(101,144,222)
+>>>>>>> 8183227c935b14e7701cade499468db1ba8e6400
 }
 
 nav {
@@ -17,6 +21,7 @@ nav {
  #mainBox {
   height: 600px;
   background-color: rgb(101,144,222); 
+<<<<<<< HEAD
  
 }
 
@@ -36,6 +41,9 @@ nav {
     display: inline-block;
     overflow: visible;
   }
+=======
+}
+>>>>>>> 8183227c935b14e7701cade499468db1ba8e6400
 
 .cardSize{
   height: 100%;
@@ -46,6 +54,7 @@ nav {
   height: 60px;
 }
 
+<<<<<<< HEAD
 .form {
   background-color: rgb(101,144,222);
  
@@ -53,6 +62,8 @@ nav {
 
 .playlist {
   padding: 50px;}
+=======
+>>>>>>> 8183227c935b14e7701cade499468db1ba8e6400
 #brand {
   font-family: 'Quicksand', sans-serif;
   font-style: italic;
@@ -66,6 +77,7 @@ nav {
  background-color: rgb(101,144,222);
 }
 
+<<<<<<< HEAD
 .left {
   width: 30%;
 }
@@ -77,6 +89,8 @@ nav {
   width: 60px;
   height: 60px;}
   
+=======
+>>>>>>> 8183227c935b14e7701cade499468db1ba8e6400
 #city, #name {
   width: 75%;
 }
@@ -93,12 +107,18 @@ nav {
   margin: 10px 0 10px 0;
 }
 
+<<<<<<< HEAD
 /* .a[classname='findbtn']{
   background-color: rgb(101,144,222)
 } */
 
 .findbtn {
  background-color: rgb(101,144,222) !important;}
+=======
+#weather {
+  
+}
+>>>>>>> 8183227c935b14e7701cade499468db1ba8e6400
 
 @media screen and (max-width:900px) {
   .column {
@@ -109,4 +129,7 @@ nav {
   }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8183227c935b14e7701cade499468db1ba8e6400
