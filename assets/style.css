@@ -1,5 +1,4 @@
 * {
-  /* font-family: 'Ubuntu', sans-serif; */
   font-family: 'Quicksand', sans-serif; 
   background-color:rgb(208,208,208); 
   color: rgb(101,144,222)
@@ -13,9 +12,14 @@ nav {
   background-color:rgb(208,208,208); 
 }
 
- #mainBox {
+#mainBox {
   height: 600px;
   background-color: rgb(101,144,222); 
+}
+
+.card {
+  display: inline-block;
+  overflow: visible;
 }
 
 .cardSize{
@@ -27,9 +31,34 @@ nav {
   height: 60px;
 }
 
+.form {
+  background-color: rgb(101,144,222);
+}
+
+#playlist, #weather {
+  padding: 30px 50px 30px 50px;
+}
+
 #brand {
   font-family: 'Quicksand', sans-serif;
   font-style: italic;
+  text-shadow: 2px 2px  rgb(101,144,222);
+}
+
+.card-content{
+  font-weight: bold;
+  font-style: italic;
+  background-color: rgb(101,144,222);
+  color: rgb(208,208,208);
+}
+
+#aboutSensify {
+  background-color: rgb(101,144,222);
+  color: rgb(208,208,208);
+}
+
+.lyrics {
+  color:teal;
 }
 
 #status {
@@ -39,9 +68,14 @@ nav {
 .allBtns {
  background-color: rgb(101,144,222);
 }
-
+  
 #city, #name {
   width: 75%;
+}
+
+.card {
+  border: 1px solid teal;
+  box-shadow:1px 1px;
 }
 
 #nameLabel, #cityLabel, #moodLabel {
@@ -56,16 +90,58 @@ nav {
   margin: 10px 0 10px 0;
 }
 
-#weather {
-  
+.findbtn {
+  background-color: rgb(101,144,222) !important;
+}
+
+#currentCity {
+  font-size: 30px;
+}
+
+#forecast {
+  background-color: rgb(101,144,222);
+}
+
+#cardElem {
+  background-color: rgb(101,144,222);
+}
+
+#weatherIcons {
+  font-size: 100px;
+  color: rgb(208,208,208);
+  background-color: rgb(101,144,222);
+}
+
+#weatherDesc {
+  background-color: rgb(208,208,208);
+}
+
+#footer, #footerLinks, #footerRow, #footerCopyright, #copyright {
+  font-family: 'Quicksand', sans-serif; 
+  background-color: rgb(101,144,222);
+  color: rgb(208,208,208);
+}
+
+.footerCol {
+  background-color: rgb(101,144,222);
+  color: rgb(208,208,208);
+}
+
+#codeIcon {
+  background-color: rgb(101,144,222);
+  color: rgb(208,208,208);
+}
+
+#githubLink {
+  background-color: rgb(101,144,222);
+  color: rgb(208,208,208);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
 }
 
 @media screen and (max-width:900px) {
-  .column {
-    float: left;
-    width: 100%;
-    padding: 10px;
-    background-color:rgb(208,208,208); 
+  #playlist, #weather {
+    padding: 30px;
   }
 }
-

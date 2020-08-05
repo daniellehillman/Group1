@@ -4,77 +4,92 @@ let conditions = [
   {
     cond: 'Thunderstorm',
     danceability: 0.0,
-    energy: 0.8
-  },
+    energy: 0.8,
+    icon: 'wi-thunderstorm'
+  }, 
   {
     cond: 'Drizzle',
     danceability: 0.1,
-    energy: 0.4
+    energy: 0.4,
+    icon: "wi-sprinkle"
   },
   {
     cond: 'Rain',
     danceability: 0.1,
-    energy: 0.5
-  },
+    energy: 0.5,
+    icon: 'wi-rain'
+  }, 
   {
     cond: 'Snow',
     danceability: 0.2,
-    energy: 0.2
-  },
+    energy: 0.2,
+    icon: 'wi-snowflake-cold'
+  }, 
   {
     cond: 'Clear',
     danceability: 1.0,
-    energy: 1.0
-  },
+    energy: 1.0,
+    icon: 'wi-night-clear'
+  }, 
   {
     cond: 'Clouds',
     danceability: 0.4,
-    energy: 0.3
-  },
-  {
+    energy: 0.3,
+    icon: 'wi-cloudy'
+  }, 
+  { 
     cond: 'Mist',
     danceability: 0.3,
-    energy: 0.2
-  },
-  {
+    energy: 0.2,
+    icon: 'wi-snow-wind'
+  }, 
+  { 
     cond: 'Smoke',
     danceability: 0.0,
-    energy: 0.6
-  },
+    energy: 0.6,
+    icon: 'wi-smoke'
+  }, 
   {
     cond: 'Haze',
     danceability: 0.4,
-    energy: 0.3
-  },
+    energy: 0.3,
+    icon: 'day-haze'
+  }, 
   {
     cond: 'Dust',
     danceability: 0.4,
-    energy: 0.3
+    energy: 0.3,
+    icon: 'wi-dust'
   },
-  {
+{
     cond: 'Fog',
     danceability: 0.3,
-    energy: 0.3
-  },
+    energy: 0.3,
+    icon: 'wi-fog'
+  }, 
   {
     cond: 'Sand',
     danceability: 0.8,
-    energy: 0.6
-  },
+    energy: 0.6,
+    icon: 'wi-sandstorm'
+  }, 
   {
     cond: 'Ash',
     danceability: 0.1,
-    energy: 0.2
-  },
+    energy: 0.2,
+    icon: 'volcano'
+  }, 
   {
     cond: 'Squall',
     danceability: 0.0,
-    energy: 0.8
-  },
+    energy: 0.8,
+    icon: 'wi-strong-wind'
+  }, 
   {
     cond: 'Tornado',
     danceability: 0.0,
-    energy: 1.0
+    energy: 1.0,
+    icon: 'wi-tornado'
   }
 ]
 
@@ -83,10 +98,9 @@ let moods = ['happy', 'stressed', 'chill', 'depressed', 'hyped']
 
 // global variables
 let mood
-let userLat
-let userLon
-let token = ''
 
+
+// find current position
 function geoFindMe() {
 
   const status = document.querySelector('#status')
@@ -95,18 +109,34 @@ function geoFindMe() {
   mapLink.href = ''
   mapLink.textContent = ''
 
+  // if position found
   function success(position) {
     const latitude = position.coords.latitude
     const longitude = position.coords.longitude
-    userLat = latitude
-    userLon = longitude
+
 
     status.textContent = ''
+    // call to openstreetmap
     mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
-    // mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
-    console.log(`Latitude: ${latitude} °, Longitude: ${longitude} °`)
+    
+    // request ip position
+    axios.get('http://ipinfo.io')
+      .then(res => {
+        // console.log(res.data.city)
+
+        // get city name from ip position, update text input
+        document.getElementById('city').value = res.data.city
+        document.getElementById('city').textContent = res.data.city
+        M.updateTextFields()
+      })
+      .catch(err => {
+        console.log(err)
+      })
 
   }
+
+
+  // if position not found, manual input instead
 
   function error() {
     status.textContent = 'Unable to retrieve your location. Please enter a city instead.'
@@ -121,6 +151,8 @@ function geoFindMe() {
 
 }
 
+// check if a mood is selected
+
 function moodSelected() {
   let count = 0
   $('.mood').each(function () {
@@ -128,13 +160,19 @@ function moodSelected() {
       count++
     }
   })
-
   return count >= 1
 }
 
 function getWeatherData(username, usercity, usermood) {
+  document.getElementById('name').value = ''
+  document.getElementById('city').value = ''
+  $('.mood').each(function () {
+    if ($(this).prop('checked', true)) {
+      $(this).prop('checked', false)
+    }
+  })
 
-  let weather = document.getElementById('weather')
+
   let currentCity = document.getElementById('currentCity')
   currentCity.textContent = usercity
 
@@ -164,84 +202,114 @@ function getWeatherData(username, usercity, usermood) {
     .then(res => {
       // check the weather condition from the result
       let cond = res.data.weather[0].main
+      let weather = document.getElementById('weather')
+      
+      let forecast = document.getElementById('forecast')
+      
+      forecast.innerHTML = ''
 
-      let weatherElem = document.getElementById('Forecast').innerHTML = `
-     
-        
-         <h2> ${res.data.weather[0].description}</h2>
-         <h3>Temperature: ${res.data.main.temp}</h3>
-         
-      `
-      weather.append(weatherElem)
-      console.log(res.data)
 
+      let cardElem = document.createElement('div')
+      cardElem.className = 'card-image'
+      cardElem.id = 'cardElem'
+
+      
       // new variables
       let danceability
       let energy
 
+      let iconElem = document.createElement('i')
       // loop through conditions array 
       for (let i = 0; i < conditions.length; i++) {
         // check for a condition with a matching description
         if (conditions[i].cond === cond) {
 
+          iconElem.className = `wi ${conditions[i].icon}`
+          iconElem.id = 'weatherIcons'
+          
           // assign danceability and energy
           danceability = conditions[i].danceability
           energy = conditions[i].energy
         }
       }
+      cardElem.append(iconElem)
+      forecast.append(cardElem)
+
+      let weatherElem = document.createElement('div')
+      weatherElem.className = 'card-content'
+      weatherElem.id = 'weatherDesc'
+      weatherElem.innerHTML = `
+        <p>Your current weather forecast: ${res.data.weather[0].main}</p>
+        <p>Your current temperature: ${res.data.main.temp} \xB0F</p> 
+      `
+      forecast.append(weatherElem)
 
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
 
-          'Authorization': `Bearer BQCtJyJzkX5hGkQToDqpmh1lc0BH6vjfc8MVcsgB4lcyZlXaqxrRPAzdQwHOzZdgciOb5989-3DKeaKGePFFgWL8gQr1dkDHMMXkz3pb0lfN4dBL0drTLnfEzhCErwH3OCR9POA6ne7V08IWGowQ27va`
+          'Authorization': `Bearer BQC3z5dQwdYG_-0CFZiUtRYqSCvsttMvE8napbanWmWufzo8ZcmmSAQpJE66lYId-u2Zzj-vyKZwzG7b8s3xKyjHviWJdaTZ3LMjfehnA6Q5WsfiVTdb4iQUcVI1166fzdx4HHoMjT3bLPdXFOSOc9gl`
         }
       })
-
-
         .then(res => {
           let tracks = res.data.tracks
-
-          // display all tracks with artists, album names, and song titles
+            
           let playlist = document.getElementById('playlist')
-          document.getElementById("lyrics").innerHTML = `
-                  <button>View Playlist</button>
-                  <div id="1"></div>
-                  <div id="2"></div>
-                  <div id="3"></div>
-                  <div id="4"></div>
-                  <div id="5"></div>
-                  <div id="6"></div>
-                  <div id="7"></div>
-                  <div id="8"></div>
-                  <div id="9"></div>
-                  <div id="10"></div>
-                `
+          let allImages = []
           for (let i = 0; i < tracks.length; i++) {
-            console.log(`Artist: ${tracks[i].artists[0].name}, Album: ${tracks[i].album.name}, Song Title: ${tracks[i].name}`)
+            image = tracks[i].album.images[0].url || "https://player.tritondigital.com/tpl/default/html5/img/player/default_cover_art.jpg"
+            allImages.push(image)
 
-
+            document.getElementById(`song${i+1}`).textContent = ''
+            document.getElementById(`lyrics${i+1}`).innerHTML = ''
             axios.get(`https://api.lyrics.ovh/v1/${tracks[i].artists[0].name}/${tracks[i].name}`)
               .then(res => {
-                console.log(res.data.lyrics)
-                let lyrics = res.data.lyrics
-                lyrics = lyrics.replace('\n', '<br>')
-                let playlist = document.getElementById('playlist')
-                // playlist.innerHTML = ''
 
-                document.getElementById(`${i}`).innerHTML = `
-                  <p>Artist: ${tracks[i].artists[0].name} Song Title: ${tracks[i].name}</p>
-                  <p>${lyrics}</p>
-                `
+                let lyrics = res.data.lyrics
+                lyrics = lyrics.replace(/(?:\r\n|\r|\n)/g, '<br>')
+
+                document.getElementById(`song${i+1}`).textContent = `${tracks[i].artists[0].name} – ${tracks[i].name}`
+                document.getElementById(`lyrics${i+1}`).innerHTML = lyrics
               })
               .catch(err => {
-                // console.error(err)
-                document.getElementById(`${i}`).innerHTML = `
-                <p>Artist: ${tracks[i].artists[0].name} Song Title: ${tracks[i].name}. 
-                There is no lyrics for the song</p>
+                console.log(err)
+                document.getElementById(`song${i+1}`).textContent = `${tracks[i].name}`
+                document.getElementById(`lyrics${i+1}`).innerHTML = `
+                  Sorry, no lyrics available.
                 `
               })
           }
+
+          let carousel = document.createElement('div')
+          carousel.className = 'carousel'
+
+          playlist.innerHTML = ''
+          playlist.innerHTML = `
+          <h2 class="center-align">Here's your playlist ${username}</h2>
+          `
+
+          for (let i = 0; i < allImages.length; i++) {
+            let carouselElem = document.createElement('a')
+            carouselElem.className = 'carousel-item'
+            carouselElem.href = `#${i}!`
+
+            let imgElem = document.createElement('img')
+            imgElem.src = `${allImages[i]}`
+
+            let divElem = document.createElement('div')
+          
+            divElem.innerHTML = `
+            <a class="btn-small waves-effect allBtns modal-trigger" href="#lyricsModal${i+1}">See Lyrics</a>
+            `
+            carouselElem.append(imgElem)
+            carouselElem.append(divElem)
+            carousel.append(carouselElem)
+          }
+
+          playlist.append(carousel)
+          $('.carousel').carousel();
+
+       
         })
         .catch(err => {
           console.error(err)
@@ -250,29 +318,19 @@ function getWeatherData(username, usercity, usermood) {
     .catch(err => {
       console.log(err)
     })
-
 }
-// axios.post({
-//   url: 'https://accounts.spotify.com/api/token',
-//   form: {
-//     grant_type: 'refresh_token',
-//     refresh_token: 'AQAftF4aMobHTr8Hzmap5Hbb2cGA8OFcGJAa0U6MTG_IxggQsNQ6KGrAL919X3fxNbBpTTh5KCFUEy6MVM0Oo1MlQJr9y2aLHssvAioycRIZldC_QxNP5-YmCukc6Or-_lI'
-//   },
-//   headers: {
-//     'Authorization': 'Basic NWIxNWE5YTMyOGRmNGE4ZDk4MDkxNmE0M2RmOWRhYzg6OTc5MWJlOTgzODJmNDhhOGIwZDI5Njg0ZGJiODVkZTI='
-//   }
-// })
-//   .then(res => {
-//     console.log(rs.data)
-//   })
-//   .catch(err => {
-//     console.log(err)
-//   })
 
 
+document.addEventListener('DOMContentLoaded', function () {
+  let elems = document.querySelectorAll('.modal')
+  let instances = M.Modal.init(elems)
+})
 
+document.querySelector('#find-me').addEventListener('click', function () {
+  event.preventDefault()
+  geoFindMe()
+})
 
-document.querySelector('#find-me').addEventListener('click', geoFindMe);
 
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('mood')) {
@@ -302,6 +360,5 @@ document.getElementById('submitBtn').addEventListener('click', function () {
         $(this).removeClass("active")
       }
     })
-  }
-})
+ 
 
