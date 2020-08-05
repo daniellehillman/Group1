@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
+    <title>Sensify – About</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">
+    <!-- reset css -->
+    <link rel="stylesheet" href="./assets/reset.css">
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Weather icons -->
+    <link rel="stylesheet" href="./assets/weather-icons.min.css">
   
-  <link rel="stylesheet" href="./style.css">
-  <link rel = "stylesheet"
-  href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-<script type = "text/javascript"
-  src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
-<script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-</head>
-
-<body>
-    <div class="col mainHeight">
-        <div class="row">
-          <nav>
-            <div class="nav-wrapper">
-              <a class="brand-logo center">Sensify</a>
-              <img href="./index.html" src="./images/logo.png" class="img-fluid size left">
-              <ul class="left hide-on-med-and-down"> 
-                <li><a href="#">Playlist History</a></li>
-                <li><a href="aboutus.html">About Us</a></li>
-            
-              </ul>
-                </div>
-               </a>
-              <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> 
-            </div>
-          </nav>
+    <!-- styling -->
+    <link rel="stylesheet" href="./assets/style.css">
+  </head>
+  <body>
+    <header id="header" class="row">
+      <nav>
+        <div id="navBar" class="nav-wrapper">
+          <a href="#!" id="brand" class="brand-logo center">Sensify</a>
+          <ul id="navLinks" class="right">
+            <li><a id="about" href="./index.html">Home</a></li>
+          </ul>
         </div>
+      </nav>
+    </header>
 
- <h1 class= "center">Meet the Team</h1>
+    <h1 class= "center">Meet the Team</h1>
 
 
   <div class="row">
     <div class="col s12 m7">
       <div class="card">
         <div class="card-image">
-          <img src="images/sample-1.jpg">
+      
           <span class="card-title">Card Title</span>
         </div>
         <div class="card-content">
@@ -62,7 +62,7 @@
     <div class="col s12 m7">
       <div class="card">
         <div class="card-image">
-          <img src="images/sample-1.jpg">
+          
           <span class="card-title">Card Title</span>
         </div>
         <div class="card-content">
@@ -74,14 +74,16 @@
         </div>
       </div>
     </div>
-  
+    <!-- jQuery if needed -->
+    <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      
+    <!-- axios cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-</div>
+    <!-- Materialize cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-</div>
-</div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="./script.js"></script>
-</body>
-
+    <!-- main script -->
+    <script src="./script.js"></script>
+  </body>
 </html>

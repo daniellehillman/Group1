@@ -12,6 +12,15 @@ nav {
   background-color:rgb(208,208,208); 
 }
 
+#about {
+  font-family: 'Quicksand', sans-serif;
+  height: 60px;
+}
+
+#navLinks {
+  height: 60px;
+}
+
 #mainBox {
   height: 600px;
   background-color: rgb(101,144,222); 

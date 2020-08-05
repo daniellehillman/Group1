@@ -314,12 +314,6 @@ document.addEventListener('DOMContentLoaded', function () {
   let instances = M.Modal.init(elems)
 })
 
-document.addEventListener('DOMContentLoaded', function () {
-  let elems = document.querySelectorAll('.sidenav')
-  let instances = M.Sidenav.init(elems)
-})
-
-
 document.querySelector('#find-me').addEventListener('click', function () {
   event.preventDefault()
   geoFindMe()
@@ -354,4 +348,4 @@ document.getElementById('submitBtn').addEventListener('click', function () {
       }
     })
   }
-})
+}
