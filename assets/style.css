@@ -116,6 +116,10 @@ nav {
   background-color: rgb(101,144,222);
 }
 
+#weatherDesc {
+  background-color: rgb(208,208,208);
+}
+
 #footer, #footerLinks, #footerRow, #footerCopyright, #copyright {
   font-family: 'Quicksand', sans-serif; 
   background-color: rgb(101,144,222);

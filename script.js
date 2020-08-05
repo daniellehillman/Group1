@@ -158,6 +158,13 @@ function moodSelected() {
 }
 
 function getWeatherData(username, usercity, usermood) {
+  document.getElementById('name').value = ''
+  document.getElementById('city').value = ''
+  $('.mood').each(function () {
+    if ($(this).prop('checked', true)) {
+      $(this).prop('checked', false)
+    }
+  })
 
   let currentCity = document.getElementById('currentCity')
   currentCity.textContent = usercity
