@@ -26,14 +26,53 @@ nav {
   background-color: rgb(101,144,222); 
 }
 
+.cols {
+  display: table-cell;
+}
+
 .card {
   display: inline-block;
   overflow: visible;
 }
 
+.cardTags p {
+  font-family: 'Quicksand', sans-serif;
+  background-color: rgb(101,144,222);
+  color: rgb(208,208,208); 
+  font-size: 20px;
+}
+
+#cardLinks {
+  font-family: 'Quicksand', sans-serif;
+  background-color: rgb(101,144,222);
+  color: rgb(208,208,208); 
+}
+
+#cardLinks a {
+  text-decoration: none;
+  color: rgb(208,208,208);
+  margin-right: 0;
+}
+
 .cardSize{
   height: 100%;
   background-color: rgb(101,144,222);
+}
+
+.idCards {
+  background-color: rgb(101,144,222);
+  width: 85%;
+}
+
+.cropped {
+  width: 200px; /* width of container */
+  height: 400px; /* height of container */
+  object-fit: cover;
+}
+
+#aboutTitle {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
 }
 
 #logo {
