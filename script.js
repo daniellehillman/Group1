@@ -99,7 +99,6 @@ let moods = ['happy', 'stressed', 'chill', 'depressed', 'hyped']
 // global variables
 let mood
 
-
 // find current position
 function geoFindMe() {
 
@@ -116,7 +115,6 @@ function geoFindMe() {
   function success(position) {
     const latitude = position.coords.latitude
     const longitude = position.coords.longitude
-
 
     status.textContent = ''
     // call to openstreetmap
@@ -138,9 +136,7 @@ function geoFindMe() {
 
   }
 
-
   // if position not found, manual input instead
-
   function error() {
     status.textContent = 'Unable to retrieve your location. Please enter a city instead.'
   }
@@ -151,11 +147,9 @@ function geoFindMe() {
     status.textContent = 'Locating…'
     navigator.geolocation.getCurrentPosition(success, error)
   }
-
 }
 
 // check if a mood is selected
-
 function moodSelected() {
   let count = 0
   $('.mood').each(function () {
@@ -174,7 +168,6 @@ function getWeatherData(username, usercity, usermood) {
       $(this).prop('checked', false)
     }
   })
-
 
   let currentCity = document.getElementById('currentCity')
   currentCity.textContent = usercity
@@ -210,7 +203,6 @@ function getWeatherData(username, usercity, usermood) {
       let forecast = document.getElementById('forecast')
       
       forecast.innerHTML = ''
-
 
       let cardElem = document.createElement('div')
       cardElem.className = 'card-image'
@@ -250,7 +242,6 @@ function getWeatherData(username, usercity, usermood) {
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-
           'Authorization': `Bearer BQC3z5dQwdYG_-0CFZiUtRYqSCvsttMvE8napbanWmWufzo8ZcmmSAQpJE66lYId-u2Zzj-vyKZwzG7b8s3xKyjHviWJdaTZ3LMjfehnA6Q5WsfiVTdb4iQUcVI1166fzdx4HHoMjT3bLPdXFOSOc9gl`
         }
       })
@@ -311,8 +302,6 @@ function getWeatherData(username, usercity, usermood) {
 
           playlist.append(carousel)
           $('.carousel').carousel();
-
-       
         })
         .catch(err => {
           console.error(err)
@@ -322,27 +311,16 @@ function getWeatherData(username, usercity, usermood) {
       console.log(err)
     })
 }
-// axios.post({
-//   url: 'https://accounts.spotify.com/api/token',
-//   form: {
-//     grant_type: 'refresh_token',
-//     refresh_token: 'AQAftF4aMobHTr8Hzmap5Hbb2cGA8OFcGJAa0U6MTG_IxggQsNQ6KGrAL919X3fxNbBpTTh5KCFUEy6MVM0Oo1MlQJr9y2aLHssvAioycRIZldC_QxNP5-YmCukc6Or-_lI'
-//   },
-//   headers: {
-//     'Authorization': 'Basic NWIxNWE5YTMyOGRmNGE4ZDk4MDkxNmE0M2RmOWRhYzg6OTc5MWJlOTgzODJmNDhhOGIwZDI5Njg0ZGJiODVkZTI='
-//   }
-// })
-//   .then(res => {
-//     console.log(rs.data)
-//   })
-//   .catch(err => {
-//     console.log(err)
-//   })
 
+document.addEventListener('DOMContentLoaded', function () {
+  let elems = document.querySelectorAll('.modal')
+  let instances = M.Modal.init(elems)
+})
 
-
-
-document.querySelector('#find-me').addEventListener('click', geoFindMe);
+document.querySelector('#find-me').addEventListener('click', function () {
+  event.preventDefault()
+  geoFindMe()
+})
 
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('mood')) {
