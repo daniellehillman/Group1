@@ -35,7 +35,7 @@ let conditions = [
     cond: 'Thunderstorm',
     danceability: 0.0,
     energy: 0.8
-  }, 
+  },
   {
     cond: 'Drizzle',
     danceability: 0.1,
@@ -45,37 +45,37 @@ let conditions = [
     cond: 'Rain',
     danceability: 0.1,
     energy: 0.5
-  }, 
+  },
   {
     cond: 'Snow',
     danceability: 0.2,
     energy: 0.2
-  }, 
+  },
   {
     cond: 'Clear',
     danceability: 1.0,
     energy: 1.0
-  }, 
+  },
   {
     cond: 'Clouds',
     danceability: 0.4,
     energy: 0.3
-  }, 
-  { 
+  },
+  {
     cond: 'Mist',
     danceability: 0.3,
     energy: 0.2
-  }, 
-  { 
+  },
+  {
     cond: 'Smoke',
     danceability: 0.0,
     energy: 0.6
-  }, 
+  },
   {
     cond: 'Haze',
     danceability: 0.4,
     energy: 0.3
-  }, 
+  },
   {
     cond: 'Dust',
     danceability: 0.4,
@@ -85,22 +85,22 @@ let conditions = [
     cond: 'Fog',
     danceability: 0.3,
     energy: 0.3
-  }, 
+  },
   {
     cond: 'Sand',
     danceability: 0.8,
     energy: 0.6
-  }, 
+  },
   {
     cond: 'Ash',
     danceability: 0.1,
     energy: 0.2
-  }, 
+  },
   {
     cond: 'Squall',
     danceability: 0.0,
     energy: 0.8
-  }, 
+  },
   {
     cond: 'Tornado',
     danceability: 0.0,
@@ -117,40 +117,41 @@ let userLat
 let userLon
 let token = ''
 
-function geoFindMe () {
+function geoFindMe() {
 
   const status = document.querySelector('#status')
-  const mapLink = document.querySelector('#map-link')  
+  const mapLink = document.querySelector('#map-link')
+
   mapLink.href = ''
-  mapLink.textContent = '' 
-  
+  mapLink.textContent = ''
+
   function success(position) {
-    const latitude  = position.coords.latitude
+    const latitude = position.coords.latitude
     const longitude = position.coords.longitude
     userLat = latitude
     userLon = longitude
-  
+
     status.textContent = ''
     mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
     // mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
     console.log(`Latitude: ${latitude} °, Longitude: ${longitude} °`)
 
   }
-  
+
   function error() {
     status.textContent = 'Unable to retrieve your location. Please enter a city instead.'
   }
-  
+
   if (!navigator.geolocation) {
     status.textContent = 'Geolocation is not supported by your browser'
   } else {
     status.textContent = 'Locating…'
     navigator.geolocation.getCurrentPosition(success, error)
   }
-  
+
 }
 
-function moodSelected () {
+function moodSelected() {
   let count = 0
   $('.mood').each(function () {
     if ($(this).hasClass('active')) {
@@ -161,7 +162,7 @@ function moodSelected () {
 
 }
 
-function getWeatherData (username, usercity, usermood) {
+function getWeatherData(username, usercity, usermood) {
 
   let weather = document.getElementById('weather')
   let currentCity = document.getElementById('currentCity')
@@ -173,19 +174,19 @@ function getWeatherData (username, usercity, usermood) {
   switch (moods[usermood]) {
     case 'happy':
       genre = 'pop'
-    break
+      break
     case 'chill':
       genre = 'chill'
-    break
+      break
     case 'depressed':
       genre = 'r-n-b'
-    break
+      break
     case 'hyped':
       genre = 'edm'
-    break
+      break
     case 'stressed':
       genre = 'jazz'
-    break
+      break
   }
 
 
@@ -208,7 +209,7 @@ function getWeatherData (username, usercity, usermood) {
 
       // new variables
       let danceability
-      let energy 
+      let energy
 
       // loop through conditions array 
       for (let i = 0; i < conditions.length; i++) {
@@ -224,71 +225,58 @@ function getWeatherData (username, usercity, usermood) {
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
+
           'Authorization': `Bearer BQCtJyJzkX5hGkQToDqpmh1lc0BH6vjfc8MVcsgB4lcyZlXaqxrRPAzdQwHOzZdgciOb5989-3DKeaKGePFFgWL8gQr1dkDHMMXkz3pb0lfN4dBL0drTLnfEzhCErwH3OCR9POA6ne7V08IWGowQ27va`
-        }}) 
+        }
+      })
+
+
         .then(res => {
           let tracks = res.data.tracks
 
           // display all tracks with artists, album names, and song titles
+          let playlist = document.getElementById('playlist')
+          document.getElementById("lyrics").innerHTML = `
+                  <button>View Playlist</button>
+                  <div id="1"></div>
+                  <div id="2"></div>
+                  <div id="3"></div>
+                  <div id="4"></div>
+                  <div id="5"></div>
+                  <div id="6"></div>
+                  <div id="7"></div>
+                  <div id="8"></div>
+                  <div id="9"></div>
+                  <div id="10"></div>
+                `
           for (let i = 0; i < tracks.length; i++) {
             console.log(`Artist: ${tracks[i].artists[0].name}, Album: ${tracks[i].album.name}, Song Title: ${tracks[i].name}`)
+
+
+            axios.get(`https://api.lyrics.ovh/v1/${tracks[i].artists[0].name}/${tracks[i].name}`)
+              .then(res => {
+                console.log(res.data.lyrics)
+                let lyrics = res.data.lyrics
+                lyrics = lyrics.replace('\n', '<br>')
+                let playlist = document.getElementById('playlist')
+                // playlist.innerHTML = ''
+
+                document.getElementById(`${i}`).innerHTML = `
+                  <p>Artist: ${tracks[i].artists[0].name} Song Title: ${tracks[i].name}</p>
+                  <p>${lyrics}</p>
+                `
+              })
+              .catch(err => {
+                // console.error(err)
+                document.getElementById(`${i}`).innerHTML = `
+                <p>Artist: ${tracks[i].artists[0].name} Song Title: ${tracks[i].name}. 
+                There is no lyrics for the song</p>
+                `
+              })
           }
-
-          let playlist = document.getElementById('playlist')
-          
-        
-        
-            
-      
-
-          let allImages = []
-          for (i= 0; i < tracks.length; i++) {
-            image = tracks[i].album.images[0].url || "https://player.tritondigital.com/tpl/default/html5/img/player/default_cover_art.jpg"
-            allImages.push(image)
-            console.log(allImages)
-          }
-
-          playlist.innerHTML = ''
-
-          playlist.innerHTML = `
-
-            <div class="carousel">
-          
-           <a class="carousel-item" href="#two!"><img src="${allImages[0]}"> <div id="0">0</div></a>
-           <a class="carousel-item" href="#three!"><img src="${allImages[1]}"><div id="1">1</div></a>
-           <a class="carousel-item" href="#four!"><img src="${allImages[2]}"><div id="2">2</div></a>
-            <a class="carousel-item" href="#five!"><img src="${allImages[3]}"><div id="3">3</div></a>
-            <a class="carousel-item" href="#six!"><img src="${allImages[4]}"><div id="4">4</div></a>
-            <a class="carousel-item" href="#seven!"><img src="${allImages[5]}"><div id="5">5</div></a>
-            <a class="carousel-item" href="#eight!"><img src="${allImages[6]}"><div id="6">6</div></a>
-            <a class="carousel-item" href="#nine!"><img src="${allImages[7]}"><div id="7">7</div></a>
-            <a class="carousel-item" href="#ten!"><img src="${allImages[8]}"><div id="8">8</div></a>
-            <a class="carousel-item" href="#ten!"><img src="${allImages[9]}"><div id="9">9</div></a>
-  
-          
-          </div>
-          `
-          $('.carousel').carousel();
-      
         })
         .catch(err => {
           console.error(err)
-          // axios.post({
-          //   url: 'https://accounts.spotify.com/api/token',
-          //   form: {
-          //     grant_type: 'refresh_token',
-          //     refresh_token: 'AQAftF4aMobHTr8Hzmap5Hbb2cGA8OFcGJAa0U6MTG_IxggQsNQ6KGrAL919X3fxNbBpTTh5KCFUEy6MVM0Oo1MlQJr9y2aLHssvAioycRIZldC_QxNP5-YmCukc6Or-_lI'
-          //   },
-          //   headers: {
-          //     'Authorization': 'Basic NWIxNWE5YTMyOGRmNGE4ZDk4MDkxNmE0M2RmOWRhYzg6OTc5MWJlOTgzODJmNDhhOGIwZDI5Njg0ZGJiODVkZTI='
-          //   }
-          // })
-          //   .then(res => {
-          //     console.log(rs.data)
-          //   })
-          //   .catch(err => {
-          //     console.log(err)
-          //   })
         })
     })
     .catch(err => {
@@ -296,12 +284,27 @@ function getWeatherData (username, usercity, usermood) {
     })
 
 }
-  
-document.querySelector('#find-me').addEventListener('click', function() {
-  event.preventDefault()
-  geoFindMe()
+// axios.post({
+//   url: 'https://accounts.spotify.com/api/token',
+//   form: {
+//     grant_type: 'refresh_token',
+//     refresh_token: 'AQAftF4aMobHTr8Hzmap5Hbb2cGA8OFcGJAa0U6MTG_IxggQsNQ6KGrAL919X3fxNbBpTTh5KCFUEy6MVM0Oo1MlQJr9y2aLHssvAioycRIZldC_QxNP5-YmCukc6Or-_lI'
+//   },
+//   headers: {
+//     'Authorization': 'Basic NWIxNWE5YTMyOGRmNGE4ZDk4MDkxNmE0M2RmOWRhYzg6OTc5MWJlOTgzODJmNDhhOGIwZDI5Njg0ZGJiODVkZTI='
+//   }
+// })
+//   .then(res => {
+//     console.log(rs.data)
+//   })
+//   .catch(err => {
+//     console.log(err)
+//   })
 
-})
+
+
+
+document.querySelector('#find-me').addEventListener('click', geoFindMe);
 
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('mood')) {
@@ -318,14 +321,19 @@ document.getElementById('submitBtn').addEventListener('click', function () {
   let city = document.getElementById('city')
 
   if (name.value === '' ||
-      city.value === '' ||
-      !moodSelected()) 
-      {
-        console.log(name.value)
-        console.log(city.value)
+    city.value === '' ||
+    !moodSelected()) {
     let required = document.getElementById('requireAll')
     required.innerHTML = `Please fill in all inputs.`
   } else {
     getWeatherData(name.value, city.value, mood)
+    name.value = ''
+    city.value = ''
+    $(".mood").each(function () {
+      if ($(this).hasClass("active")) {
+        $(this).removeClass("active")
+      }
+    })
   }
 })
+
