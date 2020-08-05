@@ -118,7 +118,7 @@ function geoFindMe() {
     mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
     
     // request ip position
-    axios.get('http://ipinfo.io')
+    axios.get('https://ipinfo.io')
       .then(res => {
         // console.log(res.data.city)
 
