@@ -103,6 +103,7 @@ let mood
 // find current position
 function geoFindMe() {
 
+  event.preventDefault()
   const status = document.querySelector('#status')
   const mapLink = document.querySelector('#map-link')
 
