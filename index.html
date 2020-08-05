@@ -39,27 +39,33 @@
     </header>
     <main class="row">
       <section id="playlist" class="col s12 m6 l6">
-        <h3>Get a Playlist</h3>
+        <div class="center-align">
+          <h3>Get a Playlist</h3>
+        </div>
         <form id="form">
-
+          
           <!-- input name -->
-          <div class="input-field">
+          <div class="input-field center-align">
             <input type="text" name="name" id="name" class="validate">
             <label for="name" id="nameLabel">Name</label>
           </div>
 
           <!-- find location or manually input city -->
-          <div class="input-field">
+          <div class="input-field center-align">
             <input type="text" name="city" id="city" class="validate">
             <label for="city" id="cityLabel">City</label>
           </div>
-          <button id ="find-me" class="btn-large waves-effect allBtns">Find My Location</button>
-          <p id ="status"></p>
-          <a id ="map-link" target="_blank"></a>
+          <div class="center-align">
+            <button id ="find-me" class="btn-large waves-effect allBtns">Find My Location</button>
+            <p id ="status"></p>
+            <a id ="map-link" target="_blank"></a>
+          </div>
 
           <!-- select a choice for mood -->
-          <label for="city" id="moodLabel">Please enter your mood: </label>
-          <div id="radioWrapper">
+          <div class="center-align">
+            <label for="city" id="moodLabel">Please enter your mood: </label>
+          </div>
+          <div id="radioWrapper" class="center-left">
             <p>
               <label for="happy">
                 <input class="mood" type="radio" name="moodChoice" value="0" id="happy">
@@ -91,7 +97,9 @@
               </label>
             </p>
           </div>
-          <button id="submitBtn" class="btn-large waves-effect allBtns">Submit</button>
+          <div id="submitWrapper" class="center-align">
+            <button id="submitBtn" class="btn-large waves-effect allBtns">Submit</button>
+          </div>
         </form>
         <div id="requireAll"></div>
       </section>
@@ -160,7 +168,6 @@
 
       <!-- Show weather data for the city/current location -->
       <section id="weather" class="col s12 m6 l6 center-align">
-        <h2>Current Weather</h2>
         <p id="currentCity"></p>
         <div class="row">
           <div class="col s12 m12">
