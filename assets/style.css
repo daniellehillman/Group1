@@ -116,6 +116,10 @@ nav {
   background-color: rgb(101,144,222) !important;
 }
 
+#currentCity {
+  font-size: 30px;
+}
+
 #forecast {
   background-color: rgb(101,144,222);
 }
