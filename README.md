@@ -1,5 +1,13 @@
-# Sensify: The Weather-based Playlist Recommender
+# Sensify: The Weather Playlist Recommender
 
+### About 
+Sensify is an application that uses the weather and your mood to recommend a Spotify playlist. It runs in the browser and uses the OpenWeatherMap API, the Spotify Web API, and the lyricsovh API.
+
+Simply input your name, your city, and select one of our chosen moods, and a playlist will be recommended to you. You can also allow the application to use your current location to fill in the city input for you.
+
+You will be recommended ten songs depending on your input, each of which may have lyrics available to read through. Play the song on another application to follow along.
+
+### Images 
 
 ### How to use Sensify
 It may not run in browser due to the authorization process of the Spotify Web API.
