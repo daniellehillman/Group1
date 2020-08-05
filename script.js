@@ -175,19 +175,19 @@ function getWeatherData(username, usercity, usermood) {
   switch (moods[usermood]) {
     case 'happy':
       genre = 'pop'
-    break
+      break
     case 'chill':
       genre = 'chill'
-    break
+      break
     case 'depressed':
       genre = 'r-n-b'
-    break
+      break
     case 'hyped':
       genre = 'edm'
-    break
+      break
     case 'stressed':
       genre = 'jazz'
-    break
+      break
   }
 
   // call to OpenWeatherAPI using city
@@ -333,11 +333,19 @@ document.getElementById('submitBtn').addEventListener('click', function () {
   let city = document.getElementById('city')
 
   if (name.value === '' ||
-      city.value === '' ||
-      !moodSelected()) {
+    city.value === '' ||
+    !moodSelected()) {
     let required = document.getElementById('requireAll')
     required.innerHTML = `Please fill in all inputs.`
   } else {
     getWeatherData(name.value, city.value, mood)
+    name.value = ''
+    city.value = ''
+    $(".mood").each(function () {
+      if ($(this).hasClass("active")) {
+        $(this).removeClass("active")
+      }
+    })
   }
 })
+
