@@ -220,7 +220,7 @@ function getWeatherData (username, usercity, usermood) {
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-          'Authorization': `Bearer BQCtJyJzkX5hGkQToDqpmh1lc0BH6vjfc8MVcsgB4lcyZlXaqxrRPAzdQwHOzZdgciOb5989-3DKeaKGePFFgWL8gQr1dkDHMMXkz3pb0lfN4dBL0drTLnfEzhCErwH3OCR9POA6ne7V08IWGowQ27va`
+          'Authorization': `Bearer BQB2vki_U_9F1CneBrA-8e0KbgAxPXzYEmPWCQ9Q5K1dNIlJ7p52x85pNhPHFjTl7eGwB04ff7Zgtrre4BlAQ1iWQhkBDfCRnrQVWmPqg9Dc7Ns9p-1DdcXaSco1dWquG3w9l6R4Vvzl9UVmQ_iq7mHN`
         }}) 
         .then(res => {
           let tracks = res.data.tracks
@@ -231,10 +231,6 @@ function getWeatherData (username, usercity, usermood) {
           }
 
           let playlist = document.getElementById('playlist')
-          
-        
-        
-            
       
 
           let allImages = []
@@ -269,22 +265,6 @@ function getWeatherData (username, usercity, usermood) {
         })
         .catch(err => {
           console.error(err)
-          // axios.post({
-          //   url: 'https://accounts.spotify.com/api/token',
-          //   form: {
-          //     grant_type: 'refresh_token',
-          //     refresh_token: 'AQAftF4aMobHTr8Hzmap5Hbb2cGA8OFcGJAa0U6MTG_IxggQsNQ6KGrAL919X3fxNbBpTTh5KCFUEy6MVM0Oo1MlQJr9y2aLHssvAioycRIZldC_QxNP5-YmCukc6Or-_lI'
-          //   },
-          //   headers: {
-          //     'Authorization': 'Basic NWIxNWE5YTMyOGRmNGE4ZDk4MDkxNmE0M2RmOWRhYzg6OTc5MWJlOTgzODJmNDhhOGIwZDI5Njg0ZGJiODVkZTI='
-          //   }
-          // })
-          //   .then(res => {
-          //     console.log(rs.data)
-          //   })
-          //   .catch(err => {
-          //     console.log(err)
-          //   })
         })
     })
     .catch(err => {
