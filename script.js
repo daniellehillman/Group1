@@ -61,7 +61,7 @@ let conditions = [
     energy: 0.3,
     icon: 'wi-dust'
   },
-  {
+{
     cond: 'Fog',
     danceability: 0.3,
     energy: 0.3,
@@ -205,6 +205,7 @@ function getWeatherData(username, usercity, usermood) {
       cardElem.className = 'card-image'
       cardElem.id = 'cardElem'
 
+      
       // new variables
       let danceability
       let energy
@@ -346,6 +347,5 @@ document.getElementById('submitBtn').addEventListener('click', function () {
         $(this).removeClass("active")
       }
     })
-  }
-})
+ 
 
