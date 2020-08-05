@@ -24,8 +24,10 @@ If the code is downloaded, do the following to run Sensify in the browser:
 
 * It should give you an output similar to this:
 > {"access_token":"{access token}","token_type":"Bearer","expires_in":3600,"refresh_token":"{refresh token}","scope":""}
-Save both the access token and the refresh token.
+
+* Save both the access token and the refresh token.
 
 * Use the access token in your code for making a request to the Spotify API. After an hour, the access token will expire. Then, run the following in your terminal:
 > curl -H "Authorization: Basic {base64encoded(clientid:clientsecret)}" -d grant_type=refresh_token -d refresh_token={refresh token} https://accounts.spotify.com/api/token
-You will then be given a new access token. Copy it and use it in your code. Repeat whenever a new token is required.
+
+* You will then be given a new access token. Copy it and use it in your code. Repeat whenever a new token is required.
