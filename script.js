@@ -1,110 +1,95 @@
-
-var instance = M.Carousel.init({
-  fullWidth: true,
-  indicators: true
-})
-
-
-
-
-// document.getElementById('submit').addEventListener('click', event => {
-//   event.preventDefault()
-
-//   let city = document.getElementById('city').value
-
-//   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=1dd25ac798a84daed3b612ef4b3c9a3e`)
-//     .then(res => {
-//       console.log(res.data)
-//       document.getElementById('test').innerHTML = `
-//       <h1>${res.data.name}</h1>
-//       <h2>Weather: ${res.data.weather[0].description}</h2>
-//       <h3>Temperature: ${res.data.main.temp}</h3>
-
-//     `
-//     })
-
-//     .catch(err => { console.log(err) })
-
-// })
-
-
 // conditions array of objects
 // each object has a weather condition, a danceability number, and energy number
 let conditions = [
   {
     cond: 'Thunderstorm',
     danceability: 0.0,
-    energy: 0.8
-  },
+    energy: 0.8,
+    icon: 'wi-thunderstorm'
+  }, 
   {
     cond: 'Drizzle',
     danceability: 0.1,
-    energy: 0.4
+    energy: 0.4,
+    icon: "wi-sprinkle"
   },
   {
     cond: 'Rain',
     danceability: 0.1,
-    energy: 0.5
-  },
+    energy: 0.5,
+    icon: 'wi-rain'
+  }, 
   {
     cond: 'Snow',
     danceability: 0.2,
-    energy: 0.2
-  },
+    energy: 0.2,
+    icon: 'wi-snowflake-cold'
+  }, 
   {
     cond: 'Clear',
     danceability: 1.0,
-    energy: 1.0
-  },
+    energy: 1.0,
+    icon: 'wi-night-clear'
+  }, 
   {
     cond: 'Clouds',
     danceability: 0.4,
-    energy: 0.3
-  },
-  {
+    energy: 0.3,
+    icon: 'wi-cloudy'
+  }, 
+  { 
     cond: 'Mist',
     danceability: 0.3,
-    energy: 0.2
-  },
-  {
+    energy: 0.2,
+    icon: 'wi-snow-wind'
+  }, 
+  { 
     cond: 'Smoke',
     danceability: 0.0,
-    energy: 0.6
-  },
+    energy: 0.6,
+    icon: 'wi-smoke'
+  }, 
   {
     cond: 'Haze',
     danceability: 0.4,
-    energy: 0.3
-  },
+    energy: 0.3,
+    icon: 'day-haze'
+  }, 
   {
     cond: 'Dust',
     danceability: 0.4,
-    energy: 0.3
+    energy: 0.3,
+    icon: 'wi-dust'
   },
   {
     cond: 'Fog',
     danceability: 0.3,
-    energy: 0.3
-  },
+    energy: 0.3,
+    icon: 'wi-fog'
+  }, 
   {
     cond: 'Sand',
     danceability: 0.8,
-    energy: 0.6
-  },
+    energy: 0.6,
+    icon: 'wi-sandstorm'
+  }, 
   {
     cond: 'Ash',
     danceability: 0.1,
-    energy: 0.2
-  },
+    energy: 0.2,
+    icon: 'volcano'
+  }, 
   {
     cond: 'Squall',
     danceability: 0.0,
-    energy: 0.8
-  },
+    energy: 0.8,
+    icon: 'wi-strong-wind'
+  }, 
   {
     cond: 'Tornado',
     danceability: 0.0,
-    energy: 1.0
+    energy: 1.0,
+    icon: 'wi-tornado'
   }
 ]
 
@@ -177,19 +162,19 @@ function getWeatherData(username, usercity, usermood) {
   switch (moods[usermood]) {
     case 'happy':
       genre = 'pop'
-      break
+    break
     case 'chill':
       genre = 'chill'
-      break
+    break
     case 'depressed':
       genre = 'r-n-b'
-      break
+    break
     case 'hyped':
       genre = 'edm'
-      break
+    break
     case 'stressed':
       genre = 'jazz'
-      break
+    break
   }
 
   // call to OpenWeatherAPI using city
@@ -216,6 +201,10 @@ function getWeatherData(username, usercity, usermood) {
       for (let i = 0; i < conditions.length; i++) {
         // check for a condition with a matching description
         if (conditions[i].cond === cond) {
+
+          let iconElem = document.createElement('i')
+          iconElem.className = `${conditions[i].icon}`
+          weather.append(iconElem)
 
           // assign danceability and energy
           danceability = conditions[i].danceability
@@ -320,7 +309,6 @@ document.querySelector('#find-me').addEventListener('click', function () {
   geoFindMe()
 })
 
-
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('mood')) {
     event.target.classList.add('active')
@@ -336,19 +324,11 @@ document.getElementById('submitBtn').addEventListener('click', function () {
   let city = document.getElementById('city')
 
   if (name.value === '' ||
-    // <<<<<<< HEAD
-    //     city.value === '' ||
-    //     !moodSelected()) {
-    // =======
-    city.value === '' ||
-    !moodSelected()) {
-    console.log(name.value)
-    console.log(city.value)
-
+      city.value === '' ||
+      !moodSelected()) {
     let required = document.getElementById('requireAll')
     required.innerHTML = `Please fill in all inputs.`
   } else {
     getWeatherData(name.value, city.value, mood)
   }
 })
-
