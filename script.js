@@ -258,11 +258,11 @@ function getWeatherData(username, usercity, usermood) {
                 let lyrics = res.data.lyrics
                 lyrics = lyrics.replace(/(?:\r\n|\r|\n)/g, '<br>')
 
-                document.getElementById(`song${i+1}`).textContent = `${tracks[i].name}`
+                document.getElementById(`song${i+1}`).textContent = `${tracks[i].artists[0].name} – ${tracks[i].name}`
                 document.getElementById(`lyrics${i+1}`).innerHTML = lyrics
               })
               .catch(err => {
-                console.log(err, 'not working')
+                console.log(err)
                 document.getElementById(`song${i+1}`).textContent = `${tracks[i].name}`
                 document.getElementById(`lyrics${i+1}`).innerHTML = `
                   Sorry, no lyrics available.
