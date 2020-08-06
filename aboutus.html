@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
-    <title>Sensify – About</title>
 
-    <!-- reset css -->
-    <link rel="stylesheet" href="./assets/reset.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
+  <title>Sensify – About</title>
 
-    <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <!-- reset css -->
+  <link rel="stylesheet" href="./assets/reset.css">
 
-    <!-- Materialize -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
-    <!-- Material icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Weather icons -->
-    <link rel="stylesheet" href="./assets/weather-icons.min.css">
-  
-    <!-- styling -->
-    <link rel="stylesheet" href="./assets/style.css">
-  </head>
-  <body>
-    <div id="pageWrapper">
+  <!-- Material icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Weather icons -->
+  <link rel="stylesheet" href="./assets/weather-icons.min.css">
+
+  <!-- styling -->
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+  <div id="pageWrapper">
     <header id="header" class="row">
       <nav>
         <section id="navBar" class="nav-wrapper">
           <a href="#!" id="brand" class="brand-logo center">Sensify</a>
-        <div id="navBar" class="nav-wrapper">
-          <img id="logo" src="./images/Sensify_edited-4_copy.png" alt="logo" class="responsive-img">
-          <a href="./index.html" id="brand" class="brand-logo center">Sensify</a>
-          <ul id="navLinks" class="right">
-            <li><a href="./index.html"><i class="material-icons">home</i></a></li>
-          </ul>
+          <div id="navBar" class="nav-wrapper">
+            <img id="logo" src="./images/Sensify_edited-4_copy.png" alt="logo" class="responsive-img">
+            <a href="./index.html" id="brand" class="brand-logo center">Sensify</a>
+            <ul id="navLinks" class="right">
+              <li><a href="./index.html"><i class="material-icons">home</i></a></li>
+            </ul>
         </section>
       </nav>
     </header>
@@ -52,9 +54,9 @@
     <section class="row center-align">
       <div class="col s12 m4 cols">
         <div class="card idCards" id="us">
-          <div class="card-image">
+          <figure class="card-image">
             <img class="cropped" src="./images/daniellehillman.jpg" alt="Danielle Hillman">
-          </div>
+          </figure>
           <div class="card-content cardTags center-align">
             <p class="bioText">Hi, I'm Danielle.</p>
           </div>
@@ -66,9 +68,9 @@
       </div>
       <div class="col s12 m4 cols">
         <div class="card idCards" id="us">
-          <div class="card-image">
+          <figure class="card-image">
             <img class="cropped" src="./images/Adam.jpg" alt="Adam Madueno">
-          </div>
+          </figure>
           <div class="card-content cardTags center-align">
             <p class="bioText">Hi, I'm Adam.</p>
           </div>
@@ -80,9 +82,9 @@
       </div>
       <div class="col s12 m4 cols">
         <div class="card idCards" id="us">
-          <div class="card-image">
+          <figure class="card-image">
             <img class="cropped" src="./images/mattjavier.jpg" alt="Matthew Javier">
-          </div>
+          </figure>
           <div class="card-content cardTags center-align">
             <p class="bioText">Hi, I'm Matt.</p>
           </div>
@@ -97,9 +99,9 @@
       <div class="col offset-m2"></div>
       <div class="col s12 m4 cols">
         <div class="card idCards" id="us">
-          <div class="card-image">
+          <figure class="card-image">
             <img class="cropped" src="./images/Daniel-Le.JPG" alt="Daniel Le">
-          </div>
+          </figure>
           <div class="card-content cardTags center-align">
             <p class="bioText">Hi, I'm Daniel.</p>
           </div>
@@ -111,9 +113,9 @@
       </div>
       <div class="col s12 m4 cols">
         <div class="card idCards" id="us">
-          <div class="card-image">
+          <figure class="card-image">
             <img class="cropped" src="./images/danielayala.jpg" alt="Daniel Ayala">
-          </div>
+          </figure>
           <div class="card-content cardTags center-align">
             <p class="bioText">Hi, I'm Daniel.</p>
           </div>
@@ -125,34 +127,35 @@
       </div>
       <div class="col offset-m2"></div>
     </section>
+  </div>
+  <footer id="footer" class="page-footer">
+    <div id="footerLinks" class="container">
+      <div class="row">
+        <div class="col s12 center-align footerCol">
+          <span id="codeIcon" class="material-icons">code</span>
+        </div>
+        <div class="col s12 center-align footerCol">
+          <a id="githubLink" href="https://github.com/daniellehillman/Group1/tree/master">GitHub</a>
+        </div>
+      </div>
     </div>
-    <footer id="footer" class="page-footer">
-      <div id="footerLinks"class="container">
-        <div class="row">
-          <div class="col s12 center-align footerCol">
-            <span id="codeIcon" class="material-icons">code</span>
-          </div>
-          <div class="col s12 center-align footerCol">
-            <a id="githubLink" href="https://github.com/daniellehillman/Group1/tree/master">GitHub</a>
-          </div>
-        </div>
-      </div>
-      <div id="footerCopyright" class="footer-copyright center-align">
-        <div id="copyright" class="container">
+    <div id="footerCopyright" class="footer-copyright center-align">
+      <div id="copyright" class="container">
         © 2020 Sensify
-        </div>
       </div>
-    </footer>
-    <!-- jQuery if needed -->
-    <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      
-    <!-- axios cdn-->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </div>
+  </footer>
+  <!-- jQuery if needed -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
-    <!-- Materialize cdn -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- axios cdn-->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <!-- main script -->
-    <!-- <script src="./script.js"></script> -->
-  </body>
+  <!-- Materialize cdn -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <!-- main script -->
+  <!-- <script src="./script.js"></script> -->
+</body>
+
 </html>

@@ -32,178 +32,177 @@
 
 <body>
   <div id="pageWrapper">
+    <!-- This is the NavBar -->
+    <header id="header" class="row">
+      <nav>
+        <div id="navBar" class="nav-wrapper">
+          <img id="logo" src="./images/Sensify_edited-4_copy.png" alt="logo" class="responsive-img">
+          <a href="./index.html" id="brand" class="brand-logo center">Sensify</a>
 
-  <header id="header" class="row">
-    <nav>
-      <header id="navBar" class="nav-wrapper">
-        <img id="logo" src="./images/Sensify_edited-4_copy.png" alt="logo" class="responsive-img">
-        <a href="./index.html" id="brand" class="brand-logo center">Sensify</a>
-
-        <ul class="right">
-          <li>
-            <a href="./aboutus.html" class="right"><i class="material-icons">group</i></a>
-          </li>
-        </ul>
-        <!-- <ul id="navLinks" class="right" id="aboutStyle">
-          <li><a id="about" href="./aboutus.html">About</a></li>
-          <i class="medium material-icons" id="groupIcon">group</i>
-        </ul> -->
-      </header>
-    </nav>
-  </header>
-  <main class="row">
-    <section id="playlist" class="col s12 m6 l6">
-      <div class="center-align">
-        <h3>Get a Playlist</h3>
-      </div>
-      <form id="form">
-
-        <!-- input name -->
-        <section class="input-field center-align">
-          <input type="text" name="name" id="name" class="validate">
-          <label for="name" id="nameLabel">Name</label>
-        </section>
-
-        <!-- find location or manually input city -->
-        <section class="input-field center-align">
-          <input type="text" name="city" id="city" class="validate">
-          <label for="city" id="cityLabel">City</label>
-        </section>
+          <ul class="right">
+            <li>
+              <a href="./aboutus.html" class="right"><i class="material-icons">group</i></a>
+            </li>
+          </ul>
+         
+        </div>
+      </nav>
+    </header>
+    <!-- This is where the playlist is generated, prompts you to fill out name, location, mood.  -->
+    <main class="row">
+      <section id="playlist" class="col s12 m6 l6">
         <div class="center-align">
-          <button id="find-me" class="btn-large waves-effect allBtns">Find My Location</button>
-          <p id="status"></p>
-          <a id="map-link" target="_blank"></a>
+          <h3>Get a Playlist</h3>
         </div>
+        <form id="form">
 
-        <!-- select a choice for mood -->
-        <div class="center-align">
-          <label for="city" id="moodLabel">Please enter your mood: </label>
-        </div>
-        <section id="radioWrapper" class="center-left">
-          <p>
-            <label for="happy">
-              <input class="mood" type="radio" name="moodChoice" value="0" id="happy">
-              <span>Happy</span>
-            </label>
-          </p>
-          <p>
-            <label for="stressed">
-              <input class="mood" type="radio" name="moodChoice" value="1" id="stressed">
-              <span>Stressed</span>
-            </label>
-          </p>
-          <p>
-            <label for="chill">
-              <input class="mood" type="radio" name="moodChoice" value="2" id="chill">
-              <span>Chill</span>
-            </label>
-          </p>
-          <p>
-            <label for="depressed">
-              <input class="mood" type="radio" name="moodChoice" value="3" id="depressed">
-              <span>Depressed</span>
-            </label>
-          </p>
-          <p>
-            <label for="hyped">
-              <input class="mood" type="radio" name="moodChoice" value="4" id="hyped">
-              <span>Hyped</span>
-            </label>
-          </p>
-        </section>
-        <div id="submitWrapper" class="center-align">
-          <button id="submitBtn" class="btn-large waves-effect allBtns">Submit</button>
-        </div>
-      </form>
-      <div id="requireAll"></div>
-    </section>
+          <!-- input name -->
+          <article class="input-field center-align">
+            <input type="text" name="name" id="name" class="validate">
+            <label for="name" id="nameLabel">Name</label>
+          </article>
 
-    <!-- all lyric modals, hidden until triggered-->
-    <section id="lyricsModal1" class="modal">
-      <article class="modal-content">
-        <h4 id="song1" class="songTitles"></h4>
-        <p id="lyrics1" class="lyrics"></p>
-      </article>
-    </section>
-    <section id="lyricsModal2" class="modal">
-      <article class="modal-content">
-        <h4 id="song2" class="songTitles"></h4>
-        <p id="lyrics2" class="lyrics"></p>
-      </article>
-    </section>
-    <section id="lyricsModal3" class="modal">
-      <article class="modal-content">
-        <h4 id="song3" class="songTitles"></h4>
-        <p id="lyrics3" class="lyrics"></p>
-      </article>
-    </section>
-    <section id="lyricsModal4" class="modal">
-      <article class="modal-content">
-        <h4 id="song4" class="songTitles"></h4>
-        <p id="lyrics4" class="lyrics"></p>
-      </article>
-    </section>
-    <section id="lyricsModal5" class="modal">
-      <article class="modal-content">
-        <h4 id="song5" class="songTitles"></h4>
-        <p id="lyrics5" class="lyrics"></p>
-      </article>
-    </section>
-    <section id="lyricsModal6" class="modal">
-      <article class="modal-content">
-        <h4 id="song6" class="songTitles"></h4>
-        <p id="lyrics6" class="lyrics"></p>
-      </article>
-    </section>
-    <section id="lyricsModal7" class="modal">
-      <article class="modal-content">
-        <h4 id="song7" class="songTitles"></h4>
-        <p id="lyrics7" class="lyrics"></p>
-      </article>
-    </section>
-    <section id="lyricsModal8" class="modal">
-      <article class="modal-content">
-        <h4 id="song8" class="songTitles"></h4>
-        <p id="lyrics8" class="lyrics"></p>
-      </article>
-    </section>
-    <section id="lyricsModal9" class="modal">
-      <article class="modal-content">
-        <h4 id="song9" class="songTitles"></h4>
-        <p id="lyrics9" class="lyrics"></p>
-      </article>
-    </section>
-    <section id="lyricsModal10" class="modal">
-      <article class="modal-content">
-        <h4 id="song10" class="songTitles"></h4>
-        <p id="lyrics10" class="lyrics"></p>
-      </article>
-    </section>
-
-    <!-- Show weather data for the city/current location -->
-    <section id="weather" class="col s12 m6 l6 center-align">
-      <aside class="row">
-        <p id="currentCity"></p>
-        <div class="col s12 m12">
-          <div id="forecast" class="card">
+          <!-- find location or manually input city -->
+          <article class="input-field center-align">
+            <input type="text" name="city" id="city" class="validate">
+            <label for="city" id="cityLabel">City</label>
+          </article>
+          <div class="center-align">
+            <button id="find-me" class="btn-large waves-effect allBtns">Find My Location</button>
+            <p id="status"></p>
+            <a id="map-link" target="_blank"></a>
           </div>
-        </div>
-      </aside>
-      <h3 class="rightText">Sensify is a mobile web application built for you. Listen to music based on your location.
-        Tell us where you are and we
-        will give you a Spotify playlist to listen to. Get a taste of the songs with lyrics provided and enjoy Sensify,
-        the
-        music app that senses where you are!</h3>
 
-      <i class="medium material-icons">music_note</i>
-      <!-- <div class="row">
+          <!-- select a choice for mood -->
+          <div class="center-align">
+            <label for="city" id="moodLabel">Please enter your mood: </label>
+          </div>
+          <article id="radioWrapper" class="center-left">
+            <p>
+              <label for="happy">
+                <input class="mood" type="radio" name="moodChoice" value="0" id="happy">
+                <span>Happy</span>
+              </label>
+            </p>
+            <p>
+              <label for="stressed">
+                <input class="mood" type="radio" name="moodChoice" value="1" id="stressed">
+                <span>Stressed</span>
+              </label>
+            </p>
+            <p>
+              <label for="chill">
+                <input class="mood" type="radio" name="moodChoice" value="2" id="chill">
+                <span>Chill</span>
+              </label>
+            </p>
+            <p>
+              <label for="depressed">
+                <input class="mood" type="radio" name="moodChoice" value="3" id="depressed">
+                <span>Depressed</span>
+              </label>
+            </p>
+            <p>
+              <label for="hyped">
+                <input class="mood" type="radio" name="moodChoice" value="4" id="hyped">
+                <span>Hyped</span>
+              </label>
+            </p>
+          </article>
+          <div id="submitWrapper" class="center-align">
+            <button id="submitBtn" class="btn-large waves-effect allBtns">Submit</button>
+          </div>
+        </form>
+        <div id="requireAll"></div>
+      </section>
+
+      <!-- all lyric modals, hidden until triggered-->
+      <div id="lyricsModal1" class="modal">
+        <article class="modal-content">
+          <h4 id="song1" class="songTitles"></h4>
+          <p id="lyrics1" class="lyrics"></p>
+        </article>
+      </div>
+      <article id="lyricsModal2" class="modal">
+        <section class="modal-content">
+          <h4 id="song2" class="songTitles"></h4>
+          <p id="lyrics2" class="lyrics"></p>
+        </section>
+      </section>
+      <article id="lyricsModal3" class="modal">
+        <section class="modal-content">
+          <h4 id="song3" class="songTitles"></h4>
+          <p id="lyrics3" class="lyrics"></p>
+        </section>
+      </article>
+      <article id="lyricsModal4" class="modal">
+        <section class="modal-content">
+          <h4 id="song4" class="songTitles"></h4>
+          <p id="lyrics4" class="lyrics"></p>
+        </section>
+      </article>
+      <article id="lyricsModal5" class="modal">
+        <section class="modal-content">
+          <h4 id="song5" class="songTitles"></h4>
+          <p id="lyrics5" class="lyrics"></p>
+        </section>
+      </article>
+      <article id="lyricsModal6" class="modal">
+        <section class="modal-content">
+          <h4 id="song6" class="songTitles"></h4>
+          <p id="lyrics6" class="lyrics"></p>
+        </section>
+      </article>
+      <article id="lyricsModal7" class="modal">
+        <section class="modal-content">
+          <h4 id="song7" class="songTitles"></h4>
+          <p id="lyrics7" class="lyrics"></p>
+        </section>
+      </article>
+      <article id="lyricsModal8" class="modal">
+        <section class="modal-content">
+          <h4 id="song8" class="songTitles"></h4>
+          <p id="lyrics8" class="lyrics"></p>
+        </section>
+      </article>
+      <article id="lyricsModal9" class="modal">
+        <section class="modal-content">
+          <h4 id="song9" class="songTitles"></h4>
+          <p id="lyrics9" class="lyrics"></p>
+        </section>
+      </article>
+      <article id="lyricsModal10" class="modal">
+        <section class="modal-content">
+          <h4 id="song10" class="songTitles"></h4>
+          <p id="lyrics10" class="lyrics"></p>
+        </section>
+      </article>
+
+      <!-- Show weather data for the city/current location -->
+      <section id="weather" class="col s12 m6 l6 center-align">
+        <aside class="row">
+          <p id="currentCity"></p>
+          <div class="col s12 m12">
+            <div id="forecast" class="card">
+            </div>
+          </div>
+        </aside>
+        <h3 class="rightText">Sensify is a mobile web application built for you. Listen to music based on your location.
+          Tell us where you are and we
+          will give you a Spotify playlist to listen to. Get a taste of the songs with lyrics provided and enjoy
+          Sensify,
+          the
+          music app that senses where you are!</h3>
+
+        <i class="medium material-icons">music_note</i>
+        <!-- <div class="row">
         <div class="col s12 m12">
           <div id="forecast" class="card">
           </div>
         </div>
       </div> -->
-    </section>
-  </main>
+      </section>
+    </main>
   </div>
   <footer id="footer" class="page-footer footerStyle">
     <div id="footerLinks" class="container">
