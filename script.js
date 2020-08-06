@@ -1,3 +1,4 @@
+$(".dropdown-trigger").dropdown();
 // conditions array of objects
 // each object has a weather condition, a danceability number, and energy number
 let conditions = [
@@ -93,6 +94,8 @@ let conditions = [
   }
 ]
 
+
+
 // array of moods
 let moods = ['happy', 'stressed', 'chill', 'depressed', 'hyped']
 
@@ -102,6 +105,7 @@ let mood
 // find current position
 function geoFindMe() {
 
+  event.preventDefault()
   const status = document.querySelector('#status')
   const mapLink = document.querySelector('#map-link')
 
