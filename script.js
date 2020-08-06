@@ -94,8 +94,6 @@ let conditions = [
   }
 ]
 
-
-
 // array of moods
 let moods = ['happy', 'stressed', 'chill', 'depressed', 'hyped']
 
@@ -124,11 +122,12 @@ function geoFindMe() {
     // request ip position
     axios.get('https://ipinfo.io')
       .then(res => {
-        // console.log(res.data.city)
 
         // get city name from ip position, update text input
         document.getElementById('city').value = res.data.city
         document.getElementById('city').textContent = res.data.city
+
+        // update city text input field
         M.updateTextFields()
       })
       .catch(err => {
@@ -142,6 +141,7 @@ function geoFindMe() {
     status.textContent = 'Unable to retrieve your location. Please enter a city instead.'
   }
 
+  // check if geolocation is supported in browser
   if (!navigator.geolocation) {
     status.textContent = 'Geolocation is not supported by your browser'
   } else {
@@ -161,6 +161,7 @@ function moodSelected() {
   return count >= 1
 }
 
+// get weather using API and call subsequent API's
 function getWeatherData(username, usercity, usermood) {
   document.getElementById('name').value = ''
   document.getElementById('city').value = ''
@@ -170,6 +171,7 @@ function getWeatherData(username, usercity, usermood) {
     }
   })
 
+  // set currentCity to user's current city
   let currentCity = document.getElementById('currentCity')
   currentCity.textContent = usercity
 
@@ -204,12 +206,12 @@ function getWeatherData(username, usercity, usermood) {
 
       let forecast = document.getElementById('forecast')
 
+      // reset forecast element for dynamic update
       forecast.innerHTML = ''
 
       let cardElem = document.createElement('div')
       cardElem.className = 'card-image'
       cardElem.id = 'cardElem'
-
 
       // new variables
       let danceability
@@ -221,6 +223,7 @@ function getWeatherData(username, usercity, usermood) {
         // check for a condition with a matching description
         if (conditions[i].cond === cond) {
 
+          // get corresponding icon from array to render onto page
           iconElem.className = `wi ${conditions[i].icon}`
           iconElem.id = 'weatherIcons'
 
@@ -232,6 +235,7 @@ function getWeatherData(username, usercity, usermood) {
       cardElem.append(iconElem)
       forecast.append(cardElem)
 
+      // weather card content
       let weatherElem = document.createElement('div')
       weatherElem.className = 'card-content'
       weatherElem.id = 'weatherDesc'
@@ -244,30 +248,39 @@ function getWeatherData(username, usercity, usermood) {
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-          'Authorization': `Bearer BQDMMlE3UTuJb1S94jiniqpvcz6yGXahJLSTvwsw37HffAVM19kOrsGF2ER2rxWWYabfRczpVfAisJfr1aay2SjOGa_t8wl_XWU4fS1h7cB0wNTKuHLV_B3kWwpG2NSkCXXbuLVWhEOQtBEKgdbX3qU7`
+          'Authorization': `Bearer BQAUocg6QvZbWGX3djTmoMNka3yf8gGrCAFEJB1Y7k4gO4zfGW8lZrkeKKrLQNaM6woXTSgx6fXdm3F6LinPekGGNZQJ57hgY9rwrbARNH0BpTlI1ER_P2lCthTbYrDjVWRu5SdT5dWdCOUax2Di8uQi`
         }
       })
         .then(res => {
+
+          // get all playlist tracks from API call
           let tracks = res.data.tracks
-          console.log(tracks)
+         
           let playlist = document.getElementById('playlist')
           let allImages = []
           for (let i = 0; i < tracks.length; i++) {
+            // find album cover in tracks objects
             image = tracks[i].album.images[0].url || "https://player.tritondigital.com/tpl/default/html5/img/player/default_cover_art.jpg"
             allImages.push(image)
 
+            // reset lyrics and song title elements in modal
             document.getElementById(`song${i + 1}`).textContent = ''
             document.getElementById(`lyrics${i + 1}`).innerHTML = ''
+
+            // get lyrics from lyrics API
             axios.get(`https://api.lyrics.ovh/v1/${tracks[i].artists[0].name}/${tracks[i].name}`)
               .then(res => {
 
                 let lyrics = res.data.lyrics
+
+                // replace any carriage return or newline character with a <br> tag to render html appropriately
                 lyrics = lyrics.replace(/(?:\r\n|\r|\n)/g, '<br>')
 
                 document.getElementById(`song${i + 1}`).textContent = `${tracks[i].artists[0].name} – ${tracks[i].name}`
                 document.getElementById(`lyrics${i + 1}`).innerHTML = lyrics
               })
               .catch(err => {
+                // no lyrics found, console.log() the error and display appropriate message
                 console.log(err)
                 document.getElementById(`song${i + 1}`).textContent = `${tracks[i].name}`
                 document.getElementById(`lyrics${i + 1}`).innerHTML = `
@@ -279,11 +292,15 @@ function getWeatherData(username, usercity, usermood) {
           let carousel = document.createElement('div')
           carousel.className = 'carousel'
 
+          // reset carousel display
           playlist.innerHTML = ''
+
+          // display name to user
           playlist.innerHTML = `
           <h2 class="center-align">Here's your playlist ${username}</h2>
           `
 
+          // create carousel of songs with album cover
           for (let i = 0; i < allImages.length; i++) {
             let carouselElem = document.createElement('a')
             carouselElem.className = 'carousel-item'
@@ -296,6 +313,7 @@ function getWeatherData(username, usercity, usermood) {
 
             divElem.className = "btnFix"
           
+            // lyrics modal button and open in spotify button
             divElem.innerHTML = `
             <a id="lyricsBtn" class="btn-small waves-effect allBtns modal-trigger" href="#lyricsModal${i + 1}">See Lyrics</a>
             <a class="btn-small waves-effect allBtns" href="https://open.spotify.com/track/${tracks[i].id}" target="_blank">Open</a>
@@ -305,6 +323,7 @@ function getWeatherData(username, usercity, usermood) {
             carousel.append(carouselElem)
           }
 
+          // render carousel onto page
           playlist.append(carousel)
           $('.carousel').carousel();
         })
@@ -317,16 +336,19 @@ function getWeatherData(username, usercity, usermood) {
     })
 }
 
+// initiate all modal elements to be ready for use
 document.addEventListener('DOMContentLoaded', function () {
   let elems = document.querySelectorAll('.modal')
   let instances = M.Modal.init(elems)
 })
 
+// location button event listener
 document.getElementById('find-me').addEventListener('click', function () {
   event.preventDefault()
   geoFindMe()
 })
 
+// mood radio buttons event listener
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('mood')) {
     event.target.classList.add('active')
@@ -348,6 +370,8 @@ document.getElementById('submitBtn').addEventListener('click', function () {
     required.innerHTML = `Please fill in all inputs.`
   } else {
     getWeatherData(name.value, city.value, mood)
+
+    // clear inputs
     name.value = ''
     city.value = ''
     $(".mood").each(function () {

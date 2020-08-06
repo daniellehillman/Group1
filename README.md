@@ -2,7 +2,48 @@
 
 ### About 
 
+Sensify is an application that uses the weather and your mood to recommend a Spotify playlist. It runs in the browser and uses the OpenWeatherMap API, the Spotify Web API, and the lyricsovh API.
+
+Simply input your name, your city, and select one of our chosen moods, and a playlist will be recommended to you. You can also allow the application to use your current location to fill in the city input for you.
+
+You will be recommended ten songs depending on your input, each of which may have lyrics available to read through. Open up the song on Spotify and listen along.
+
+View the application here at https://daniellehillman.github.io/Sensify/
+
 ### Images 
+
+* The initial start of Sensify on a mobile device
+<img src="./images/readmeimg1.png" width="300">
+
+* Finding the user's location
+<img src="./images/readmeimg2.png" width="300">
+
+* All user input fields filled out
+<img src="./images/readmeimg3.png" width="300">
+
+* After clicking "Submit", a Spotify playlist is shown
+<img src="./images/readmeimg4.png" width="300">
+
+* The weather based on location is also displayed
+<img src="./images/readmeimg5.png" width="300">
+
+* Since this is a jazz song, there are no lyrics
+<img src="./images/readmeimg6.png" width="300">
+
+* This is another song with lyrics displayed
+<img src="./images/readmeimg7.png" width="300">
+
+* The about page, introducing the team behind Sensify
+<img src="./images/readmeimg8.png" width="300">
+
+* The rest of the team, displayed on the desktop version
+<img src="./images/readmeimg9.png" width="700">
+
+* The start of Sensify on the desktop version
+<img src="./images/readmeimg10.png" width="700">
+
+* Sensify with a playlist recommended and the user's weather data shown
+<img src="./images/readmeimg11.png" width="700">
 
 ### How to use Sensify
 It may not run in browser due to the authorization process of the Spotify Web API.
