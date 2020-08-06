@@ -179,6 +179,8 @@ nav {
 
 #forecast {
   background-color: rgb(101, 144, 222);
+  border: 1px solid rgb(101, 144, 222);
+  display: none;
 }
 
 #cardElem {
@@ -227,13 +229,14 @@ nav {
     font-size: large;
     margin-top: 0px;
   }
-  #about {
-    background-color: rgb(208, 208, 208);
-  }
 }
 
 .rightText {
   padding-bottom: 15px;
   border-bottom: 2px solid;
   border-color: rgba(101, 144, 222, 0.7);
+}
+
+.weatherTextStyle {
+  background-color: rgb(208, 208, 208);
 }
