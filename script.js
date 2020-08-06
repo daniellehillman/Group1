@@ -1,3 +1,4 @@
+$(".dropdown-trigger").dropdown();
 // conditions array of objects
 // each object has a weather condition, a danceability number, and energy number
 let conditions = [
@@ -92,6 +93,8 @@ let conditions = [
     icon: 'wi-tornado'
   }
 ]
+
+
 
 // array of moods
 let moods = ['happy', 'stressed', 'chill', 'depressed', 'hyped']
