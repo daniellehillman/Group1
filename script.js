@@ -7,7 +7,7 @@ let conditions = [
     danceability: 0.0,
     energy: 0.8,
     icon: 'wi-thunderstorm'
-  }, 
+  },
   {
     cond: 'Drizzle',
     danceability: 0.1,
@@ -19,73 +19,73 @@ let conditions = [
     danceability: 0.1,
     energy: 0.5,
     icon: 'wi-rain'
-  }, 
+  },
   {
     cond: 'Snow',
     danceability: 0.2,
     energy: 0.2,
     icon: 'wi-snowflake-cold'
-  }, 
+  },
   {
     cond: 'Clear',
     danceability: 1.0,
     energy: 1.0,
     icon: 'wi-night-clear'
-  }, 
+  },
   {
     cond: 'Clouds',
     danceability: 0.4,
     energy: 0.3,
     icon: 'wi-cloudy'
-  }, 
-  { 
+  },
+  {
     cond: 'Mist',
     danceability: 0.3,
     energy: 0.2,
     icon: 'wi-snow-wind'
-  }, 
-  { 
+  },
+  {
     cond: 'Smoke',
     danceability: 0.0,
     energy: 0.6,
     icon: 'wi-smoke'
-  }, 
+  },
   {
     cond: 'Haze',
     danceability: 0.4,
     energy: 0.3,
     icon: 'day-haze'
-  }, 
+  },
   {
     cond: 'Dust',
     danceability: 0.4,
     energy: 0.3,
     icon: 'wi-dust'
   },
-{
+  {
     cond: 'Fog',
     danceability: 0.3,
     energy: 0.3,
     icon: 'wi-fog'
-  }, 
+  },
   {
     cond: 'Sand',
     danceability: 0.8,
     energy: 0.6,
     icon: 'wi-sandstorm'
-  }, 
+  },
   {
     cond: 'Ash',
     danceability: 0.1,
     energy: 0.2,
     icon: 'volcano'
-  }, 
+  },
   {
     cond: 'Squall',
     danceability: 0.0,
     energy: 0.8,
     icon: 'wi-strong-wind'
-  }, 
+  },
   {
     cond: 'Tornado',
     danceability: 0.0,
@@ -120,7 +120,7 @@ function geoFindMe() {
     status.textContent = ''
     // call to openstreetmap
     mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
-    
+
     // request ip position
     axios.get('https://ipinfo.io')
       .then(res => {
@@ -198,18 +198,19 @@ function getWeatherData(username, usercity, usermood) {
   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${usercity}&units=imperial&appid=b46e0399b18e0132c4c34e7071caa187`)
     .then(res => {
       // check the weather condition from the result
+      document.getElementById('forecast').style.display = 'inline-block'
       let cond = res.data.weather[0].main
       let weather = document.getElementById('weather')
-      
+
       let forecast = document.getElementById('forecast')
-      
+
       forecast.innerHTML = ''
 
       let cardElem = document.createElement('div')
       cardElem.className = 'card-image'
       cardElem.id = 'cardElem'
 
-      
+
       // new variables
       let danceability
       let energy
@@ -222,7 +223,7 @@ function getWeatherData(username, usercity, usermood) {
 
           iconElem.className = `wi ${conditions[i].icon}`
           iconElem.id = 'weatherIcons'
-          
+
           // assign danceability and energy
           danceability = conditions[i].danceability
           energy = conditions[i].energy
@@ -235,15 +236,15 @@ function getWeatherData(username, usercity, usermood) {
       weatherElem.className = 'card-content'
       weatherElem.id = 'weatherDesc'
       weatherElem.innerHTML = `
-        <p>Your current weather forecast: ${res.data.weather[0].main}</p>
-        <p>Your current temperature: ${res.data.main.temp} \xB0F</p> 
+        <p class="weatherTextStyle">Your current weather forecast: ${res.data.weather[0].main}</p>
+        <p class="weatherTextStyle">Your current temperature: ${res.data.main.temp} \xB0F</p> 
       `
       forecast.append(weatherElem)
 
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-          'Authorization': `Bearer BQD5ODRq9PD-0b7sZzL5-rYVej8umk9TlHp00K-foP4J2kCpYKA1sn72qerkwtKafrkzNeKf0yJ7blvFhtPwRhmx16ZgyL8OofZXDaLzC30lEpkmLHBjIQXRjKrbHV0IFhVKWdW3ryIghaZh2ssf-COy`
+          'Authorization': `Bearer BQDMMlE3UTuJb1S94jiniqpvcz6yGXahJLSTvwsw37HffAVM19kOrsGF2ER2rxWWYabfRczpVfAisJfr1aay2SjOGa_t8wl_XWU4fS1h7cB0wNTKuHLV_B3kWwpG2NSkCXXbuLVWhEOQtBEKgdbX3qU7`
         }
       })
         .then(res => {
@@ -255,21 +256,21 @@ function getWeatherData(username, usercity, usermood) {
             image = tracks[i].album.images[0].url || "https://player.tritondigital.com/tpl/default/html5/img/player/default_cover_art.jpg"
             allImages.push(image)
 
-            document.getElementById(`song${i+1}`).textContent = ''
-            document.getElementById(`lyrics${i+1}`).innerHTML = ''
+            document.getElementById(`song${i + 1}`).textContent = ''
+            document.getElementById(`lyrics${i + 1}`).innerHTML = ''
             axios.get(`https://api.lyrics.ovh/v1/${tracks[i].artists[0].name}/${tracks[i].name}`)
               .then(res => {
 
                 let lyrics = res.data.lyrics
                 lyrics = lyrics.replace(/(?:\r\n|\r|\n)/g, '<br>')
 
-                document.getElementById(`song${i+1}`).textContent = `${tracks[i].artists[0].name} – ${tracks[i].name}`
-                document.getElementById(`lyrics${i+1}`).innerHTML = lyrics
+                document.getElementById(`song${i + 1}`).textContent = `${tracks[i].artists[0].name} – ${tracks[i].name}`
+                document.getElementById(`lyrics${i + 1}`).innerHTML = lyrics
               })
               .catch(err => {
                 console.log(err)
-                document.getElementById(`song${i+1}`).textContent = `${tracks[i].name}`
-                document.getElementById(`lyrics${i+1}`).innerHTML = `
+                document.getElementById(`song${i + 1}`).textContent = `${tracks[i].name}`
+                document.getElementById(`lyrics${i + 1}`).innerHTML = `
                   Sorry, no lyrics available.
                 `
               })
@@ -292,9 +293,11 @@ function getWeatherData(username, usercity, usermood) {
             imgElem.src = `${allImages[i]}`
 
             let divElem = document.createElement('div')
+
+            divElem.className = "btnFix"
           
             divElem.innerHTML = `
-            <a id="lyricsBtn" class="btn-small waves-effect allBtns modal-trigger" href="#lyricsModal${i+1}">See Lyrics</a>
+            <a id="lyricsBtn" class="btn-small waves-effect allBtns modal-trigger" href="#lyricsModal${i + 1}">See Lyrics</a>
             <a class="btn-small waves-effect allBtns" href="https://open.spotify.com/track/${tracks[i].id}" target="_blank">Open</a>
             `
             carouselElem.append(imgElem)

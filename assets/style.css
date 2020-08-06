@@ -10,6 +10,24 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   background-color: rgb(70, 120, 212);
 }
 
+@media screen and (min-width:601px) {
+  #footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+  }
+  #pageWrapper {
+    margin-bottom: 90px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 * {
   font-family: 'Quicksand', sans-serif;
   background-color: #EAE7DC;
@@ -22,6 +40,24 @@ nav {
 
 #nameLabel, #cityLabel {
   color: rgb(101, 144, 222);
+}
+
+@media screen and (min-width:601px) {
+  #footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+  }
+  #pageWrapper {
+    margin-bottom: 90px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 #navBar {
@@ -179,6 +215,8 @@ nav {
 
 #forecast {
   background-color: rgb(101, 144, 222);
+  border: 1px solid rgb(101, 144, 222);
+  display: none;
 }
 
 #cardElem {
@@ -227,13 +265,49 @@ nav {
     font-size: large;
     margin-top: 0px;
   }
-  #about {
-    background-color: rgb(208, 208, 208);
-  }
+}
+
+.btnFix {
+  text-align: center;
+}
+
+#us {
+  border-radius: 25px;
+  border: 2px solid;
+  padding: 20px;
+  /* width: 200px;
+    height: 150px; */
 }
 
 .rightText {
   padding-bottom: 15px;
   border-bottom: 2px solid;
   border-color: rgba(101, 144, 222, 0.7);
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.weatherTextStyle {
+  background-color: rgb(208, 208, 208);
+}
+
+@media screen and (min-width:601px) {
+  #footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+  }
+  #pageWrapper {
+    margin-bottom: 90px;
+  }
+}
+
+.bioText {
+  background-color: rgb(101, 144, 222);
+  color: rgb(208, 208, 208);
 }
