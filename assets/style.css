@@ -249,6 +249,10 @@ nav {
   }
 }
 
+.btnFix{
+  text-align: center;
+}
+
 .rightText {
   padding-bottom: 15px;
   border-bottom: 2px solid;

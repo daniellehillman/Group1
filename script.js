@@ -293,6 +293,7 @@ function getWeatherData(username, usercity, usermood) {
             imgElem.src = `${allImages[i]}`
 
             let divElem = document.createElement('div')
+            divElem.className = "btnFix"
           
             divElem.innerHTML = `
             <a id="lyricsBtn" class="btn-small waves-effect allBtns modal-trigger" href="#lyricsModal${i+1}">See Lyrics</a>
