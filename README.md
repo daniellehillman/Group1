@@ -12,10 +12,10 @@ View the application here at https://daniellehillman.github.io/Sensify/
 
 ### Images 
 
-The initial start of Sensify on a mobile device
+* The initial start of Sensify on a mobile device
 <img src="./images/readmeimg1.png" width="300">
 
-Finding the user's location
+* Finding the user's location
 <img src="./images/readmeimg2.png" width="300">
 
 All user input fields filled out
