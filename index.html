@@ -49,7 +49,7 @@
       </nav>
     </header>
     <!-- This is where the playlist is generated, prompts you to fill out name, location, mood.  -->
-    <main class="row">
+    <div class="row">
       <section id="playlist" class="col s12 m6 l6">
         <div class="center-align">
           <h3>Get a Playlist</h3>
@@ -57,16 +57,16 @@
         <form id="form">
 
           <!-- input name -->
-          <article class="input-field center-align">
+          <div class="input-field center-align">
             <input type="text" name="name" id="name" class="validate">
             <label for="name" id="nameLabel">Name</label>
-          </article>
+          </div>
 
           <!-- find location or manually input city -->
-          <article class="input-field center-align">
+          <div class="input-field center-align">
             <input type="text" name="city" id="city" class="validate">
             <label for="city" id="cityLabel">City</label>
-          </article>
+          </div>
           <div class="center-align">
             <button id="find-me" class="btn-large waves-effect allBtns">Find My Location</button>
             <p id="status"></p>
@@ -77,7 +77,7 @@
           <div class="center-align">
             <label for="city" id="moodLabel">Please enter your mood: </label>
           </div>
-          <article id="radioWrapper" class="center-left">
+          <div id="radioWrapper" class="center-left">
             <p>
               <label for="happy">
                 <input class="mood" type="radio" name="moodChoice" value="0" id="happy">
@@ -108,7 +108,7 @@
                 <span>Hyped</span>
               </label>
             </p>
-          </article>
+          </div>
           <div id="submitWrapper" class="center-align">
             <button id="submitBtn" class="btn-large waves-effect allBtns">Submit</button>
           </div>
@@ -118,65 +118,65 @@
 
       <!-- all lyric modals, hidden until triggered-->
       <div id="lyricsModal1" class="modal">
-        <article class="modal-content">
+        <div class="modal-content">
           <h4 id="song1" class="songTitles"></h4>
           <p id="lyrics1" class="lyrics"></p>
-        </article>
+        </div>
       </div>
-      <article id="lyricsModal2" class="modal">
+      <div id="lyricsModal2" class="modal">
         <section class="modal-content">
           <h4 id="song2" class="songTitles"></h4>
           <p id="lyrics2" class="lyrics"></p>
         </section>
-      </section>
-      <article id="lyricsModal3" class="modal">
+      </div>
+      <div id="lyricsModal3" class="modal">
         <section class="modal-content">
           <h4 id="song3" class="songTitles"></h4>
           <p id="lyrics3" class="lyrics"></p>
         </section>
-      </article>
-      <article id="lyricsModal4" class="modal">
+      </div>
+      <div id="lyricsModal4" class="modal">
         <section class="modal-content">
           <h4 id="song4" class="songTitles"></h4>
           <p id="lyrics4" class="lyrics"></p>
         </section>
-      </article>
-      <article id="lyricsModal5" class="modal">
+      </div>
+      <div id="lyricsModal5" class="modal">
         <section class="modal-content">
           <h4 id="song5" class="songTitles"></h4>
           <p id="lyrics5" class="lyrics"></p>
         </section>
-      </article>
-      <article id="lyricsModal6" class="modal">
+      </div>
+      <div id="lyricsModal6" class="modal">
         <section class="modal-content">
           <h4 id="song6" class="songTitles"></h4>
           <p id="lyrics6" class="lyrics"></p>
         </section>
-      </article>
-      <article id="lyricsModal7" class="modal">
+      </div>
+      <div id="lyricsModal7" class="modal">
         <section class="modal-content">
           <h4 id="song7" class="songTitles"></h4>
           <p id="lyrics7" class="lyrics"></p>
         </section>
-      </article>
-      <article id="lyricsModal8" class="modal">
+      </div>
+      <div id="lyricsModal8" class="modal">
         <section class="modal-content">
           <h4 id="song8" class="songTitles"></h4>
           <p id="lyrics8" class="lyrics"></p>
         </section>
-      </article>
-      <article id="lyricsModal9" class="modal">
+      </div>
+      <div id="lyricsModal9" class="modal">
         <section class="modal-content">
           <h4 id="song9" class="songTitles"></h4>
           <p id="lyrics9" class="lyrics"></p>
         </section>
-      </article>
-      <article id="lyricsModal10" class="modal">
+      </div>
+      <div id="lyricsModal10" class="modal">
         <section class="modal-content">
           <h4 id="song10" class="songTitles"></h4>
           <p id="lyrics10" class="lyrics"></p>
         </section>
-      </article>
+      </div>
 
       <!-- Show weather data for the city/current location -->
       <section id="weather" class="col s12 m6 l6 center-align">
@@ -195,14 +195,9 @@
           music app that senses where you are!</h3>
 
         <i class="medium material-icons">music_note</i>
-        <!-- <div class="row">
-        <div class="col s12 m12">
-          <div id="forecast" class="card">
-          </div>
-        </div>
-      </div> -->
+        
       </section>
-    </main>
+    </div>
   </div>
   <footer id="footer" class="page-footer footerStyle">
     <div id="footerLinks" class="container">
@@ -217,11 +212,11 @@
         </footer>
       </section>
     </div>
-    <footer id="footerCopyright" class="footer-copyright center-align">
+    <div id="footerCopyright" class="footer-copyright center-align">
       <div id="copyright" class="container">
         © 2020 Sensify
       </div>
-    </footer>
+    </div>
   </footer>
   <!-- jQuery if needed -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
