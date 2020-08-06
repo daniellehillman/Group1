@@ -10,6 +10,24 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   background-color: rgb(70, 120, 212);
 }
 
+@media screen and (min-width:601px) {
+  #footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+  }
+  #pageWrapper {
+    margin-bottom: 90px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 * {
   font-family: 'Quicksand', sans-serif;
   background-color: #EAE7DC;
@@ -197,6 +215,8 @@ html {
 
 #forecast {
   background-color: rgb(101, 144, 222);
+  border: 1px solid rgb(101, 144, 222);
+  display: none;
 }
 
 #cardElem {
@@ -245,15 +265,25 @@ html {
     font-size: large;
     margin-top: 0px;
   }
-  #about {
-    background-color: rgb(208, 208, 208);
-  }
+}
+
+.btnFix {
+  text-align: center;
 }
 
 .rightText {
   padding-bottom: 15px;
   border-bottom: 2px solid;
   border-color: rgba(101, 144, 222, 0.7);
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.weatherTextStyle {
+  background-color: rgb(208, 208, 208);
 }
 
 @media screen and (min-width:601px) {
@@ -267,9 +297,4 @@ html {
   #pageWrapper {
     margin-bottom: 90px;
   }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
 }

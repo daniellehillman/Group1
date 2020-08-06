@@ -198,6 +198,7 @@ function getWeatherData(username, usercity, usermood) {
   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${usercity}&units=imperial&appid=b46e0399b18e0132c4c34e7071caa187`)
     .then(res => {
       // check the weather condition from the result
+      document.getElementById('forecast').style.display = 'inline-block'
       let cond = res.data.weather[0].main
       let weather = document.getElementById('weather')
 
@@ -235,8 +236,8 @@ function getWeatherData(username, usercity, usermood) {
       weatherElem.className = 'card-content'
       weatherElem.id = 'weatherDesc'
       weatherElem.innerHTML = `
-        <p>Your current weather forecast: ${res.data.weather[0].main}</p>
-        <p>Your current temperature: ${res.data.main.temp} \xB0F</p> 
+        <p class="weatherTextStyle">Your current weather forecast: ${res.data.weather[0].main}</p>
+        <p class="weatherTextStyle">Your current temperature: ${res.data.main.temp} \xB0F</p> 
       `
       forecast.append(weatherElem)
 
@@ -293,6 +294,8 @@ function getWeatherData(username, usercity, usermood) {
 
             let divElem = document.createElement('div')
 
+            divElem.className = "btnFix"
+          
             divElem.innerHTML = `
             <a id="lyricsBtn" class="btn-small waves-effect allBtns modal-trigger" href="#lyricsModal${i + 1}">See Lyrics</a>
             <a class="btn-small waves-effect allBtns" href="https://open.spotify.com/track/${tracks[i].id}" target="_blank">Open</a>
