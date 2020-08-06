@@ -42,6 +42,24 @@ nav {
   color: rgb(101, 144, 222);
 }
 
+@media screen and (min-width:601px) {
+  #footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+  }
+  #pageWrapper {
+    margin-bottom: 90px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 #navBar {
   /* background-color: rgb(208, 208, 208); */
   background-color: #EAE7DC;
@@ -249,17 +267,9 @@ nav {
   }
 }
 
-.btnFix{
+.btnFix {
   text-align: center;
 }
-
-#us  {
-    border-radius: 25px;
-    border: 2px solid;
-    padding: 20px;
-    /* width: 200px;
-    height: 150px; */
-  }
 
 .rightText {
   padding-bottom: 15px;
@@ -267,7 +277,24 @@ nav {
   border-color: rgba(101, 144, 222, 0.7);
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 .weatherTextStyle {
   background-color: rgb(208, 208, 208);
 }
 
+@media screen and (min-width:601px) {
+  #footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+  }
+  #pageWrapper {
+    margin-bottom: 90px;
+  }
+}
