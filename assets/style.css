@@ -12,9 +12,22 @@ nav {
   background-color: rgb(208, 208, 208);
 }
 
+#about {
+  font-family: 'Quicksand', sans-serif;
+  height: 60px;
+}
+
+#navLinks {
+  height: 60px;
+}
+
 #mainBox {
   height: 600px;
   background-color: rgb(101, 144, 222);
+}
+
+.cols {
+  display: table-cell;
 }
 
 .card {
@@ -22,136 +35,148 @@ nav {
   overflow: visible;
 }
 
-.cardSize {
-  height: 100%;
-  background-color: rgb(101, 144, 222);
-}
-
-#logo {
-  height: 60px;
-}
-
-.form {
-  background-color: rgb(101, 144, 222);
-}
-
-#playlist, #weather {
-  padding: 30px 50px 30px 50px;
-}
-
-#brand {
-  font-family: 'Quicksand', sans-serif;
-  font-style: italic;
-  text-shadow: 2px 2px rgb(101, 144, 222);
-}
-
-.card-content {
-  font-weight: bold;
-  font-style: italic;
-  background-color: rgb(101, 144, 222);
-  color: rgb(208, 208, 208);
-}
-
-#aboutSensify {
-  background-color: rgb(101, 144, 222);
-  color: rgb(208, 208, 208);
-}
-
-.lyrics {
-  color: teal;
-}
-
-#status {
-  padding: 10px;
-}
-
-.allBtns {
-  background-color: rgb(101, 144, 222);
-}
-
-#city, #name {
-  width: 75%;
-}
-
-.card {
-  border: 1px solid teal;
-  box-shadow: 1px 1px;
-}
-
-#nameLabel, #cityLabel, #moodLabel {
-  font-size: 20px;
-}
-
-#radioWrapper {
-  padding: 5px 0 5px 0;
-}
-
-#submitBtn {
-  margin: 10px 0 10px 0;
-}
-
-.findbtn {
-  background-color: rgb(101, 144, 222) !important;
-}
-
-#currentCity {
-  font-size: 30px;
-}
-
-#forecast {
-  background-color: rgb(101, 144, 222);
-}
-
-#cardElem {
-  background-color: rgb(101, 144, 222);
-}
-
-#weatherIcons {
-  font-size: 100px;
-  color: rgb(208, 208, 208);
-  background-color: rgb(101, 144, 222);
-}
-
-#weatherDesc {
-  background-color: rgb(208, 208, 208);
-}
-
-#footer, #footerLinks, #footerRow, #footerCopyright, #copyright {
-  font-family: 'Quicksand', sans-serif;
-  background-color: rgb(101, 144, 222);
-  color: rgb(208, 208, 208);
-}
-
-.footerCol {
-  background-color: rgb(101, 144, 222);
-  color: rgb(208, 208, 208);
-}
-
-#codeIcon {
-  background-color: rgb(101, 144, 222);
-  color: rgb(208, 208, 208);
-}
-
-#githubLink {
-  background-color: rgb(101, 144, 222);
-  color: rgb(208, 208, 208);
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-@media screen and (max-width:900px) {
+ .cardSize .cardTags p {
+    font-family: 'Quicksand', sans-serif;
+    background-color: rgb(101, 144, 222);
+    color: rgb(208, 208, 208);
+    font-size: 20px;
+  }
+  #cardLinks {
+    font-family: 'Quicksand', sans-serif;
+    background-color: rgb(101, 144, 222);
+    color: rgb(208, 208, 208);
+  }
+  #cardLinks a {
+    text-decoration: none;
+    color: rgb(208, 208, 208);
+    margin-right: 0;
+  }
+  .cardSize {
+    height: 100%;
+    background-color: rgb(101, 144, 222);
+  }
+  .idCards {
+    background-color: rgb(101, 144, 222);
+    width: 85%;
+  }
+  .cropped {
+    width: 200px;
+    /* width of container */
+    height: 400px;
+    /* height of container */
+    object-fit: cover;
+  }
+  #aboutTitle {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+  }
+  #logo {
+    height: 60px;
+  }
+  .form {
+    background-color: rgb(101, 144, 222);
+  }
   #playlist, #weather {
-    padding: 30px;
+    padding: 30px 50px 30px 50px;
   }
-  .rightText{
-    font-size: large;
-    margin-top: 0px;
+  #brand {
+    font-family: 'Quicksand', sans-serif;
+    font-style: italic;
+    text-shadow: 2px 2px rgb(101, 144, 222);
   }
-}
+  .card-content {
+    font-weight: bold;
+    font-style: italic;
+    background-color: rgb(101, 144, 222);
+    color: rgb(208, 208, 208);
+  }
+  #aboutSensify {
+    background-color: rgb(101, 144, 222);
+    color: rgb(208, 208, 208);
+  }
+  .lyrics {
+    color: teal;
+  }
+  #status {
+    padding: 20px;
+  }
+  .allBtns {
+    background-color: rgb(101, 144, 222);
+  }
+  #submitWrapper {
+    padding: 10px;
+  }
+  #weather h3, #playlist h3 {
+    margin-top: 0;
+  }
+  #city, #name {
+    width: 100%;
+  }
+  .card {
+    border: 1px solid teal;
+    box-shadow: 1px 1px;
+  }
+  #nameLabel, #cityLabel, #moodLabel {
+    font-size: 20px;
+  }
+  #radioWrapper {
+    padding: 5px 60px 5px 60px;
+  }
+  #submitBtn {
+    margin: 10px 0 10px 0;
+  }
+  .findbtn {
+    background-color: rgb(101, 144, 222) !important;
+  }
+  #currentCity {
+    font-size: 30px;
+  }
+  #forecast {
+    background-color: rgb(101, 144, 222);
+  }
+  #cardElem {
+    background-color: rgb(101, 144, 222);
+  }
+  #weatherIcons {
+    font-size: 100px;
+    color: rgb(208, 208, 208);
+    background-color: rgb(101, 144, 222);
+  }
+  #weatherDesc {
+    background-color: rgb(208, 208, 208);
+  }
+  #footer, #footerLinks, #footerRow, #footerCopyright, #copyright {
+    font-family: 'Quicksand', sans-serif;
+    background-color: rgb(101, 144, 222);
+    color: rgb(208, 208, 208);
+  }
 
-.rightText {
-  padding-bottom: 15px;
-  border-bottom: 2px solid;
-  border-color: rgba(101, 144, 222, 0.7);
-}
+  .footerCol {
+    background-color: rgb(101, 144, 222);
+    color: rgb(208, 208, 208);
+  }
+  #codeIcon {
+    background-color: rgb(101, 144, 222);
+    color: rgb(208, 208, 208);
+  }
+  #githubLink {
+    background-color: rgb(101, 144, 222);
+    color: rgb(208, 208, 208);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  @media screen and (max-width:900px) {
+    #playlist, #weather {
+      padding: 10px 30px 10px 30px;
+    }
+    .rightText {
+      font-size: large;
+      margin-top: 0px;
+    }
+  }
+  .rightText {
+    padding-bottom: 15px;
+    border-bottom: 2px solid;
+    border-color: rgba(101, 144, 222, 0.7);
+  }
