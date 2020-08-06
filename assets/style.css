@@ -1,98 +1,178 @@
-* {
-  /* font-family: 'Ubuntu', sans-serif; */
-  font-family: 'Quicksand', sans-serif; 
-  background-color:rgb(208,208,208); 
-<<<<<<< HEAD
-  color: rgb(101,144,222);
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid rgb(101, 144, 222);
+}
 
-=======
-  color: rgb(101,144,222)
->>>>>>> 8183227c935b14e7701cade499468db1ba8e6400
+.btn:hover, .btn-large:hover, .btn-small:hover {
+  background-color: rgb(70, 120, 212);
+}
+
+.btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus {
+  background-color: rgb(70, 120, 212);
+}
+
+* {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #EAE7DC;
+  color: rgb(101, 144, 222)
 }
 
 nav {
-  height: 60px;
+  height: 64px;
+}
+
+#nameLabel, #cityLabel {
+  color: rgb(101, 144, 222);
+}
+
+@media screen and (min-width:601px) {
+  #footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+  }
+  #pageWrapper {
+    margin-bottom: 90px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 #navBar {
-  background-color:rgb(208,208,208); 
+  /* background-color: rgb(208, 208, 208); */
+  background-color: #EAE7DC;
 }
 
- #mainBox {
+#about {
+  font-family: 'Quicksand', sans-serif;
+  height: 60px;
+}
+
+#navLinks {
+  height: 60px;
+}
+
+#mainBox {
   height: 600px;
-  background-color: rgb(101,144,222); 
-<<<<<<< HEAD
- 
+  background-color: rgb(101, 144, 222);
 }
 
-.heading{
-  font-size: xx-large;
+.cols {
+  display: table-cell;
 }
-
-#main {
-  padding: 40px;
-
-}
-/* .cards-container {
-  column-break-inside: avoid;
-} */
 
 .card {
-    display: inline-block;
-    overflow: visible;
-  }
-=======
+  display: inline-block;
+  overflow: visible;
 }
->>>>>>> 8183227c935b14e7701cade499468db1ba8e6400
 
-.cardSize{
+.cardSize .cardTags p {
+  font-family: 'Quicksand', sans-serif;
+  background-color: rgb(101, 144, 222);
+  color: rgb(208, 208, 208);
+  font-size: 20px;
+}
+
+#cardLinks {
+  font-family: 'Quicksand', sans-serif;
+  background-color: rgb(101, 144, 222);
+  color: rgb(208, 208, 208);
+}
+
+#cardLinks a {
+  text-decoration: none;
+  color: rgb(208, 208, 208);
+  margin-right: 0;
+}
+
+.cardSize {
   height: 100%;
-  background-color: rgb(101,144,222);
+  background-color: rgb(101, 144, 222);
+}
+
+.idCards {
+  background-color: rgb(101, 144, 222);
+  width: 85%;
+}
+
+.cropped {
+  width: 200px;
+  /* width of container */
+  height: 400px;
+  /* height of container */
+  object-fit: cover;
+}
+
+#aboutTitle {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
 }
 
 #logo {
   height: 60px;
 }
 
-<<<<<<< HEAD
-.form {
-  background-color: rgb(101,144,222);
- 
+#groupIcon .iconStyle {
+  background-color: rgb(208, 208, 208);
 }
 
-.playlist {
-  padding: 50px;}
-=======
->>>>>>> 8183227c935b14e7701cade499468db1ba8e6400
+.form {
+  background-color: rgb(101, 144, 222);
+}
+
+#playlist, #weather {
+  padding: 30px 50px 30px 50px;
+}
+
 #brand {
   font-family: 'Quicksand', sans-serif;
   font-style: italic;
+  text-shadow: 2px 2px rgb(101, 144, 222);
+}
+
+.card-content {
+  font-weight: bold;
+  font-style: italic;
+  background-color: rgb(101, 144, 222);
+  color: rgb(208, 208, 208);
+}
+
+#aboutSensify {
+  background-color: rgb(101, 144, 222);
+  color: rgb(208, 208, 208);
+}
+
+.lyrics {
+  color: teal;
 }
 
 #status {
-  padding: 10px;
+  padding: 20px;
 }
 
 .allBtns {
- background-color: rgb(101,144,222);
+  background-color: rgb(101, 144, 222);
 }
 
-<<<<<<< HEAD
-.left {
-  width: 30%;
+#submitWrapper {
+  padding: 10px;
 }
 
-.right {
-  width: 70%;
+#weather h3, #playlist h3 {
+  margin-top: 0;
 }
-.size {
-  width: 60px;
-  height: 60px;}
-  
-=======
->>>>>>> 8183227c935b14e7701cade499468db1ba8e6400
+
 #city, #name {
-  width: 75%;
+  width: 100%;
+}
+
+.card {
+  border: 1px solid teal;
+  box-shadow: 1px 1px;
 }
 
 #nameLabel, #cityLabel, #moodLabel {
@@ -100,36 +180,96 @@ nav {
 }
 
 #radioWrapper {
-  padding: 5px 0 5px 0;
+  padding: 5px 60px 5px 60px;
 }
 
 #submitBtn {
   margin: 10px 0 10px 0;
 }
 
-<<<<<<< HEAD
-/* .a[classname='findbtn']{
-  background-color: rgb(101,144,222)
-} */
-
 .findbtn {
- background-color: rgb(101,144,222) !important;}
-=======
-#weather {
-  
+  background-color: rgb(101, 144, 222) !important;
 }
->>>>>>> 8183227c935b14e7701cade499468db1ba8e6400
+
+#currentCity {
+  font-size: 30px;
+}
+
+#forecast {
+  background-color: rgb(101, 144, 222);
+}
+
+#cardElem {
+  background-color: rgb(101, 144, 222);
+}
+
+#weatherIcons {
+  font-size: 100px;
+  color: rgb(208, 208, 208);
+  background-color: rgb(101, 144, 222);
+}
+
+#weatherDesc {
+  background-color: rgb(208, 208, 208);
+}
+
+#footer, #footerLinks, #footerRow, #footerCopyright, #copyright {
+  font-family: 'Quicksand', sans-serif;
+  background-color: rgb(101, 144, 222);
+  color: rgb(208, 208, 208);
+}
+
+.footerCol {
+  background-color: rgb(101, 144, 222);
+  color: rgb(208, 208, 208);
+}
+
+#codeIcon {
+  background-color: rgb(101, 144, 222);
+  color: rgb(208, 208, 208);
+}
+
+#githubLink {
+  background-color: rgb(101, 144, 222);
+  color: rgb(208, 208, 208);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+}
 
 @media screen and (max-width:900px) {
-  .column {
-    float: left;
-    width: 100%;
-    padding: 10px;
-    background-color:rgb(208,208,208); 
+  #playlist, #weather {
+    padding: 10px 30px 10px 30px;
+  }
+  .rightText {
+    font-size: large;
+    margin-top: 0px;
+  }
+  #about {
+    background-color: rgb(208, 208, 208);
   }
 }
 
-<<<<<<< HEAD
+.rightText {
+  padding-bottom: 15px;
+  border-bottom: 2px solid;
+  border-color: rgba(101, 144, 222, 0.7);
+}
 
-=======
->>>>>>> 8183227c935b14e7701cade499468db1ba8e6400
+@media screen and (min-width:601px) {
+  #footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+  }
+  #pageWrapper {
+    margin-bottom: 90px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}

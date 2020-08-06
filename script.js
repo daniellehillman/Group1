@@ -1,3 +1,4 @@
+$(".dropdown-trigger").dropdown();
 // conditions array of objects
 // each object has a weather condition, a danceability number, and energy number
 let conditions = [
@@ -93,37 +94,39 @@ let conditions = [
   }
 ]
 
+
+
 // array of moods
 let moods = ['happy', 'stressed', 'chill', 'depressed', 'hyped']
 
 // global variables
 let mood
-let userLat
-let userLon
-let token = ''
 
+// find current position
 function geoFindMe() {
-  event.preventDefault()
 
+  event.preventDefault()
   const status = document.querySelector('#status')
   const mapLink = document.querySelector('#map-link')
 
   mapLink.href = ''
   mapLink.textContent = ''
 
+  // if position found
   function success(position) {
     const latitude = position.coords.latitude
     const longitude = position.coords.longitude
-    userLat = latitude
-    userLon = longitude
 
     status.textContent = ''
+    // call to openstreetmap
     mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
-    // mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
-    // console.log(`Latitude: ${latitude} °, Longitude: ${longitude} °`)
-    axios.get('http://ipinfo.io')
+
+    // request ip position
+    axios.get('https://ipinfo.io')
       .then(res => {
         // console.log(res.data.city)
+
+        // get city name from ip position, update text input
         document.getElementById('city').value = res.data.city
         document.getElementById('city').textContent = res.data.city
         M.updateTextFields()
@@ -134,6 +137,7 @@ function geoFindMe() {
 
   }
 
+  // if position not found, manual input instead
   function error() {
     status.textContent = 'Unable to retrieve your location. Please enter a city instead.'
   }
@@ -144,9 +148,9 @@ function geoFindMe() {
     status.textContent = 'Locating…'
     navigator.geolocation.getCurrentPosition(success, error)
   }
-
 }
 
+// check if a mood is selected
 function moodSelected() {
   let count = 0
   $('.mood').each(function () {
@@ -154,13 +158,18 @@ function moodSelected() {
       count++
     }
   })
-
   return count >= 1
 }
 
 function getWeatherData(username, usercity, usermood) {
+  document.getElementById('name').value = ''
+  document.getElementById('city').value = ''
+  $('.mood').each(function () {
+    if ($(this).prop('checked', true)) {
+      $(this).prop('checked', false)
+    }
+  })
 
-  let weather = document.getElementById('weather')
   let currentCity = document.getElementById('currentCity')
   currentCity.textContent = usercity
 
@@ -190,124 +199,112 @@ function getWeatherData(username, usercity, usermood) {
     .then(res => {
       // check the weather condition from the result
       let cond = res.data.weather[0].main
+      let weather = document.getElementById('weather')
 
-      let weatherElem = document.createElement('div')
-      weatherElem.innerHTML = `
-      <p id="weatherDesc">${res.data.weather[0].description}</p>
-       <i class="wi wi-day-sunny"></i>
-      `
-      weather.append(weatherElem)
+      let forecast = document.getElementById('forecast')
+
+      forecast.innerHTML = ''
+
+      let cardElem = document.createElement('div')
+      cardElem.className = 'card-image'
+      cardElem.id = 'cardElem'
+
 
       // new variables
       let danceability
       let energy
 
+      let iconElem = document.createElement('i')
       // loop through conditions array 
       for (let i = 0; i < conditions.length; i++) {
         // check for a condition with a matching description
         if (conditions[i].cond === cond) {
 
-          let iconElem = document.createElement('i')
-          iconElem.className = `${conditions[i].icon}`
-          weather.append(iconElem)
+          iconElem.className = `wi ${conditions[i].icon}`
+          iconElem.id = 'weatherIcons'
 
           // assign danceability and energy
           danceability = conditions[i].danceability
           energy = conditions[i].energy
         }
       }
+      cardElem.append(iconElem)
+      forecast.append(cardElem)
+
+      let weatherElem = document.createElement('div')
+      weatherElem.className = 'card-content'
+      weatherElem.id = 'weatherDesc'
+      weatherElem.innerHTML = `
+        <p>Your current weather forecast: ${res.data.weather[0].main}</p>
+        <p>Your current temperature: ${res.data.main.temp} \xB0F</p> 
+      `
+      forecast.append(weatherElem)
 
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-          'Authorization': `Bearer BQAlpZDLE6nVSvhPdVSBB7IQR-jbsl4_NQf2rDAuZ_ppgXviNq2doYzVonRqC3Q-ImxyCREz59-etVvMqj4PT-1Cm6El0zzz_2_InJ_ZJywdQ3ZRAJoqFP2vVJ9wve6a9oLojPEFvs4Z7nIIaCe2rCSJ`
-          // <<<<<<< HEAD
+          'Authorization': `Bearer BQDK-XGEvY18UQ0WR9iNNv4un4mqvF8xPsjwkR8cWxnIwa0_eVLWkDjWX0WA4METSuNTIy6sXozvGaC6PCBDclwOPVoI6vO337gGkqB7sIVaa0cepu3CgbuDR68fEop-wsHuHJ3AlASJxYGwQAzsU8CF`
         }
       })
-        // =======
-        //         }})
-        // >>>>>>> b43c73781cf1365739ac12dfe27106141970eeb6
         .then(res => {
           let tracks = res.data.tracks
-
-          // display all tracks with artists, album names, and song titles
+          console.log(tracks)
           let playlist = document.getElementById('playlist')
-          playlist.innerHTML = `
-                  <button>View Playlist</button>
-                  <div id="1"></div>
-                  <div id="2"></div>
-                  <div id="3"></div>
-                  <div id="4"></div>
-                  <div id="5"></div>
-                  <div id="6"></div>
-                  <div id="7"></div>
-                  <div id="8"></div>
-                  <div id="9"></div>
-                  <div id="10"></div>
-                `
+          let allImages = []
           for (let i = 0; i < tracks.length; i++) {
-            console.log(`Artist: ${tracks[i].artists[0].name}, Album: ${tracks[i].album.name}, Song Title: ${tracks[i].name}`)
+            image = tracks[i].album.images[0].url || "https://player.tritondigital.com/tpl/default/html5/img/player/default_cover_art.jpg"
+            allImages.push(image)
 
-            // <<<<<<< HEAD
+            document.getElementById(`song${i + 1}`).textContent = ''
+            document.getElementById(`lyrics${i + 1}`).innerHTML = ''
+            axios.get(`https://api.lyrics.ovh/v1/${tracks[i].artists[0].name}/${tracks[i].name}`)
+              .then(res => {
 
-            //   axios.get(`https://api.lyrics.ovh/v1/${tracks[i].artists[0].name}/${tracks[i].name}`)
-            //     .then(res => {
-            //       console.log(res.data.lyrics)
-            //       let lyrics = res.data.lyrics
-            //       lyrics = lyrics.replace('\n', '<br>')
-            //       let playlist = document.getElementById('playlist')
-            //       // playlist.innerHTML = ''
+                let lyrics = res.data.lyrics
+                lyrics = lyrics.replace(/(?:\r\n|\r|\n)/g, '<br>')
 
-            //       document.getElementById(`${i}`).innerHTML = `
-            //         <a class="carousel-item" href="#two!"><img src="${tracks[i].album.images[0].url}"> <div id="0">0</div></a>
-            //         <p>Artist: ${tracks[i].artists[0].name} Song Title: ${tracks[i].name}</p>
-            //         <p>${lyrics}</p>
-            //       `
-            //       $('.carousel').carousel();
-            //     })
+                document.getElementById(`song${i + 1}`).textContent = `${tracks[i].artists[0].name} – ${tracks[i].name}`
+                document.getElementById(`lyrics${i + 1}`).innerHTML = lyrics
+              })
+              .catch(err => {
+                console.log(err)
+                document.getElementById(`song${i + 1}`).textContent = `${tracks[i].name}`
+                document.getElementById(`lyrics${i + 1}`).innerHTML = `
+                  Sorry, no lyrics available.
+                `
+              })
+          }
 
-            //     .catch(err => {
-            //       // console.error(err)
-            //       document.getElementById(`${i}`).innerHTML = `
-            //       <a class="carousel-item" href="#two!"><img src="${tracks[i].album.images[0].url}"> <div id="0">0</div></a>
-            //       <p>Artist: ${tracks[i].artists[0].name} Song Title: ${tracks[i].name}. 
-            //       There is no lyrics for the song</p>
-            //       `
-            //       $('.carousel').carousel();
-            //     })
-            // }
+          let carousel = document.createElement('div')
+          carousel.className = 'carousel'
 
-            let allImages = []
-            for (i = 0; i < tracks.length; i++) {
-              image = tracks[i].album.images[0].url || "https://player.tritondigital.com/tpl/default/html5/img/player/default_cover_art.jpg"
-              allImages.push(image)
-              console.log(allImages)
-            }
-
-            playlist.innerHTML = ''
-
-            playlist.innerHTML = `
-
-            <div class="carousel">
-
-           <a class="carousel-item" href="#two!"><img src="${allImages[0]}"> <div id="0">0</div></a>
-           <a class="carousel-item" href="#three!"><img src="${allImages[1]}"><div id="1">1</div></a>
-           <a class="carousel-item" href="#four!"><img src="${allImages[2]}"><div id="2">2</div></a>
-            <a class="carousel-item" href="#five!"><img src="${allImages[3]}"><div id="3">3</div></a>
-            <a class="carousel-item" href="#six!"><img src="${allImages[4]}"><div id="4">4</div></a>
-            <a class="carousel-item" href="#seven!"><img src="${allImages[5]}"><div id="5">5</div></a>
-            <a class="carousel-item" href="#eight!"><img src="${allImages[6]}"><div id="6">6</div></a>
-            <a class="carousel-item" href="#nine!"><img src="${allImages[7]}"><div id="7">7</div></a>
-            <a class="carousel-item" href="#ten!"><img src="${allImages[8]}"><div id="8">8</div></a>
-            <a class="carousel-item" href="#ten!"><img src="${allImages[9]}"><div id="9">9</div></a>
-
-
-          </div>
+          playlist.innerHTML = ''
+          playlist.innerHTML = `
+          <h2 class="center-align">Here's your playlist ${username}</h2>
           `
-            $('.carousel').carousel();
 
+          for (let i = 0; i < allImages.length; i++) {
+            let carouselElem = document.createElement('a')
+            carouselElem.className = 'carousel-item'
+            carouselElem.href = `#${i}!`
 
-          })
+            let imgElem = document.createElement('img')
+            imgElem.src = `${allImages[i]}`
+
+            let divElem = document.createElement('div')
+
+            divElem.innerHTML = `
+            <a id="lyricsBtn" class="btn-small waves-effect allBtns modal-trigger" href="#lyricsModal${i + 1}">See Lyrics</a>
+            <a class="btn-small waves-effect allBtns" href="https://open.spotify.com/track/${tracks[i].id}" target="_blank">Open</a>
+            `
+            carouselElem.append(imgElem)
+            carouselElem.append(divElem)
+            carousel.append(carouselElem)
+          }
+
+          playlist.append(carousel)
+          $('.carousel').carousel();
+        })
         .catch(err => {
           console.error(err)
         })
@@ -315,12 +312,14 @@ function getWeatherData(username, usercity, usermood) {
     .catch(err => {
       console.log(err)
     })
-
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+  let elems = document.querySelectorAll('.modal')
+  let instances = M.Modal.init(elems)
+})
 
-
-document.querySelector('#find-me').addEventListener('click', function () {
+document.getElementById('find-me').addEventListener('click', function () {
   event.preventDefault()
   geoFindMe()
 })
@@ -340,18 +339,18 @@ document.getElementById('submitBtn').addEventListener('click', function () {
   let city = document.getElementById('city')
 
   if (name.value === '' ||
-    // <<<<<<< HEAD
-    //     city.value === '' ||
-    //     !moodSelected()) {
-    // =======
     city.value === '' ||
     !moodSelected()) {
-    console.log(name.value)
-    console.log(city.value)
-
     let required = document.getElementById('requireAll')
     required.innerHTML = `Please fill in all inputs.`
   } else {
     getWeatherData(name.value, city.value, mood)
+    name.value = ''
+    city.value = ''
+    $(".mood").each(function () {
+      if ($(this).hasClass("active")) {
+        $(this).removeClass("active")
+      }
+    })
   }
 })

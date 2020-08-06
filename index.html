@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
-    <title>Sensify</title>
 
 <head>
   <meta charset="UTF-8">
@@ -16,51 +12,71 @@
   <!-- fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
   <!-- Materialize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
   <!-- Material icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Weather icons -->
   <link rel="stylesheet" href="./assets/weather-icons.min.css">
 
   <!-- styling -->
   <link rel="stylesheet" href="./assets/style.css">
+
 </head>
 
 <body>
   <header id="header" class="row">
     <nav>
       <div id="navBar" class="nav-wrapper">
-        <img id="logo" src="./images/logo.png" alt="logo" class="responsive-img">
+        <img id="logo" src="./images/Sensify_edited-4_copy.png" alt="logo" class="responsive-img">
         <a href="#!" id="brand" class="brand-logo center">Sensify</a>
+
+        <ul class="right">
+          <li>
+            <a href="./aboutus.html" class="right groupFix"><i class="material-icons">group</i></a>
+          </li>
+        </ul>
+        <!-- <ul id="navLinks" class="right" id="aboutStyle">
+          <li><a id="about" href="./aboutus.html">About</a></li>
+          <i class="medium material-icons" id="groupIcon">group</i>
+        </ul> -->
       </div>
     </nav>
   </header>
-
   <main class="row">
-    <section id="playlist" class="col s12 m8 l8">
-      <h3>Get a Playlist</h3>
+    <section id="playlist" class="col s12 m6 l6">
+      <div class="center-align">
+        <h3>Get a Playlist</h3>
+      </div>
       <form id="form">
 
         <!-- input name -->
-        <div class="input-field">
+        <div class="input-field center-align">
           <input type="text" name="name" id="name" class="validate">
           <label for="name" id="nameLabel">Name</label>
         </div>
 
         <!-- find location or manually input city -->
-        <div class="input-field">
+        <div class="input-field center-align">
           <input type="text" name="city" id="city" class="validate">
           <label for="city" id="cityLabel">City</label>
         </div>
-        <button id="find-me" class="btn-large waves-effect allBtns">Find My Location</button>
-        <p id="status"></p>
-        <a id="map-link" target="_blank"></a>
+        <div class="center-align">
+          <button id="find-me" class="btn-large waves-effect allBtns">Find My Location</button>
+          <p id="status"></p>
+          <a id="map-link" target="_blank"></a>
+        </div>
 
         <!-- select a choice for mood -->
-        <label for="city" id="moodLabel">Please enter your mood: </label>
-        <div id="radioWrapper">
+        <div class="center-align">
+          <label for="city" id="moodLabel">Please enter your mood: </label>
+        </div>
+        <div id="radioWrapper" class="center-left">
           <p>
             <label for="happy">
               <input class="mood" type="radio" name="moodChoice" value="0" id="happy">
@@ -92,17 +108,118 @@
             </label>
           </p>
         </div>
-        <button id="submitBtn" class="btn-large waves-effect allBtns">Sumbit</button>
+        <div id="submitWrapper" class="center-align">
+          <button id="submitBtn" class="btn-large waves-effect allBtns">Submit</button>
+        </div>
       </form>
       <div id="requireAll"></div>
     </section>
 
-    <!-- Show weather data for the city/current location -->
-    <sectin id="weather" class="col s12 m4 l4">
-      <h2>Current Weather: <span id="currentCity"></span></h2>
-      </section>
-  </main>
+    <!-- all lyric modals, hidden until triggered-->
+    <section id="lyricsModal1" class="modal">
+      <div class="modal-content">
+        <h4 id="song1" class="songTitles"></h4>
+        <p id="lyrics1" class="lyrics"></p>
+      </div>
+    </section>
+    <section id="lyricsModal2" class="modal">
+      <div class="modal-content">
+        <h4 id="song2" class="songTitles"></h4>
+        <p id="lyrics2" class="lyrics"></p>
+      </div>
+    </section>
+    <section id="lyricsModal3" class="modal">
+      <div class="modal-content">
+        <h4 id="song3" class="songTitles"></h4>
+        <p id="lyrics3" class="lyrics"></p>
+      </div>
+    </section>
+    <section id="lyricsModal4" class="modal">
+      <div class="modal-content">
+        <h4 id="song4" class="songTitles"></h4>
+        <p id="lyrics4" class="lyrics"></p>
+      </div>
+    </section>
+    <section id="lyricsModal5" class="modal">
+      <div class="modal-content">
+        <h4 id="song5" class="songTitles"></h4>
+        <p id="lyrics5" class="lyrics"></p>
+      </div>
+    </section>
+    <section id="lyricsModal6" class="modal">
+      <div class="modal-content">
+        <h4 id="song6" class="songTitles"></h4>
+        <p id="lyrics6" class="lyrics"></p>
+      </div>
+    </section>
+    <section id="lyricsModal7" class="modal">
+      <div class="modal-content">
+        <h4 id="song7" class="songTitles"></h4>
+        <p id="lyrics7" class="lyrics"></p>
+      </div>
+    </section>
+    <section id="lyricsModal8" class="modal">
+      <div class="modal-content">
+        <h4 id="song8" class="songTitles"></h4>
+        <p id="lyrics8" class="lyrics"></p>
+      </div>
+    </section>
+    <section id="lyricsModal9" class="modal">
+      <div class="modal-content">
+        <h4 id="song9" class="songTitles"></h4>
+        <p id="lyrics9" class="lyrics"></p>
+      </div>
+    </section>
+    <section id="lyricsModal10" class="modal">
+      <div class="modal-content">
+        <h4 id="song10" class="songTitles"></h4>
+        <p id="lyrics10" class="lyrics"></p>
+      </div>
+    </section>
 
+    <!-- Show weather data for the city/current location -->
+    <section id="weather" class="col s12 m6 l6 center-align">
+      <div class="row">
+        <p id="currentCity"></p>
+        <div class="col s12 m12">
+          <div id="forecast" class="card">
+          </div>
+        </div>
+      </div>
+      <h3 class="rightText">Sensify is a mobile web application built for you. Listen to music based on your location.
+        Tell us where you are and we
+        will give you a Spotify playlist to listen to. Get a taste of the songs with lyrics provided and enjoy Sensify,
+        the
+        music app that senses where you are!</h3>
+
+      <i class="medium material-icons">music_note</i>
+      <!-- <div class="row">
+        <div class="col s12 m12">
+          <div id="forecast" class="card">
+          </div>
+        </div>
+      </div> -->
+    </section>
+  </main>
+  <footer id="footer" class="page-footer footerStyle">
+    <div id="footerLinks" class="container">
+      <div class="row">
+        <div class="col s12 center-align footerCol">
+          <span id="codeIcon" class="material-icons">
+            code
+          </span>
+        </div>
+        <div class="col s12 center-align footerCol">
+          <a id="githubLink" href="https://github.com/daniellehillman/Group1/tree/master">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div id="footerCopyright" class="footer-copyright center-align">
+      <div id="copyright" class="container">
+        © 2020 Sensify
+      </div>
+    </div>
+  </footer>
   <!-- jQuery if needed -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
@@ -112,6 +229,7 @@
   <!-- Materialize cdn -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+  <!-- main script -->
   <script src="./script.js"></script>
 </body>
 
