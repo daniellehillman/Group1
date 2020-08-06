@@ -12,6 +12,8 @@
   <!-- fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
   <!-- Materialize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -31,11 +33,12 @@
   <header id="header" class="row">
     <nav>
       <div id="navBar" class="nav-wrapper">
-        <img id="logo" src="./images/logo.png" alt="logo" class="responsive-img">
+        <img id="logo" src="./images/Sensify_edited-4_copy.png" alt="logo" class="responsive-img">
         <a href="#!" id="brand" class="brand-logo center">Sensify</a>
-        <ul id="navLinks" class="right">
+        <!-- <ul id="navLinks" class="right" id="aboutStyle">
           <li><a id="about" href="./aboutus.html">About</a></li>
-        </ul>
+          <i class="medium material-icons" id="groupIcon">group</i>
+        </ul> -->
       </div>
     </nav>
   </header>
@@ -170,18 +173,26 @@
 
     <!-- Show weather data for the city/current location -->
     <section id="weather" class="col s12 m6 l6 center-align">
-      <h3 class="rightText">Sensify is a mobile web application built for you. Listen to music based on your location.
-        Tell us where you are and we
-        will give you a Spotify playlist to listen to. Get a taste of the songs with lyrics provided and enjoy Sensify,
-        the
-        music app that senses where you are!</h3>
-      <p id="currentCity"></p>
       <div class="row">
+        <p id="currentCity"></p>
         <div class="col s12 m12">
           <div id="forecast" class="card">
           </div>
         </div>
       </div>
+      <h3 class="rightText">Sensify is a mobile web application built for you. Listen to music based on your location.
+        Tell us where you are and we
+        will give you a Spotify playlist to listen to. Get a taste of the songs with lyrics provided and enjoy Sensify,
+        the
+        music app that senses where you are!</h3>
+      
+      <i class="medium material-icons">music_note</i>
+      <!-- <div class="row">
+        <div class="col s12 m12">
+          <div id="forecast" class="card">
+          </div>
+        </div>
+      </div> -->
     </section>
   </main>
   <footer id="footer" class="page-footer footerStyle">
