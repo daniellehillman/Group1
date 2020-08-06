@@ -232,8 +232,17 @@ nav {
   }
 }
 
+#us  {
+    border-radius: 25px;
+    border: 2px solid;
+    padding: 20px;
+    /* width: 200px;
+    height: 150px; */
+  }
+
 .rightText {
   padding-bottom: 15px;
   border-bottom: 2px solid;
   border-color: rgba(101, 144, 222, 0.7);
 }
+
