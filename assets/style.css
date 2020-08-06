@@ -93,9 +93,6 @@ nav {
   text-shadow: 2px 2px  rgb(101,144,222);
 }
 
-
-
-
 .card-content{
   font-weight: bold;
   font-style: italic;
@@ -113,29 +110,23 @@ nav {
 }
 
 #status {
-  padding: 10px;
+  padding: 20px;
 }
 
 .allBtns {
  background-color: rgb(101,144,222);
 }
-<<<<<<< HEAD
 
-.left {
-  width: 30%;
+#submitWrapper {
+  padding: 10px;
 }
-
-.right {
-  width: 70%;
-}
-.size {
-  width: 60px;
-  height: 60px;
-=======
->>>>>>> 2b0f40da79ce5695e4994ce29daf8b19c0347b66
   
+#weather h3, #playlist h3 {
+  margin-top: 0;
+}
+
 #city, #name {
-  width: 75%;
+  width: 100%;
 }
 
 .card {
@@ -148,37 +139,16 @@ nav {
 }
 
 #radioWrapper {
-  padding: 5px 0 5px 0;
+  padding: 5px 60px 5px 60px;
 }
 
 #submitBtn {
   margin: 10px 0 10px 0;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD:style.css
-=======
->>>>>>> b43c73781cf1365739ac12dfe27106141970eeb6
-/* .a[classname='findbtn']{
-  background-color: rgb(101,144,222)
-} */
-
-.findbtn {
-
- background-color: rgb(101,144,222) !important;
-
-#weather {
-  
-
-}
-
-
-=======
 .findbtn {
   background-color: rgb(101,144,222) !important;
 }
->>>>>>> 2b0f40da79ce5695e4994ce29daf8b19c0347b66
 
 #currentCity {
   font-size: 30px;
@@ -218,9 +188,6 @@ nav {
   color: rgb(208,208,208);
 }
 
-<<<<<<< HEAD
-
-=======
 #githubLink {
   background-color: rgb(101,144,222);
   color: rgb(208,208,208);
@@ -231,7 +198,6 @@ nav {
 
 @media screen and (max-width:900px) {
   #playlist, #weather {
-    padding: 30px;
+    padding: 10px 30px 10px 30px;
   }
 }
->>>>>>> 2b0f40da79ce5695e4994ce29daf8b19c0347b66

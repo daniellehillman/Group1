@@ -239,12 +239,12 @@ function getWeatherData(username, usercity, usermood) {
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-          'Authorization': `Bearer BQCJm1-DpgxE6yEfD-LYjktcNZGlgX2-oPSu-q1D2iT8XdUh4Dlh7XgrOwKdZ3S9Q38ULSbKWdEMRd5EryBBYgq5K5OUcSd0Y-hZu6fgqJWq-CW3dNcjALlK-GP5-4QUC2zPWj_Lhse-K9LhrUFgt28w`
+          'Authorization': `Bearer BQD5ODRq9PD-0b7sZzL5-rYVej8umk9TlHp00K-foP4J2kCpYKA1sn72qerkwtKafrkzNeKf0yJ7blvFhtPwRhmx16ZgyL8OofZXDaLzC30lEpkmLHBjIQXRjKrbHV0IFhVKWdW3ryIghaZh2ssf-COy`
         }
       })
         .then(res => {
           let tracks = res.data.tracks
-            
+          console.log(tracks)
           let playlist = document.getElementById('playlist')
           let allImages = []
           for (let i = 0; i < tracks.length; i++) {
@@ -290,7 +290,8 @@ function getWeatherData(username, usercity, usermood) {
             let divElem = document.createElement('div')
           
             divElem.innerHTML = `
-            <a class="btn-small waves-effect allBtns modal-trigger" href="#lyricsModal${i+1}">See Lyrics</a>
+            <a id="lyricsBtn" class="btn-small waves-effect allBtns modal-trigger" href="#lyricsModal${i+1}">See Lyrics</a>
+            <a class="btn-small waves-effect allBtns" href="https://open.spotify.com/track/${tracks[i].id}" target="_blank">Open</a>
             `
             carouselElem.append(imgElem)
             carouselElem.append(divElem)
