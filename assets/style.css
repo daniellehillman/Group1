@@ -17,7 +17,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 }
 
 nav {
-  height: 60px;
+  height: 64px;
 }
 
 #nameLabel, #cityLabel {
