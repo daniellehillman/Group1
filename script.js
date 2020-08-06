@@ -198,6 +198,7 @@ function getWeatherData(username, usercity, usermood) {
   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${usercity}&units=imperial&appid=b46e0399b18e0132c4c34e7071caa187`)
     .then(res => {
       // check the weather condition from the result
+      document.getElementById('forecast').style.display = 'inline-block'
       let cond = res.data.weather[0].main
       let weather = document.getElementById('weather')
       
@@ -235,15 +236,15 @@ function getWeatherData(username, usercity, usermood) {
       weatherElem.className = 'card-content'
       weatherElem.id = 'weatherDesc'
       weatherElem.innerHTML = `
-        <p>Your current weather forecast: ${res.data.weather[0].main}</p>
-        <p>Your current temperature: ${res.data.main.temp} \xB0F</p> 
+        <p class="weatherTextStyle">Your current weather forecast: ${res.data.weather[0].main}</p>
+        <p class="weatherTextStyle">Your current temperature: ${res.data.main.temp} \xB0F</p> 
       `
       forecast.append(weatherElem)
 
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-          'Authorization': `Bearer BQD5ODRq9PD-0b7sZzL5-rYVej8umk9TlHp00K-foP4J2kCpYKA1sn72qerkwtKafrkzNeKf0yJ7blvFhtPwRhmx16ZgyL8OofZXDaLzC30lEpkmLHBjIQXRjKrbHV0IFhVKWdW3ryIghaZh2ssf-COy`
+          'Authorization': `Bearer BQDK-XGEvY18UQ0WR9iNNv4un4mqvF8xPsjwkR8cWxnIwa0_eVLWkDjWX0WA4METSuNTIy6sXozvGaC6PCBDclwOPVoI6vO337gGkqB7sIVaa0cepu3CgbuDR68fEop-wsHuHJ3AlASJxYGwQAzsU8CF`
         }
       })
         .then(res => {
@@ -292,6 +293,7 @@ function getWeatherData(username, usercity, usermood) {
             imgElem.src = `${allImages[i]}`
 
             let divElem = document.createElement('div')
+            divElem.className = "btnFix"
           
             divElem.innerHTML = `
             <a id="lyricsBtn" class="btn-small waves-effect allBtns modal-trigger" href="#lyricsModal${i+1}">See Lyrics</a>
