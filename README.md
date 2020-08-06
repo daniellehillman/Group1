@@ -18,31 +18,31 @@ View the application here at https://daniellehillman.github.io/Sensify/
 * Finding the user's location
 <img src="./images/readmeimg2.png" width="300">
 
-All user input fields filled out
+* All user input fields filled out
 <img src="./images/readmeimg3.png" width="300">
 
-After clicking "Submit", a Spotify playlist is shown
+* After clicking "Submit", a Spotify playlist is shown
 <img src="./images/readmeimg4.png" width="300">
 
-The weather based on location is also displayed
+* The weather based on location is also displayed
 <img src="./images/readmeimg5.png" width="300">
 
-Since this is a jazz song, there are no lyrics
+* Since this is a jazz song, there are no lyrics
 <img src="./images/readmeimg6.png" width="300">
 
-This is another song with lyrics displayed
+* This is another song with lyrics displayed
 <img src="./images/readmeimg7.png" width="300">
 
-The about page, introducing the team behind Sensify
+* The about page, introducing the team behind Sensify
 <img src="./images/readmeimg8.png" width="300">
 
-The rest of the team, displayed on the desktop version
+* The rest of the team, displayed on the desktop version
 <img src="./images/readmeimg9.png" width="700">
 
-The start of Sensify on the desktop version
+* The start of Sensify on the desktop version
 <img src="./images/readmeimg10.png" width="700">
 
-Sensify with a playlist recommended and the user's weather data shown
+* Sensify with a playlist recommended and the user's weather data shown
 <img src="./images/readmeimg11.png" width="700">
 
 ### How to use Sensify
