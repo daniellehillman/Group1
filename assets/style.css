@@ -1,3 +1,18 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+* {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #EAE7DC;
+  color: rgb(101, 144, 222)
+}
+
+#pageWrapper {
+  font-family: 'Quicksand', sans-serif;
+}
+
 input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid rgb(101, 144, 222);
 }
@@ -21,17 +36,6 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   #pageWrapper {
     margin-bottom: 90px;
   }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-* {
-  font-family: 'Quicksand', sans-serif;
-  background-color: #EAE7DC;
-  color: rgb(101, 144, 222)
 }
 
 nav {
@@ -79,6 +83,10 @@ html {
   background-color: rgb(101, 144, 222);
 }
 
+.rightText {
+  font-size: 35px;
+}
+
 .cols {
   display: table-cell;
 }
@@ -95,13 +103,13 @@ html {
   font-size: 20px;
 }
 
-#cardLinks {
+#cardLinks1, #cardLinks2, #cardLinks3, #cardLinks4, #cardLinks5 {
   font-family: 'Quicksand', sans-serif;
   background-color: rgb(101, 144, 222);
   color: rgb(208, 208, 208);
 }
 
-#cardLinks a {
+#cardLinks1 a, #cardLinks2 a, #cardLinks3 a, #cardLinks4 a, #cardLinks5 a {
   text-decoration: none;
   color: rgb(208, 208, 208);
   margin-right: 0;
@@ -271,12 +279,10 @@ html {
   text-align: center;
 }
 
-#us {
+#us1, #us2, #us3, #us4, #us5 {
   border-radius: 25px;
   border: 2px solid;
   padding: 20px;
-  /* width: 200px;
-    height: 150px; */
 }
 
 .rightText {
