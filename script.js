@@ -248,7 +248,7 @@ function getWeatherData(username, usercity, usermood) {
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-          'Authorization': `Bearer BQAUocg6QvZbWGX3djTmoMNka3yf8gGrCAFEJB1Y7k4gO4zfGW8lZrkeKKrLQNaM6woXTSgx6fXdm3F6LinPekGGNZQJ57hgY9rwrbARNH0BpTlI1ER_P2lCthTbYrDjVWRu5SdT5dWdCOUax2Di8uQi`
+          'Authorization': `Bearer BQBoiAkj-G7F_HtCBAteh3H3Y22ctqfg-yXcQLEa7WpFhpdsqcRAHcxSMCQmWamk-6ztKPo5aHlBEwWKPszQrztBHfOUR-SB8gQc4uo356pXOniuAjuDD5qYUJBEVtJWkC3qjuBbf_EBjUDo67XlgjMP`
         }
       })
         .then(res => {
