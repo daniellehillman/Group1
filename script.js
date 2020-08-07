@@ -1,4 +1,3 @@
-$(".dropdown-trigger").dropdown();
 // conditions array of objects
 // each object has a weather condition, a danceability number, and energy number
 let conditions = [
@@ -248,7 +247,7 @@ function getWeatherData(username, usercity, usermood) {
       // call to SpotifyAPI using danceability, energy, and genre parameters
       axios.get(`https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_genres=${genre}&target_danceability=${danceability}&target_energy=${energy}`, {
         headers: {
-          'Authorization': `Bearer BQBoiAkj-G7F_HtCBAteh3H3Y22ctqfg-yXcQLEa7WpFhpdsqcRAHcxSMCQmWamk-6ztKPo5aHlBEwWKPszQrztBHfOUR-SB8gQc4uo356pXOniuAjuDD5qYUJBEVtJWkC3qjuBbf_EBjUDo67XlgjMP`
+          'Authorization': `Bearer BQCvIy9MM4-B3U8nas_NrpfVvZOesKxekBW_uR56VvWxXEjE1cOXPexKHQpsvVhEa7qyJboCK2jdEpOXf38sZt5lfsehxzkppmZi6ndeC1wwB4Cura-ynO2NwWdGkaDtEWsgJwNuw9P5vI8DwYE02ax9`
         }
       })
         .then(res => {
